@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap');;
 * {
     font-family: "Inter", sans-serif;
 }
@@ -7,7 +7,7 @@ body {
     position: relative;
 }
 
-.sign-btn, .get-btn, .get-btn2 {
+.sign-btn, .get-btn, .get-btn2, .get-btn3 {
     outline: none;
     box-shadow: none;
     border: 1px solid #424345;
@@ -24,6 +24,10 @@ body {
 
 .get-btn2 {
     padding: 7px 30px;
+}
+
+.get-btn3 {
+    padding: 7px 70px;
 }
 
 .sign-btn:hover {
@@ -47,6 +51,7 @@ body {
 
 .head-section h2 {
     font-family: "Inter", sans-serif;
+    font-weight: 800;
 }
 
 .wash {
@@ -87,6 +92,7 @@ body {
     display: flex;
 }
 
+
 .first-img img {
     width: 100%;
 }
@@ -102,4 +108,54 @@ body {
 
 .first-body {
     padding: 10px;
+}
+
+.first-body p {
+    font-weight: 300;
+}
+
+@media screen and (max-width: 992px) {
+    .next-section {
+        flex-direction: column;
+    }
+
+    .first-card {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+.one-img {
+    margin-top: 186px;
+}
+
+.third-section img {
+    width: 100%;
+}
+
+.third-section-right {
+    margin: 10% auto;
+}
+
+.third-section-right h2 {
+    font-weight: 800;
+}
+
+.sling {
+    position: relative;
+}
+
+.vow {
+    position: absolute;
+    bottom: -77px;
+    left: 0;
+    width: 26%;
+    z-index: -1;
+
+}
+
+@media screen and (max-width: 650px) {
+    .vow {
+        display: none;
+    }
 }
