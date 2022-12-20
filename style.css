@@ -90,3 +90,16 @@ body {
 .first-img img {
     width: 100%;
 }
+
+.first-card, .first-card2 {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-top-left-radius: 77px;
+}
+
+.first-card2 {
+    border-top-right-radius: 77px;
+}
+
+.first-body {
+    padding: 10px;
+}
