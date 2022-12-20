@@ -2,3 +2,91 @@
 * {
     font-family: "Inter", sans-serif;
 }
+
+body {
+    position: relative;
+}
+
+.sign-btn, .get-btn, .get-btn2 {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #424345;
+    padding: 4px 30px;
+    color: #0B3140;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.get-btn, .get-btn2 {
+    background: #0B3140;
+    color: #fff;
+}
+
+.get-btn2 {
+    padding: 7px 30px;
+}
+
+.sign-btn:hover {
+    background: #0B3140;
+    color: #fff;
+}
+
+.get-btn:hover {
+    background: #fff;
+    color: #0B3140;
+}
+
+.get-btn2:hover {
+    background: #fff;
+    color: #0B3140;
+}
+
+.head-section {
+    margin: 20% auto;
+}
+
+.head-section h2 {
+    font-family: "Inter", sans-serif;
+}
+
+.wash {
+    color: #00AEEF;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.navbar {
+    padding: .5rem !important;
+}
+
+.side-img img {
+    width: 100%;    
+}
+
+@media screen and (max-width: 650px) {
+    br {
+        display: none;
+    }
+}
+
+.vec-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38%;
+    z-index: -1;
+}
+
+.three-cards {
+    margin-top: 70px;
+}
+
+.next-section {
+    display: flex;
+}
+
+.first-img img {
+    width: 100%;
+}
