@@ -494,9 +494,9 @@ background-position: -24px -53px;
 }
 
 .dry-section {
-    /* border-radius: 30px; */
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
 }
 
@@ -509,5 +509,9 @@ background-position: -24px -53px;
 
 .dry-card {
     width: 100%;
-    
+   flex: 0 0 315px;
+}
+
+.price2, .price3 {
+    display: none;
 }

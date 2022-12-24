@@ -52,28 +52,28 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-1"></div>
         <div class="col-sm-12 col-md-12 col-lg-10">
-        <button class="fold">Wash & Fold</button>
-        <button class="dry">Dry Cleaning</button>
-        <button class="duvet">Duvet & Bed Covers</button>
+        <button class="fold" onclick="getFold(event)">Wash & Fold</button>
+        <button class="dry" onclick="getDry(event)">Dry Cleaning</button>
+        <button class="duvet" onclick="getDuve(event)">Duvet & Bed Covers</button>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-1"></div>
     </div>
   </section>
 
   <section class="mt-5">
-      <div class="row">
+      <div class="row congress">
           <div class="col-sm-12 col-md-12 col-lg-1"></div>
           <div class="col-sm-12 col-md-12 col-lg-4">
               <div class="wash-section">
-                <h2>Wash & <span class="wash">Fold</span></h2>
-                <p>
+                <h2 class="clash">Wash & <span class="wash">Fold</span></h2>
+                <p class="m1">
                   The ideal service if you want to avoid the<br> dreaded laundry 
                   chore and save your time<br> and your sanity. 
                 </p>
-                <p>
+                <p class="m2">
                   We do your laundry for you so you can<br> enjoy your free time.
                 </p>
-                <p>
+                <p class="m3">
                   Whether it’s a week’s worth of the entire<br> family’s clothes, 
                   or all your linens, we pick<br> up, wash, and fold your laundry.
                 </p>
@@ -82,7 +82,7 @@
           </div>
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="wash-img">
-              <img src="../assets/15.svg" alt="">
+              <img src="../assets/15.svg" alt="" class="dry-img">
             </div>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -154,7 +154,7 @@
   </section>
 
   <!-- wash and fold pricing -->
-  <section class="mt-5">
+  <section class="rosa mt-5">
     <h2 class="ibile text-center mb-5">Pricing</h2>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -258,7 +258,137 @@
   </section>
 
   <!-- dry cleaning pricing -->
-  <section>
+  <section class="price2">
+    <h2 class="ibile text-center mb-5">Pricing</h2>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-1"></div>
+      <div class="col-sm-12 col-md-12 col-lg-10">
+        <div class="dry-section">
+          <div class="dry-card">
+            <div class="dry-card-header">
+              <p class="text-center">Tops</p>
+            </div>
+            <div class="dry-item">
+              <p>Shirt</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Polo</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Suit</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Jacket</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Hoodie</p>
+              <p>N 800</p>
+            </div>
+          </div>
+          <div class="dry-card">
+            <div class="dry-card-header">
+              <p class="text-center">Trouser</p>
+            </div>
+            <div class="dry-item">
+              <p>Long Jean</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Shorts</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Combat</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Track</p>
+              <p>N 800</p>
+            </div>
+          </div>
+          <div class="dry-card">
+            <div class="dry-card-header">
+              <p class="text-center">Full Cloths</p>
+            </div>
+            <div class="dry-item">
+              <p>Casual dress</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Up & down</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Full Suit</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Office wear</p>
+              <p>N 800</p>
+            </div>
+          </div>
+          <div class="dry-card">
+            <div class="dry-card-header">
+              <p class="text-center">Native Wears</p>
+            </div>
+            <div class="dry-item">
+              <p>Ankara</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Lace</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Dansiki</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Agbada</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Gele / Fila</p>
+              <p>N 800</p>
+            </div>
+          </div>
+          <div class="dry-card">
+            <div class="dry-card-header">
+              <p class="text-center">Special Garment</p>
+            </div>
+            <div class="dry-item">
+              <p>Starched Cloth</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Warm water wash</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Stain removal</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Hand wash</p>
+              <p>N 800</p>
+            </div>
+            <div class="dry-item">
+              <p>Wash and Hang</p>
+              <p>N 800</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-1"></div>
+    </div>
+  </section>
+
+  <!-- duvet & Bed covers -->
+  <section class="price3">
     <h2 class="ibile text-center mb-5">Pricing</h2>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -516,5 +646,6 @@
   <!-- jquery & javascript cdn -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
