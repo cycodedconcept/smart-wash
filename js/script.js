@@ -32,3 +32,36 @@ function getDry(event) {
     getFold.style.color = "#000";
     getFold.style.border = "none";
 }
+
+function getFold(event) {
+    event.preventDefault();
+    const getClash = document.querySelector(".clash");
+    const getM1 = document.querySelector(".m1");
+    const getM2 = document.querySelector(".m2");
+    const getM3 = document.querySelector(".m3");
+    const getDryImage = document.querySelector(".dry-img");
+    const getBtn = document.querySelector(".dry");
+    const getRow = document.querySelector(".congress");
+    const getRosa = document.querySelector(".rosa");
+    const getPrice2 = document.querySelector(".price2");
+    const getFold = document.querySelector(".fold");
+
+    getClash.innerHTML = `Wash & <span class='wash'>Fold</span>`;
+    getM1.innerHTML = "The ideal service if you want to avoid the dreaded laundry chore and save your time and your sanity.";
+    getM2.innerHTML = "We do your laundry for you so you can enjoy your free time. ";
+    getM3.innerHTML = "Whether it’s a week’s worth of the entire family’s clothes, or all your linens, we pick up, wash, and fold your laundry.";
+
+    getDryImage.src = "../assets/15.svg";
+
+    getBtn.style.color = "#000"
+    getBtn.style.borderBottom = "none";
+
+    getFold.style.color = "#00AEEF";
+    getFold.style.borderBottom = "1px solid #00AEEF";
+
+    getRow.style.flexDirection = "row";
+
+    getRosa.style.display = "block";
+    getPrice2.style.display = "none";
+    
+}
