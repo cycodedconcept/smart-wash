@@ -1,3 +1,4 @@
+// function for dry cleaning
 function getDry(event) {
     event.preventDefault();
     const getClash = document.querySelector(".clash");
@@ -9,7 +10,10 @@ function getDry(event) {
     const getRow = document.querySelector(".congress");
     const getRosa = document.querySelector(".rosa");
     const getPrice2 = document.querySelector(".price2");
+    const getPrice3 = document.querySelector(".price3");
     const getFold = document.querySelector(".fold");
+    const getDuve = document.querySelector(".duvet");
+
 
 
     
@@ -31,7 +35,14 @@ function getDry(event) {
 
     getFold.style.color = "#000";
     getFold.style.border = "none";
+
+    getDuve.style.color = "#000";
+    getDuve.style.borderBottom = "none";
+
+    getPrice3.style.display = "none";
 }
+
+// function for wash & fold
 
 function getFold(event) {
     event.preventDefault();
@@ -45,6 +56,8 @@ function getFold(event) {
     const getRosa = document.querySelector(".rosa");
     const getPrice2 = document.querySelector(".price2");
     const getFold = document.querySelector(".fold");
+    const getDuve = document.querySelector(".duvet");
+
 
     getClash.innerHTML = `Wash & <span class='wash'>Fold</span>`;
     getM1.innerHTML = "The ideal service if you want to avoid the dreaded laundry chore and save your time and your sanity.";
@@ -63,5 +76,48 @@ function getFold(event) {
 
     getRosa.style.display = "block";
     getPrice2.style.display = "none";
+
+    getDuve.style.color = "#000";
+    getDuve.style.borderBottom = "none";
     
+}
+
+// function for duvet & Bed covers
+function getDuve(event) {
+    event.preventDefault();
+    const getClash = document.querySelector(".clash");
+    const getM1 = document.querySelector(".m1");
+    const getM2 = document.querySelector(".m2");
+    const getM3 = document.querySelector(".m3");
+    const getDryImage = document.querySelector(".dry-img");
+    const getBtn = document.querySelector(".dry");
+    const getRow = document.querySelector(".congress");
+    const getRosa = document.querySelector(".rosa");
+    const getPrice2 = document.querySelector(".price2");
+    const getPrice3 = document.querySelector(".price3");
+    const getFold = document.querySelector(".fold");
+    const getDuve = document.querySelector(".duvet");
+
+
+    getClash.innerHTML = `<span class='wash'>Duvet & </span> Bed Covers`;
+    getM1.innerHTML = "This is the perfect service if you’re tired of dropping off your dry cleaning or if you keep forgetting to pick it up.";
+    getM2.innerHTML = "From suits to blouses to dresses to pants and everything in between, we pick up, clean, and drop off your clothes for you so you can enjoy perfectly dry-cleaned clothes, at the perfect time.";
+    getM3.innerHTML = "";
+
+    getDryImage.src = "../assets/20.svg";
+
+    getBtn.style.color = "#000"
+    getBtn.style.borderBottom = "none";
+
+    getDuve.style.color = "#00AEEF";
+    getDuve.style.borderBottom = "1px solid #00AEEF";
+
+    getFold.style.color = "#000";
+    getFold.style.borderBottom = "none";
+
+    getRosa.style.display = "none";
+    getPrice2.style.display = "none";
+
+    getPrice3.style.display = "block";
+
 }
