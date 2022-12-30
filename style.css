@@ -649,9 +649,44 @@ background-position: -24px -53px;
 }
 
 .why-img img {
-    width: 70%;
+    width: 80%;
+}
+
+.why-content {
+    margin: 30% auto 0;
 }
 
 .why-content h2 {
     font-weight: 800;
+}
+
+@media screen and (max-width: 992px) {
+    .why-img img {
+        width: 100%;
+    }
+}
+
+.us-img img {
+    width: 100%;
+}
+
+.reach-section {
+    margin: 40% auto 0;
+}
+
+@media screen and (max-width: 992px) {
+    .reach-section {
+        margin: 10% auto;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .reach-section {
+        margin: 40% auto 0;
+    }
+}
+
+.reach-img img {
+    width: 100%;
 }
