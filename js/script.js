@@ -121,3 +121,21 @@ function getDuve(event) {
     getPrice3.style.display = "block";
 
 }
+
+function changeCol() {
+    const getBoss2 = document.querySelector(".boss2");
+    const getBoss = document.querySelector(".boss");
+    const getBoss3 = document.querySelector(".boss3");
+    getBoss2.style.color = "#00AEEF";
+    getBoss.style.color = "#B7B7B9";
+    getBoss3.style.color = "#B7B7B9";
+}
+
+function changeTh() {
+    const getBoss2 = document.querySelector(".boss2");
+    const getBoss = document.querySelector(".boss");
+    const getBoss3 = document.querySelector(".boss3");
+    getBoss2.style.color = "#B7B7B9";
+    getBoss.style.color = "#B7B7B9";
+    getBoss3.style.color = "#00AEEF";
+}

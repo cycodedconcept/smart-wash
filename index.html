@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
     <div class="col-sm-12 col-md-12 col-lg-10">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="index.html"><img src="assets/logo.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -67,15 +67,15 @@
       </div>
       <div class="col-sm-12 col-md-12 col-lg-5">
         <div class="side-img">
-          <img src="./assets/sideimg2.png" alt="sideimg">
+          <img src="./assets/sideimg.png" alt="sideimg">
         </div>
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-1"></div>
+      <!-- <div class="col-sm-12 col-md-12 col-lg-1"></div> -->
     </div>
   </section>
   
 
-  <!-- <img src="./assets/sidevec.png" alt="" class="vec-side"> -->
+  <img src="./assets/ch.png" alt="" class="vec-side">
 
   <section class="three-cards">
     <div class="row">
@@ -147,12 +147,6 @@
             do all the work for you - from washing, drying and even Iron you cloths.
           </p>
           <button class="get-btn3" type="submit">Save me from laundry stress</button>
-
-          <div class="dot-item mt-3">
-            <img src="./assets/6.png" alt="">
-            <img src="./assets/7.png" alt="">
-            <img src="./assets/7.png" alt="">
-          </div>
         </div>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -165,21 +159,39 @@
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
       <div class="col-sm-12 col-md-12 col-lg-5">
-        <div class="fourth-section">
-          <h2>One time Wash</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
-          </p>
-        </div>
-        <button class="get-btn4" type="submit">Try one-time wash out</button>
+        <div class="owl-one owl-carousel owl-theme">
+          <div class="fourth-section">
+            <h2>One time Wash</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
+            </p>
+            <button class="get-btn4" type="submit">Try one-time wash out</button>
+          </div>
 
-        <div class="dot-item mt-3">
-          <img src="./assets/10.png" alt="">
-          <img src="./assets/7.png" alt="">
-          <img src="./assets/7.png" alt="">
+          <div class="fourth-section">
+            <h2>One time Wash</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
+            </p>
+            <button class="get-btn4" type="submit">Try one-time wash out</button>
+          </div>
+
+          <div class="fourth-section">
+            <h2>One time Wash</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.
+            </p>
+            <button class="get-btn4" type="submit">Try one-time wash out</button>
+          </div>
         </div>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-5">
@@ -197,7 +209,7 @@
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
       <div class="col-sm-12 col-md-12 col-lg-10">
         <h2 class="text-center mb-5 ibile">Why you’ll love Wash Smart</h2>
-        <div class="owl-carousel">
+        <div class="owl-two owl-carousel owl-theme">
           <div>
             <div class="first-card-item">
               <div class="first-img">
@@ -343,10 +355,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
-    $('.owl-carousel').owlCarousel({
+    $('.owl-two').owlCarousel({
+    margin: 20,
+    loop  : true,
+    items: 1,
+    dots:true,
+    autoplay: true,
+    smartSpeed :900,
+    nav: true,
+    navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 1
+        },
+        1000: {
+            items: 3
+        }
+    }
+});
+
+$('.owl-one').owlCarousel({
     margin: 10,
     loop  : true,
     items: 1,
+    dots:true,
     autoplay: true,
     smartSpeed :900,
     nav: true,
@@ -359,7 +394,7 @@
             items: 1
         },
         1000: {
-            items: 3
+            items: 1
         }
     }
 });
