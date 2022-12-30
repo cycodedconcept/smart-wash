@@ -7,6 +7,10 @@
     outline: none;
 }
 
+/* .dorime {
+    margin-top: 150px;
+} */
+
 
 body {
     position: relative;
@@ -208,6 +212,16 @@ body {
 
 .ibile {
     color: #0B3140;
+}
+
+@media screen and (max-width: 992px) {
+    .fourth-section {
+        margin: 0 auto 0;
+    }
+
+    .one-time {
+        margin-top: 50px;
+    }
 }
 
 
@@ -712,3 +726,9 @@ background-position: -24px -53px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+/* @media screen and (min-width: 1800px) {
+    .bailer {
+        margin-top: 300px;
+    }
+} */
