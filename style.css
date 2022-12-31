@@ -305,6 +305,10 @@ body {
     }
 }
 
+
+.rosa {
+    margin-top: 120px;
+}
 .before-footer-content {
     margin: 27% auto 0;
 }
@@ -389,7 +393,7 @@ body {
 .spread-section {
     display: flex;
     justify-content: space-between;
-    margin-top: 80px;
+    margin-top: 120px;
 }
 
 .spread {
@@ -501,7 +505,13 @@ body {
 
 
 
+#main #faq .card .card-header .btn-header-link.collapsed {
+    border: 0 !important;
+}
 
+.card {
+    border: 0!important;
+}
 
 #main {
     margin: 50px 0;
@@ -509,13 +519,12 @@ body {
   
 #main #faq .card {
     margin-bottom: 30px;
-    border: 0;
 }
   
 #main #faq .card .card-header {
     border: 0;
-    -webkit-box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
-            box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+    -webkit-box-shadow: 0 0 20px 0 rgb(247, 245, 245) !important;
+    box-shadow: 0 0 20px 0 rgb(247, 245, 245) !important;
     border-radius: 2px;
     padding: 0;
 }
@@ -590,6 +599,7 @@ body {
 
 .price2, .price3 {
     display: none;
+    margin-top: 120px;
 }
 
 .smart-section h2 {
@@ -694,6 +704,11 @@ body {
 
 .Incredible {
     margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.Incredible2 {
+    margin-top: 150px;
 }
 
 .box-sec {
@@ -784,11 +799,6 @@ body {
     border-bottom-right-radius: 20px;
 }
 
-/* @media screen and (min-width: 1800px) {
-    .bailer {
-        margin-top: 300px;
-    }
-} */
 
 
 
