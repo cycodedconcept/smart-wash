@@ -26,6 +26,7 @@ body {
     color: #0B3140;
     border-radius: 5px;
     font-size: 14px;
+    background: #fff;
 }
 
 .get-btn, .get-btn2 {
@@ -107,6 +108,7 @@ body {
 
 .three-cards {
     margin-top: 70px;
+    background: #F4F9FB;
 }
 
 .next-section {
@@ -161,6 +163,8 @@ body {
 
 .one-img {
     margin-top: 186px;
+    background: #F4F9FB;
+    z-index: -1;
 }
 
 .third-section img {
@@ -199,6 +203,7 @@ body {
 
 .one-time {
     margin-top: 186px;
+    background: #F4F9FB;
 }
 
 .fourth-section {
@@ -229,35 +234,6 @@ body {
     display: block !important;
 }
 
-/* .owl-carousel .nav-btn{
-    height: 47px;
-    position: absolute;
-    width: 26px;
-    cursor: pointer;
-    top: 100px !important;
-}
-  
-.owl-carousel .owl-prev.disabled,
-.owl-carousel .owl-next.disabled{
-pointer-events: none;
-opacity: 0.2;
-}
-
-.owl-carousel .prev-slide{
-background: url(nav-icon.png) no-repeat scroll 0 0;
-left: -33px;
-}
-.owl-carousel .next-slide{
-background: url(nav-icon.png) no-repeat scroll -24px 0px;
-right: -33px;
-}
-.owl-carousel .prev-slide:hover{
-background-position: 0px -53px;
-}
-.owl-carousel .next-slide:hover{
-background-position: -24px -53px;
-} */
-
 
 .owl-carousel .nav-button {
     height: 50px;
@@ -282,7 +258,7 @@ background-position: -24px -53px;
     font-size: 30px !important;
     background: #d7d7d9 !important;
     border-radius: 50% !important;
-    font-weight: 800;
+    font-weight: 600;
   }
   .owl-carousel .prev-carousel:hover {
     background-position: 0px -53px;
@@ -311,7 +287,7 @@ background-position: -24px -53px;
 .before {
     background: linear-gradient(117.58deg, #0B3140 -39.27%, #072B38 100%);
     padding: 45px 0;
-    margin-top: 80px;
+    /* margin-top: 80px; */
 }
 
 .before2 {
