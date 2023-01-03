@@ -47,7 +47,7 @@ body {
     outline: none;
     box-shadow: none;
     color: #00AEEF;
-    background: #fff;
+    background: #cecdcd;
     margin: 0;
     padding: 0;
 }
@@ -161,9 +161,14 @@ body {
     }
 }
 
+.cover-up {
+    background: #cecdcd !important;
+    /* padding: 30px 0; */
+}
+
 .one-img {
     margin-top: 186px;
-    background: #F4F9FB;
+    padding: 0 0 60px;
     z-index: -1;
 }
 
@@ -203,7 +208,7 @@ body {
 
 .one-time {
     margin-top: 186px;
-    background: #F4F9FB;
+    padding: 60px 0 0;
 }
 
 .fourth-section {
@@ -248,15 +253,15 @@ body {
     opacity: 0.25;
   }
   .owl-carousel .owl-prev {
-    left: -35px;
+    left: -6px;
   }
   .owl-carousel .owl-next {
-    right: -35px;
+    right: -6px;
   }
   .owl-theme .owl-nav [class*=owl-] {
     color: #000 !important;
     font-size: 30px !important;
-    background: #d7d7d9 !important;
+    background: #fff !important;
     border-radius: 50% !important;
     font-weight: 600;
   }

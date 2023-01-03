@@ -139,3 +139,12 @@ function changeTh() {
     getBoss.style.color = "#B7B7B9";
     getBoss3.style.color = "#00AEEF";
 }
+
+function changeAnnual(event) {
+    event.preventDefault();
+    const getBogo = document.querySelector(".bogo");
+    const getBoris = document.querySelector(".boris");
+
+    getBogo.innerHTML = "N 60,000/year";
+    getBoris.innerHTML = `${"Save at least <span class='wash'>24 hours</span> on laundry each year!"}`;
+}
