@@ -142,9 +142,66 @@ function changeTh() {
 
 function changeAnnual(event) {
     event.preventDefault();
+    const getMonth = document.querySelector(".month");
+    const getAnnual = document.querySelector(".annual");
+
     const getBogo = document.querySelector(".bogo");
     const getBoris = document.querySelector(".boris");
 
-    getBogo.innerHTML = "N 60,000/year";
-    getBoris.innerHTML = `${"Save at least <span class='wash'>24 hours</span> on laundry each year!"}`;
+    const getBogo2 = document.querySelector(".bogo2");
+    const getBoris2 = document.querySelector(".boris2");
+
+    const getBogo3 = document.querySelector(".bogo3");
+    const getBoris3 = document.querySelector(".boris3");
+
+    const getBogo4 = document.querySelector(".bogo4");
+    const getBoris4 = document.querySelector(".boris4");
+
+    getBogo.innerHTML = "N 50,000/year";
+    getBoris.innerHTML = `${"Save at least <span class='wash'>36 hours</span> on laundry each year!"}`;
+
+    getBogo2.innerHTML = "N 47,000/year";
+    getBoris2.innerHTML = `${"Save at least <span class='wash'>72 hours</span> on laundry each year!"}`;
+
+    getBogo3.innerHTML = "N 45,000/year";
+    getBoris3.innerHTML = `${"Save at least <span class='wash'>96 hours</span> on laundry each year!"}`;
+
+    getBogo4.innerHTML = "N 40,000/year";
+    getBoris4.innerHTML = `${"Save at least <span class='wash'>120 hours</span> on laundry each year!"}`;
+
+    getMonth.style.borderBottom = "none";
+    getAnnual.style.borderBottom = "3px solid #00AEEF";
+}
+
+function changeMonth(event) {
+    event.preventDefault();
+    const getMonth = document.querySelector(".month");
+    const getAnnual = document.querySelector(".annual");
+
+    const getBogo = document.querySelector(".bogo");
+    const getBoris = document.querySelector(".boris");
+
+    const getBogo2 = document.querySelector(".bogo2");
+    const getBoris2 = document.querySelector(".boris2");
+
+    const getBogo3 = document.querySelector(".bogo3");
+    const getBoris3 = document.querySelector(".boris3");
+
+    const getBogo4 = document.querySelector(".bogo4");
+    const getBoris4 = document.querySelector(".boris4");
+
+    getBogo.innerHTML = "N 5,000/mo";
+    getBoris.innerHTML = `${"Save at least <span class='wash'>3 hours</span> on laundry each month!"}`;
+
+    getBogo2.innerHTML = "N 5,000/mo";
+    getBoris2.innerHTML = `${"Save at least <span class='wash'>6 hours</span> on laundry each month!"}`;
+
+    getBogo3.innerHTML = "N 5,000/mo";
+    getBoris3.innerHTML = `${"Save at least <span class='wash'>9 hours</span> on laundry each month!"}`;
+
+    getBogo4.innerHTML = "N 5,000/mo";
+    getBoris4.innerHTML = `${"Save at least <span class='wash'>12 hours</span> on laundry each month!"}`;
+
+    getMonth.style.borderBottom = "3px solid #00AEEF";
+    getAnnual.style.borderBottom = "none";
 }
