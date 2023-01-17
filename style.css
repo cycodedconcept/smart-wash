@@ -18,7 +18,7 @@ body {
     padding: 0;
 }
 
-.sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2 {
+.sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2, .plan-btn {
     outline: none;
     box-shadow: none;
     border: 1px solid #424345;
@@ -457,9 +457,13 @@ body {
     margin-top: 10px;
 }
 
-.hr {
+.hr, .hr2 {
     border: 1px solid #207293;
     margin: 0!important;
+}
+
+.hr2 {
+    border: 1px solid #00aeef;
 }
 
 .btn-price, .btn-price2 {
@@ -930,10 +934,43 @@ body {
     margin-left: -69px;
 }
 
+.plan-question h2 {
+    font-weight: 700;
+}
 
+.pat {
+    font-weight: 500;
+}
 
+.custom-control-label {
+    color: #0B3140 !important;
+    font-weight: 300 !important;
+}
 
+.plan-box {
+    box-shadow: 0px 0px 27px rgba(0, 0, 0, 0.16);
+    border-radius: 24px;
+    padding: 30px;
+}
 
+.plan-box h5 {
+    color: #979292;
+}
 
+.plan-item {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 20px;
+    border-radius: 10px;
+}
 
-
+.plan-btn {
+    width: 100%;
+    background: #0B3140;
+    color: #fff;
+    border-radius: 12px;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+}
