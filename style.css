@@ -745,6 +745,10 @@ body {
     margin-top: 150px;
 }
 
+.fada {
+    margin-top: 200px;
+}
+
 .box-sec {
     margin-top: 100px;
 }
@@ -841,38 +845,7 @@ body {
     position: relative;
 }
 
-@keyframes fadeLeft {
-    /* from {
-        opacity: 0;
-        transform: translate3d(-100%, 0, 0);
-    } */
 
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-.ebe {
-    width: 40%;
-    position: absolute;
-    top: 20px;
-    left: -42px;
-    z-index: -10;
-    /* animation-name: fadeLeft; */
-    opacity: 0;
-  transform: translate3d(-50px, 0, 0); /* ADDED - start x position as -50px */
-  cursor: pointer;
-  transition: 0.25s all ease-in-out;
-}
-
-.ebe2 {
-    width: 38%;
-    position: absolute;
-    top: 20px;
-    right: 39px;
-    z-index: -10;
-}
 
 /* .comi {
     display: flex;
@@ -974,3 +947,92 @@ body {
     font-size: 18px;
     font-family: "Inter", sans-serif;
 }
+
+
+/* the css animation for the bags and clothes */
+.slideimg {
+    position: relative;
+}
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+  
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+  
+.image1 {
+    opacity: 0;
+    width: 32%;
+}
+
+.image2 {
+    opacity: 0;
+    width: 32%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: -100;
+}
+
+.img1 {
+    height: 10%;
+    animation: slideInFromLeft 2s ease-out;
+    opacity: 1;
+}
+
+.img2 {
+    animation: slideInFromRight 2s ease-out;
+    height: 85%;
+    opacity: 1;
+}
+
+.mogun1 {
+    opacity: 0;
+}
+
+
+
+.bag {
+    width: 45%;
+    transform: scale(2);
+    position: static;
+}
+
+.bagchange {
+    transform: scale(1);
+    transition-timing-function: ease;
+    transition: 0.2s;
+    transition-duration: 1.5s;
+}
+
+.context-item, .context-item2 {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+.show2 {
+    opacity: 1;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.hide2 {
+    opacity: 0;
+}
+  
