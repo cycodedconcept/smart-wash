@@ -182,7 +182,7 @@ body {
 }
 
 .cover-up {
-    background: #fff !important;
+    background: #fff;
     /* padding: 30px 0; */
 }
 
@@ -1114,7 +1114,7 @@ footer {
 .img-section-right {
     position: sticky;
     top: 0;
-    background: white;
+    /* background: white; */
     transition: ease-in;
 }
 
