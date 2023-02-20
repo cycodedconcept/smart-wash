@@ -1130,9 +1130,9 @@ footer {
     0% {
         background: url("../assets/unfold.png") no-repeat center center /cover;
     }
-    50% {
+    /* 50% {
         background: url("../assets/fold.png") no-repeat center center /cover;
-    }
+    } */
     100% {
         background: url("../assets/ns.png") no-repeat center center /cover;
     }
