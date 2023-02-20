@@ -1122,6 +1122,10 @@ footer {
     background: #EAF9FF;
 }
 
+.voo2 {
+    background: #fff;
+}
+
 @keyframes fader {
     0% {
         background: url("../assets/unfold.png") no-repeat center center /cover;
