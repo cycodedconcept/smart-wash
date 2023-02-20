@@ -75,6 +75,12 @@ body {
     color: #0B3140;
 }
 
+/* @media screen and (max-width: 650px) {
+    .sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2, .plan-btn, .get-btn4 {
+        width: 100%;
+    }
+} */
+
 .head-section {
     margin: 20% auto;
 }
@@ -176,7 +182,7 @@ body {
 }
 
 .cover-up {
-    background: #cecdcd !important;
+    background: #fff !important;
     /* padding: 30px 0; */
 }
 
@@ -200,6 +206,7 @@ body {
 
 .sling {
     position: relative;
+    background: #F4F9FB;
 }
 
 .vow {
@@ -773,7 +780,7 @@ body {
 }
 
 .why-img img {
-    width: 80%;
+    width: 100%;
 }
 
 .why-content {
@@ -1051,25 +1058,7 @@ body {
     transition-duration: 1.5s;
 }
 
-.context-item, .context-item2 {
-    opacity: 0;
-}
 
-.show {
-    opacity: 1;
-}
-
-.show2 {
-    opacity: 1;
-}
-
-.hide {
-    opacity: 0;
-}
-
-.hide2 {
-    opacity: 0;
-}
   
 
 footer {
@@ -1126,4 +1115,35 @@ footer {
     position: sticky;
     top: 0;
     background: white;
+    transition: ease-in;
 }
+
+.voo {
+    background: #EAF9FF;
+}
+
+@keyframes fader {
+    0% {
+        background: url("../assets/unfold.png") no-repeat center center /cover;
+    }
+    50% {
+        background: url("../assets/fold.png") no-repeat center center /cover;
+    }
+    100% {
+        background: url("../assets/ns.png") no-repeat center center /cover;
+    }
+}
+
+#wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#gallery {
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fader 10s cubic-bezier(.4, 0, 0, .4) infinite;
+    animation-delay: 3s;
+}
+
