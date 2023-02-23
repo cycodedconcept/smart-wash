@@ -19,11 +19,12 @@ function getDry(event) {
     
 
     getClash.innerHTML = `<span class='wash'>Dry</span> Cleaning`;
-    getM1.innerHTML = "This is the perfect service if you’re tired of dropping off your dry cleaning or if you keep forgetting to pick it up.";
-    getM2.innerHTML = "From suits to blouses to dresses to pants and everything in between, we pick up, clean, and drop off your clothes for you so you can enjoy perfectly dry-cleaned clothes, at the perfect time.";
+    getM1.innerHTML = "Your items are freshly washed, ironed and neatly packed ready to be delivered.";
+    getM2.innerHTML = "Enjoy perfectly dry-cleaned clothes, at the <br> perfect time.";
     getM3.innerHTML = "";
 
     getDryImage.src = "../assets/19.svg";
+    getDryImage.classList.add('.addimg-swing');
 
     getBtn.style.color = "#00AEEF"
     getBtn.style.borderBottom = "1px solid #00AEEF";
@@ -60,9 +61,9 @@ function getFold(event) {
 
 
     getClash.innerHTML = `Wash & <span class='wash'>Fold</span>`;
-    getM1.innerHTML = "The ideal service if you want to avoid the dreaded laundry chore and save your time and your sanity.";
-    getM2.innerHTML = "We do your laundry for you so you can enjoy your free time. ";
-    getM3.innerHTML = "Whether it’s a week’s worth of the entire family’s clothes, or all your linens, we pick up, wash, and fold your laundry.";
+    getM1.innerHTML = "Have Your garments stay cleaner than<br> ever. We wash, dry and fold your laundry.";
+    getM2.innerHTML = "Our experts know what it takes to tackle<br> even the toughest stains.";
+    getM3.innerHTML = "";
 
     getDryImage.src = "../assets/15.svg";
 
@@ -100,8 +101,8 @@ function getDuve(event) {
 
 
     getClash.innerHTML = `<span class='wash'>Duvet & </span> Bed Covers`;
-    getM1.innerHTML = "This is the perfect service if you’re tired of dropping off your dry cleaning or if you keep forgetting to pick it up.";
-    getM2.innerHTML = "From suits to blouses to dresses to pants and everything in between, we pick up, clean, and drop off your clothes for you so you can enjoy perfectly dry-cleaned clothes, at the perfect time.";
+    getM1.innerHTML = "Smart wash offers you a special and unique service for your Duvets.";
+    getM2.innerHTML = "Your duvet will be returned to you in compact packaging, ideal for carrying and storing bulky items, and will keep your duvet clean and fresh until you’re ready to use it. All these will be done for you at a very affordable price.";
     getM3.innerHTML = "";
 
     getDryImage.src = "../assets/20.svg";

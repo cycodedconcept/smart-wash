@@ -9,6 +9,9 @@
   <!-- bootstrap css cdn -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
   <!-- owl carousel -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -83,19 +86,40 @@
     </div>
   </section> -->
 
-  <div id="wrapper">
-    <div id="gallery">
-      <img src="../assets/22.png" alt="" style="width: 100%; opacity: 0;">
-    </div>
-    <div class="context-item text-center mt-5">
-      <h2 class="ibile">If it fits in the bag, we take care of it.</h2>
-      <p>
-        Pick your perfect plan by selecting the number of laundry bags you’ll 
-        need<br> each month and enjoy service 7 days a week.
-      </p>
-    </div>
+  <div class="wrapper">
+    <div class="gallery">
+      <img src="../assets/unfold.png" alt="" style="width: 100%; opacity: 0;" class="img-gal">
+      <!-- <div class="context-item text-center mt-5">
+        <h2 class="ibile">If it fits in the bag, we take care of it.</h2>
+        <p>
+          Pick your perfect plan by selecting the number of laundry bags you’ll 
+          need<br> each month and enjoy service 7 days a week.
+        </p>
+      </div> -->
+      <div class="banner">
+        <div class="banner-text">
+          <!-- <h2 class="ibile">Smart Wash</h2> -->
+          <center>
+            <div class="text-wrapper">
+              <div class="pen b1 ibile">If it fits in the bag,</div>
+              <div class="pen b2 ibile">we take care of it</div>
+              <div class="pen b3 ibile">Pick your perfect plan</div>
+              <div class="pen b4 ibile">select the number of laundry bags you’ll need each month</div>
+              <div class="pen b5 ibile">and enjoy service 7 days a week</div>
+              <div class="pen b6 mt-5">
+                <button class="get-btn2" type="submit">Schedule a pick-up</button>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>  
   </div>
 
+
+<!-- <section class="text-center" style="margin-top: 80px;">
+  <button class="get-btn2" type="submit">Schedule a pick-up</button>
+</section> -->
 
   <section class="Incredible">
     <div class="row">
@@ -106,40 +130,46 @@
             </div>
             <div class="spread-section">
               <div class="spread">
-                <div class="spread-img">
-                  <img src="../assets/16.png" alt="">
-                </div>
-                <div class="spread-body text-center">
-                  <h6 class="">Priced by the bag so you save.</h6>
-                  <p>
-                    Your bag fits two large laundry baskets’ worth of clothes. 
-                    Flat pricing by the bag allows you to save up to 56% over Pay-As-You-Go.
-                  </p>
-                </div>
-              </div>
-              <div class="spread">
-                <div class="spread-img">
-                  <img src="../assets/16.png" alt="">
-                </div>
-                <div class="spread-body text-center">
-                  <h6>Never service fees. Always next-day delivery.</h6>
-                  <p>
-                    All plans include free Next-Day Rush Delivery and zero service 
-                    fees, which means you skip the standard $7.95 Service Fee on 
-                    all Rinse services.
-                  </p>
+                <div data-aos="zoom-in" data-aos-duration="3000">
+                  <div class="spread-img">
+                    <img src="../assets/16.png" alt="">
+                  </div>
+                  <div class="spread-body text-center">
+                    <h6 class="">Priced by the bag so you<br> save.</h6>
+                    <p>
+                      Your bag fits two large laundry baskets’ worth of clothes. 
+                      Flat pricing by the bag allows you to save up to 56% over Pay-As-You-Go.
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="spread">
-                <div class="spread-img">
-                  <img src="../assets/16.png" alt="">
+                <div data-aos="zoom-in" data-aos-duration="3000">
+                  <div class="spread-img">
+                    <img src="../assets/16.png" alt="">
+                  </div>
+                  <div class="spread-body text-center">
+                    <h6>Never service fees. Always<br> next-day delivery.</h6>
+                    <p>
+                      All plans include free Next-Day Rush Delivery and zero service 
+                      fees, which means you skip the standard $7.95 Service Fee on 
+                      all Rinse services.
+                    </p>
+                  </div>
                 </div>
-                <div class="spread-body text-center">
-                  <h6>Unlimited Rollover!</h6>
-                  <p>
-                    Your unused bags roll over each month to be used at any time. 
-                    Even unused bag space is banked and accumulates for free extra Rinse Repeat bags!
-                  </p>
+              </div>
+              <div class="spread">
+                <div data-aos="zoom-in" data-aos-duration="3000">
+                  <div class="spread-img">
+                    <img src="../assets/16.png" alt="">
+                  </div>
+                  <div class="spread-body text-center">
+                    <h6>Unlimited Rollover!</h6>
+                    <p>
+                      Your unused bags roll over each month to be used at any time. 
+                      Even unused bag space is banked and accumulates for free extra Rinse Repeat bags!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -149,147 +179,178 @@
 </section>
 
 <section class="mb-5">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="plan-section text-center">
-                <h2 class="ibile text-center mb-5">Choose your perfect plan.</h2>
-                <button class="month" onclick="changeMonth(event)">Monthly</button>
-                <button class="annual" onclick="changeAnnual(event)">Annual</button>
-                <hr>
-            </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="plan-section text-center">
+        <h2 class="ibile text-center mb-5">Choose your perfect plan.</h2>
+        <button class="month" onclick="changeMonth(event)">Monthly</button>
+        <button class="annual" onclick="changeAnnual(event)">Annual</button>
+        <hr>
+      </div>
 
-            <div class="plan-cards mt-5">
-                <div class="item-card">
-                    <div class="item-card-header">
-                    <p>1 bag</p>
-                    <img src="../assets/24.png" alt="">
-                    </div>
-                    <br>
-                    <hr>
-                    <div class="item-card-body">
-                    <h5 class="wash bogo">N 5,000/mo</h5>
-                    <p>Cost per bag: <span class="migo">N 5, 000</span></p>
-                    <p class="boris">Save at least <span class="wash">3 hours</span> on laundry each month!</p>
-                    <p>Perfect for towels and bedding</p>
-                    <p></p>
-                    </div>
-                    <div class="item-card-footer text-center mt-5">
-                    <button class="card-btn">Choose Plan</button>
-                    </div>
+      <div class="plan-cards mt-5">
+        <div data-aos="flip-left">
+          <div class="item-card">
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+              <div class="item-card-header">
+                <p>1 bag</p>
+                <img src="../assets/24.png" alt="">
                 </div>
-                <div class="item-card">
-                    <div class="item-card-header">
-                    <p>2 bag</p>
-                    <img src="../assets/25.png" alt="">
-                    </div>
-                    <br>
-                    <hr>
-                    <div class="item-card-body">
-                    <h5 class="wash bogo2">N 5,000/mo</h5>
-                    <p>Cost per bag: <span class="migo">N 5, 000</span></p>
-                    <p class="boris2">Save at least <span class="wash">6 hours</span> on laundry each month!</p>
-                    <p>Perfect for towels and bedding</p>
-                    </div>
-                    <div class="item-card-footer text-center mt-5">
-                    <button class="card-btn">Choose Plan</button>
-                    </div>
+                <br>
+                <hr>
+                <div class="item-card-body">
+                <h5 class="wash bogo">N 5,000/mo</h5>
+                <p>Cost per bag: <span class="migo">N 5, 000</span></p>
+                <p class="boris">Save at least <span class="wash">3 hours</span> on laundry each month!</p>
+                <p>Perfect for towels and bedding</p>
+                <p></p>
                 </div>
-                <div class="item-card">
-                    <div class="item-card-header">
-                    <p>3 bag</p>
-                    <img src="../assets/26.png" alt="">
-                    </div>
-                    <hr>
-                    <div class="item-card-body">
-                    <h5 class="wash bogo3">N 5,000/mo</h5>
-                    <p>Cost per bag: <span class="migo">N 5, 000</span></p>
-                    <p class="boris3">Save at least <span class="wash">9 hours</span> on laundry each month!</p>
-                    <p>Perfect for towels and bedding</p>
-                    </div>
-                    <div class="item-card-footer text-center mt-5">
-                    <button class="card-btn">Choose Plan</button>
-                    </div>
+                <div class="item-card-footer text-center mt-5">
+                <button class="card-btn">Choose Plan</button>
                 </div>
-                <div class="item-card">
-                    <div class="item-card-header">
-                    <p>4 bag</p>
-                    <img src="../assets/27.png" alt="">
-                    </div>
-                    <hr>
-                    <div class="item-card-body">
-                    <h5 class="wash bogo4">N 5,000/mo</h5>
-                    <p>Cost per bag: <span class="migo">N 5, 000</span></p>
-                    <p class="boris4">Save at least <span class="wash">12 hours</span> on laundry each month!</p>
-                    <p>Perfect for towels and bedding</p>
-                    </div>
-                    <div class="item-card-footer text-center mt-5">
-                    <button class="card-btn">Choose Plan</button>
-                    </div>
+            </div>
+            </div>
+        </div>
+        
+        <div data-aos="flip-left">
+          <div class="item-card">
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+              <div class="item-card-header">
+                <p>2 bag</p>
+                <img src="../assets/25.png" alt="">
+                </div>
+                <br>
+                <hr>
+                <div class="item-card-body">
+                <h5 class="wash bogo2">N 5,000/mo</h5>
+                <p>Cost per bag: <span class="migo">N 5, 000</span></p>
+                <p class="boris2">Save at least <span class="wash">6 hours</span> on laundry each month!</p>
+                <p>Perfect for towels and bedding</p>
+                </div>
+                <div class="item-card-footer text-center mt-5">
+                <button class="card-btn">Choose Plan</button>
                 </div>
             </div>
         </div>
-
+        </div>
+        
+        <div data-aos="flip-left">
+          <div class="item-card">
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+              <div class="item-card-header">
+                <p>3 bag</p>
+                <img src="../assets/26.png" alt="">
+                </div>
+                <hr>
+                <div class="item-card-body">
+                <h5 class="wash bogo3">N 5,000/mo</h5>
+                <p>Cost per bag: <span class="migo">N 5, 000</span></p>
+                <p class="boris3">Save at least <span class="wash">9 hours</span> on laundry each month!</p>
+                <p>Perfect for towels and bedding</p>
+                </div>
+                <div class="item-card-footer text-center mt-5">
+                <button class="card-btn">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div data-aos="flip-left">
+          <div class="item-card">
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+              <div class="item-card-header">
+                <p>4 bag</p>
+                <img src="../assets/27.png" alt="">
+                </div>
+                <hr>
+                <div class="item-card-body">
+                <h5 class="wash bogo4">N 5,000/mo</h5>
+                <p>Cost per bag: <span class="migo">N 5, 000</span></p>
+                <p class="boris4">Save at least <span class="wash">12 hours</span> on laundry each month!</p>
+                <p>Perfect for towels and bedding</p>
+                </div>
+                <div class="item-card-footer text-center mt-5">
+                <button class="card-btn">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 
-  <section class="before">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-1"></div>
-      <div class="col-sm-12 col-md-12 offset-lg-1 col-lg-4">
+<section class="before">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-1"></div>
+    <div class="col-sm-12 col-md-12 offset-lg-1 col-lg-3">
+      <div class="owl-three owl-carousel owl-theme">
+        <div class="before-footer-img">
+          <img src="../assets/14.png" alt="">
+        </div>
+
+        <div class="before-footer-img">
+          <img src="../assets/14.png" alt="">
+        </div>
+
         <div class="before-footer-img">
           <img src="../assets/14.png" alt="">
         </div>
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-5">
-        <div class="before-footer-content">
-          <h3>What Our <span class="wash">Customer’s</span><br> are Saying</h3>
-          <div class="owl-one owl-carousel owl-theme">
-            <div class="move">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.Lorem ipsum dolor 
-                sit amet, consectetur adipiscing elit. Adipiscing. Lorem ipsum dolor sit amet, 
-                consectetur adipiscing elit. Adipiscing.
-              </p>
-    
-              <p class="wash">
-                Rose Do Smith
-              </p>
-            </div>
-
-            <div class="move">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.Lorem ipsum dolor 
-                sit amet, consectetur adipiscing elit. Adipiscing. Lorem ipsum dolor sit amet, 
-                consectetur adipiscing elit. Adipiscing.
-              </p>
-    
-              <p class="wash">
-                Rose Do Smith
-              </p>
-            </div>
-
-            <div class="move">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing.Lorem ipsum dolor 
-                sit amet, consectetur adipiscing elit. Adipiscing. Lorem ipsum dolor sit amet, 
-                consectetur adipiscing elit. Adipiscing.
-              </p>
-    
-              <p class="wash">
-                Rose Do Smith
-              </p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-1"></div>
     </div>
-  </section>
+
+    <div class="col-sm-12 col-md-12 col-lg-1"></div>
+
+    <div class="col-sm-12 col-md-12 col-lg-5">
+      <div class="before-footer-content">
+        <h3>What Our <span class="wash">Customer’s</span><br> are Saying</h3>
+        <div class="owl-one owl-carousel owl-theme">
+          <div class="move">
+            <p>
+              The app is so seamless, I literally schedule a pick up 
+              from my convenience and it 
+              gets delivered at the right time. 
+              No delays, they're a company to bank on
+            </p>
+  
+            <p class="wash">
+              Rose Do Smith
+            </p>
+          </div>
+
+          <div class="move">
+            <p>
+              The app is so seamless, I literally schedule a pick up 
+              from my convenience and it 
+              gets delivered at the right time. 
+              No delays, they're a company to bank on
+            </p>
+  
+            <p class="wash">
+              Rose Do Smith
+            </p>
+          </div>
+
+          <div class="move">
+            <p>
+              The app is so seamless, I literally schedule a pick up 
+              from my convenience and it 
+              gets delivered at the right time. 
+              No delays, they're a company to bank on
+            </p>
+  
+            <p class="wash">
+              Rose Do Smith
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-1"></div>
+  </div>
+</section>
 
   <section class="Incredible2">
     <div class="row">
@@ -469,9 +530,15 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
   <script src="../js/script.js"></script>
   <script src="../js/main.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
 
 
   <script>
@@ -496,6 +563,28 @@
         }
     }
   });
+
+  $('.owl-three').owlCarousel({
+  // margin: 10,
+  loop  : true,
+  items: 1,
+  dots:false,
+  autoplay: true,
+  smartSpeed :900,
+  nav: true,
+  navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+  responsive: {
+      0: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
+});
   </script>
 </body>
 </html>

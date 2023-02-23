@@ -412,6 +412,11 @@ body {
     width: 100%;
 }
 
+.addimg-swing {
+    transition: all 3s ease-in;
+    animation-delay: 2s;
+}
+
 .spread-img {
     text-align: center;
 }
@@ -448,6 +453,7 @@ body {
     background: #0B3140;
     padding: 20px;
     border-radius: 20px;
+    width: 90%;
 }
 
 .price-card2 {
@@ -493,6 +499,11 @@ body {
 @media screen and (max-width: 992px) {
     .price-card {
         margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .price-card2 {
+        width: 100%;
     }
 }
 
@@ -608,13 +619,39 @@ body {
     color: #222;
 }
 
-.dry-card-header {
-    background: url(./assets/18.png) no-repeat center center /cover;
-    padding: 10px;
+.dry-card-header, .dry-card-header2, .dry-card-header3, .dry-card-header4, .dry-card-header5, .duvet-header {
+    background: url(./assets/bigg.png) no-repeat center center /cover;
     font-weight: 700;
     color: #fff;
     font-size: 22px;
 }
+
+.dry-card-header2 {
+    background: url(./assets/trou.png) no-repeat center center /cover;
+}
+
+.dry-card-header3 {
+    background: url(./assets/fc.png) no-repeat center center /cover;
+}
+
+.dry-card-header4 {
+    background: url(./assets/sg.png) no-repeat center center /cover;
+}
+
+.dry-card-header5 {
+    background: url(./assets/nw.png) no-repeat center center /cover;
+}
+
+.duvet-header {
+    background: url(./assets/box.png) no-repeat center center /cover;
+    padding: 30px;
+}
+
+.duvet-header img {
+    width: 100%;
+}
+
+
 
 .dry-section {
     display: flex;
@@ -652,6 +689,22 @@ body {
     width: 100%;
 }
 
+
+
+
+.duvet-section-img img {
+    width: 100%;
+}
+
+.duvet-card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+}
+
+.duvet-body {
+    padding: 15px;
+}
+
 .sepe img {
     width: 50% !important;
 }
@@ -687,7 +740,7 @@ body {
     padding: 20px 18px;
     border-radius: 16px;
     margin-right: 15px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 
@@ -733,7 +786,7 @@ body {
     font-weight: 600;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 992px) {
     .plan-cards {
         flex-direction: column;
     }
@@ -1118,6 +1171,12 @@ footer {
     transition: ease-in;
 }
 
+@media screen and (max-width: 650px) {
+    .img-section-right {
+        background: #fff;
+    }
+}
+
 .voo {
     background: #EAF9FF;
 }
@@ -1128,26 +1187,170 @@ footer {
 
 @keyframes fader {
     0% {
-        background: url("../assets/unfold.png") no-repeat center center /cover;
+        background: url("../assets/unfold.png") no-repeat center center /contain;
     }
     /* 50% {
         background: url("../assets/fold.png") no-repeat center center /cover;
     } */
+    20% {
+        background: url("../assets/ns.png") no-repeat center center /contain;
+    }
+
+    50% {
+        background: url("../assets/ns.png") no-repeat center center /contain;
+    }
+    70% {
+        background: url("../assets/ns.png") no-repeat center center /contain;
+    }
     100% {
-        background: url("../assets/ns.png") no-repeat center center /cover;
+        background: url("../assets/ns.png") no-repeat center center /contain;
     }
 }
 
-#wrapper {
-    max-width: 960px;
+.wrapper {
+    position: relative;
+    width: 650px;
     margin: 0 auto;
-    padding: 20px;
+    /* padding: 50px; */
 }
 
-#gallery {
-    max-width: 600px;
-    margin: 0 auto;
-    animation: fader 10s cubic-bezier(.4, 0, 0, .4) infinite;
-    animation-delay: 3s;
+@media screen and (max-width: 992px) {
+    .wrapper {
+        width: 100%;
+    }
 }
 
+
+/* .gallery {
+    
+} */
+
+.addit {
+    animation: fader 20s cubic-bezier(.8, 0, 0, .8) infinite;
+    /* margin: 0 auto; */
+}
+.gallery-img {
+    opacity: 1;
+}
+
+
+.banner-text h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+}
+
+
+
+.pen {
+    font-size: 25px;
+    font-weight: 700;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    /* text-align: center; */
+}
+
+.b1 {
+    animation: ani1 15s infinite;
+}
+.b2 {
+    animation: ani2 15s infinite;
+}
+.b3 {
+    animation: ani3 15s infinite;
+}
+.b4 {
+    animation: ani4 15s infinite;
+}
+.b5 {
+    animation: ani5 15s infinite;
+}
+.b6 {
+    animation: ani6 15s infinite;
+
+}
+
+@keyframes ani1 {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani2 {
+    20% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani3 {
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani4 {
+    60% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani5 {
+    80% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes ani6 {
+    80% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
