@@ -678,24 +678,24 @@
   <section class="before">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
-      <div class="col-sm-12 col-md-12 col-lg-3">
-        <div class="owl-one owl-carousel owl-theme">
+      <div class="col-sm-12 col-md-12 offset-lg-1 col-lg-3">
+        <div class="owl-three owl-carousel owl-theme">
           <div class="before-footer-img">
-            <img src="./assets/14.png" alt="">
+            <img src="../assets/14.png" alt="">
           </div>
-
+  
           <div class="before-footer-img">
-            <img src="./assets/14.png" alt="">
+            <img src="../assets/14.png" alt="">
           </div>
-
+  
           <div class="before-footer-img">
-            <img src="./assets/14.png" alt="">
+            <img src="../assets/14.png" alt="">
           </div>
         </div>
       </div>
-
-      <div class="col-sm-12 col-md-12 col-lg-2"></div>
-
+  
+      <div class="col-sm-12 col-md-12 col-lg-1"></div>
+  
       <div class="col-sm-12 col-md-12 col-lg-5">
         <div class="before-footer-content">
           <h3>What Our <span class="wash">Customer’s</span><br> are Saying</h3>
@@ -712,7 +712,7 @@
                 Rose Do Smith
               </p>
             </div>
-
+  
             <div class="move">
               <p>
                 The app is so seamless, I literally schedule a pick up 
@@ -725,7 +725,7 @@
                 Rose Do Smith
               </p>
             </div>
-
+  
             <div class="move">
               <p>
                 The app is so seamless, I literally schedule a pick up 
@@ -828,7 +828,7 @@
     autoplay: true,
     smartSpeed :900,
     nav: true,
-    navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+    navText: ["<div class='nav-button owl-prev'><img src='../assets/slo.png' style='width: 12px;'></div>", "<div class='nav-button owl-next'><img src='../assets/slo2.png' style='width: 12px;'></div>"],
     responsive: {
         0: {
             items: 1
@@ -843,10 +843,31 @@
 });
 
 $('.owl-one').owlCarousel({
-  // margin: 10,
   loop  : true,
   items: 1,
   dots:true,
+  autoplay: true,
+  smartSpeed :900,
+  nav: true,
+  navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+  responsive: {
+      0: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
+});
+
+
+$('.owl-three').owlCarousel({
+  loop  : true,
+  items: 1,
+  dots:false,
   autoplay: true,
   smartSpeed :900,
   nav: true,

@@ -267,6 +267,8 @@ body {
     cursor: pointer;
     position: absolute;
     top: 110px !important;
+    padding: 0 !important;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
   }
   .owl-carousel .owl-prev.disabled,
   .owl-carousel .owl-next.disabled {
@@ -274,10 +276,10 @@ body {
     opacity: 0.25;
   }
   .owl-carousel .owl-prev {
-    left: -6px;
+    left: -2px;
   }
   .owl-carousel .owl-next {
-    right: -6px;
+    right: -2px;
   }
   .owl-theme .owl-nav [class*=owl-] {
     color: #000 !important;
