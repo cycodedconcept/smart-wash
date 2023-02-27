@@ -1214,6 +1214,7 @@ footer {
     width: 650px;
     margin: 0 auto;
     /* padding: 50px; */
+    margin-top: 40px;
 }
 
 @media screen and (max-width: 992px) {
@@ -1228,7 +1229,7 @@ footer {
 } */
 
 .addit {
-    animation: fader 20s cubic-bezier(.8, 0, 0, .8) infinite;
+    animation: fader 45s cubic-bezier(.8, 0, 0, .8) infinite;
     /* margin: 0 auto; */
 }
 .gallery-img {
