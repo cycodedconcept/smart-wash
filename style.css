@@ -1229,7 +1229,7 @@ footer {
 } */
 
 .addit {
-    animation: fader 45s cubic-bezier(.8, 0, 0, .8) infinite;
+    animation: fader 30s cubic-bezier(.8, 0, 0, .8) infinite;
     /* margin: 0 auto; */
 }
 .gallery-img {
@@ -1246,8 +1246,8 @@ footer {
 
 
 .pen {
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 20px;
+    /* font-weight: 700; */
     opacity: 0;
     position: absolute;
     width: 100%;
@@ -1357,3 +1357,28 @@ footer {
         opacity: 0;
     }
 }
+
+
+/* new code */
+.forth-section {
+    width: 100%;
+    /* height: 20vh; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background: white;
+    margin: 0;
+  }
+  
+  .forth-section .images-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .forth-section .images-wrapper img {
+    position: absolute;
+    top: 160px;
+  }
