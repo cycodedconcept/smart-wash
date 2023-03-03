@@ -1146,7 +1146,7 @@ footer {
 }
 
 .hidden {
-    opacity: 0;
+    /* opacity: 0; */
     transition: all 2s;
     /* transform: translateX(-100%); */
 }
