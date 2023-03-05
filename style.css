@@ -374,17 +374,22 @@ body {
     margin-right: 10px;
 }
 
+.mobile-foot {
+    display: none;
+}
+
 @media screen and (max-width: 992px) {
     .down-footer {
         flex-direction: column;
     }
 
     .footer-section {
-        flex-direction: column;
+        /* flex-direction: column; */
+        display: none;
     }
 
-    .second-sec p, h6 {
-        text-align: center;
+    .second-sec p {
+        margin: 2px;
     }
 
     .first-sec {
@@ -393,6 +398,19 @@ body {
 
     .down-footer {
         text-align: center;
+    }
+
+    .mobile-foot {
+        display: block;
+    }
+
+    .second-sec {
+        margin-right: 35px;
+    }
+
+    .how {
+        display: flex;
+        margin-bottom: 20px;
     }
 }
 
@@ -795,6 +813,7 @@ body {
 
     .item-card {
         margin-bottom: 15px;
+        width: 100%;
     }
 }
 
@@ -1380,5 +1399,20 @@ footer {
   
   .forth-section .images-wrapper img {
     position: absolute;
-    top: 160px;
+    /* top: 160px; */
   }
+
+  .vector {
+      margin: 450px 0 0;
+  }
+
+@media screen and (max-width: 650px) {
+    .forth-section .images-wrapper img {
+        width: 100%;
+        top: 0;
+    }
+
+    .vector {
+        margin: 150px 0 0;
+    }
+}
