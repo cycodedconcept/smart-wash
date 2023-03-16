@@ -421,6 +421,7 @@ body {
     padding: 5px 35px;
     background: #fff;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .fold {
@@ -430,6 +431,17 @@ body {
 
 .wash-img img {
     width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+    .fold, .dry, .duvet {
+        font-size: 15px;
+        padding: 5px 2px;
+    }
+
+    .wash-img img {
+        margin: 30px 0;
+    }
 }
 
 .addimg-swing {
@@ -644,6 +656,7 @@ body {
     font-weight: 700;
     color: #fff;
     font-size: 22px;
+    padding: 8px;
 }
 
 .dry-card-header2 {
@@ -665,6 +678,7 @@ body {
 .duvet-header {
     background: url(./assets/box.png) no-repeat center center /cover;
     padding: 30px;
+    border-radius: 10px;
 }
 
 .duvet-header img {
@@ -690,6 +704,11 @@ body {
 .dry-card {
     width: 100%;
    flex: 0 0 315px;
+   border-radius: 10px;
+}
+
+.sam {
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .price2, .price3 {
@@ -727,6 +746,12 @@ body {
 
 .sepe img {
     width: 50% !important;
+}
+
+@media screen and (max-width: 650px) {
+    .dry-card {
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (max-width: 992px) {

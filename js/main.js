@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triggerElement: '.first-section',
         duration: '100%',
         triggerHook: 0,
-        offset: '300'
+        // offset: '300'
     })
     .setTween(timeline)
     .setPin('.first-section')
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triggerElement: '.second-section',
         duration: '100%',
         triggerHook: 0,
-        offset: '100'
+        // offset: '100'
     })
     .setTween(timeline2)
     .setPin('.second-section')
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triggerElement: '.third-section',
         duration: '100%',
         triggerHook: 0,
-        offset: '200'
+        // offset: '200'
     })
     .setTween(timeline3)
     .setPin('.third-section')
@@ -132,11 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scene4 = new ScrollMagic.Scene({
         triggerElement: '.forth-section',
-        duration: '80%',
+        duration: '5%',
         triggerHook: 0,
-        // offset: '50'
+        // offset: '100'
     })
     .setTween(timeline4)
     .setPin('.forth-section')
     .addTo(controller);
+
 })
+
