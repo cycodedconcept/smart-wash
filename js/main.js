@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scene4 = new ScrollMagic.Scene({
         triggerElement: '.forth-section',
-        duration: '5%',
+        duration: '4%',
         triggerHook: 0,
         // offset: '100'
     })
@@ -141,4 +141,27 @@ document.addEventListener('DOMContentLoaded', () => {
     .addTo(controller);
 
 })
+
+function stickNavbar() {
+    document.addEventListener("DOMContentLoaded", function(){
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+              document.getElementById('navbar_top').classList.add('fixed-top');
+              document.getElementById('navbar_top').classList.add('alobam');
+
+              // add padding top to show content behind navbar
+            //   navbar_height = document.querySelector('.navbar').offsetHeight;
+            //   document.body.style.paddingTop = navbar_height + 'px';
+            } else {
+              document.getElementById('navbar_top').classList.remove('fixed-top');
+              document.getElementById('navbar_top').classList.remove('alobam');
+
+               // remove padding top from body
+              document.body.style.paddingTop = '0';
+            } 
+        });
+    }); 
+}
+
+stickNavbar();
 
