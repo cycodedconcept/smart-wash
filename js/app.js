@@ -30,16 +30,16 @@ function signup(event) {
         };
 
         localStorage.setItem("users", JSON.stringify(person));
-        // let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Accept', 'application/json');
-        // headers.append('Origin','http://127.0.0.1:5501/');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        headers.append('Origin','http://127.0.0.1:5501/');
 
         const signReq = {
-            // mode: 'cors',
+            mode: 'cors',
             method: 'GET',
-            // credentials: 'include',
-            // headers: headers
+            credentials: 'include',
+            headers: headers
         }
 
         const url = `${baseUrl}/api/user/sendotp/` + `${getEmail}`;
