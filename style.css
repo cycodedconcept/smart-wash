@@ -18,7 +18,7 @@ body {
     padding: 0;
 }
 
-.sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2, .plan-btn, .get-btn-nav {
+.sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2, .plan-btn, .get-btn-nav, .btn-sign, .btn-sign2, .otp-btn {
     outline: none;
     box-shadow: none;
     border: 1px solid #424345;
@@ -27,6 +27,7 @@ body {
     border-radius: 5px;
     font-size: 14px;
     background: #fff;
+    font-weight: 600;
 }
 
 .get-btn, .get-btn2, .btn-move {
@@ -82,6 +83,38 @@ body {
     display: none;
 }
 
+.btn-sign, .btn-sign2 {
+    background: #007BFF;
+    padding: 10px 30px;
+    color: #fff;
+    width: 80%;
+    border: 0;
+}
+
+.btn-sign2 {
+    background: #fff;
+    border: 1px solid #00AEEF;
+    color: #00AEEF;
+}
+
+.btn-sign2:hover {
+    background: #007BFF;
+    color: #fff;
+}
+
+.btn-sign:hover {
+    background: #509ef1;
+}
+
+.otp-btn {
+    border: 0;
+    padding: 0;
+    color: #00AEEF;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
 @media screen and (max-width: 992px) {
     .get-btn {
         display: none;
@@ -89,6 +122,10 @@ body {
 
     .get-btn-nav {
         display: block;
+    }
+
+    .btn-sign, .btn-sign2 {
+        width: 100%;
     }
 }
 
@@ -663,15 +700,18 @@ body {
 }
 
 .dry-card-header, .dry-card-header2, .dry-card-header3, .dry-card-header4, .dry-card-header5, .duvet-header {
-    background: url(./assets/bigg.png) no-repeat center center /cover;
+    background: url(./assets/box.png) no-repeat center center /cover;
     font-weight: 700;
     color: #fff;
     font-size: 22px;
     padding: 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
 }
 
 .dry-card-header2 {
-    background: url(./assets/trou.png) no-repeat center center /cover;
+    background: url(./assets/box.png) no-repeat center center /cover;
 }
 
 .dry-card-header3 {
@@ -716,6 +756,10 @@ body {
     width: 100%;
    flex: 0 0 315px;
    border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   margin: 0;
+   padding: 0;
+
 }
 
 .sam {
@@ -1479,3 +1523,108 @@ footer {
 .alobam {
     background: #fff;
 }
+
+.sign-form {
+    margin-left: 130px;
+}
+
+.sign-img p {
+    color: #6C7587;
+}
+
+.myInput {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #DDE5E9 !important;
+    padding: 25px 10px !important;
+    border-radius: 10px !important;
+    width: 80% !important;
+}
+
+label {
+    color: #6E7680;
+    font-size: 14px;
+}
+
+::placeholder {
+    color: #858C99;
+    font-size: 13px;
+}
+
+.form-check-label a {
+    text-decoration: none !important;
+    font-weight: 500;
+}
+
+.sign-text {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 992px) {
+    .sign-form {
+        margin: 0;
+    }
+
+    .myInput {
+        width: 100% !important;
+    }
+}
+
+.otp-input {
+    display: flex;
+    margin-left: 90px;
+}
+
+.ba {
+    outline: none;
+    box-shadow: none;
+    width: 10%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid rgb(201, 194, 194);
+}
+
+.roc {
+    margin: 10% auto;
+}
+
+.roc2 {
+    margin: 4% auto;
+}
+
+@media screen and (max-width: 992px) {
+    .roc2 {
+      margin: 25% auto;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .otp-input {
+        margin-left: 59px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .otp-input {
+        margin-left: 185px;
+    }
+}
+
+@media screen and (min-width: 2200px){
+    .otp-input {
+        margin-left: 279px;
+    }
+}
+
+.race {
+    font-size: 14px;
+    text-decoration: none !important;
+}
+
+#spin {
+    display: none;
+}
+
