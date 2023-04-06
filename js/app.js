@@ -295,6 +295,50 @@ function signIn(event) {
 }
 
 // function for dashboard api
+function dashboardApi() {
+    const getToken = localStorage.getItem("token");
+    const myToken = JSON.parse(getToken);
+
+
+    const dashHeader = new Headers();
+    dashHeader.append("Authorization", `Bearer ${myToken}`);
+
+    const dashReq = {
+        method: 'GET',
+        headers: dashHeader
+    };
+
+    const url = `${baseUrl}/api/user/dashboardapi`
+
+    fetch(url, dashReq)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        let removeBtn = document.querySelector(".sign-btn");
+        let formParent = document.querySelector(".form-inline");
+
+
+        if (result.user.hasOwnProperty("email")) {
+            removeBtn.style.display = "none"
+
+            const para = document.createElement("p");
+            para.innerHTML = `${result.user.name}`;
+            para.style.marginTop = "15px";
+            para.style.fontWeight = "800";
+            para.style.marginRight = "10px";
+            formParent.prepend(para);
+        }
+        else {
+
+            if (!localStorage.getItem("token")) {
+               removeBtn.style.display = "block";
+            }
+        }
+
+    })
+    .catch(error => console.log('error', error));
+}
+dashboardApi();
 
 function googleSignIn(event) {
     event.preventDefault();
