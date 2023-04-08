@@ -49,7 +49,7 @@
             </li>
           </ul>
           <form class="form-inline">
-            <button class="sign-btn mr-3" type="submit">Sign In</button>
+            <button class="sign-btn mr-3" type="submit" onclick="toLogin(event)">Sign In</button>
             <button class="get-btn" type="submit">Get Started</button>
           </form>
         </div>
@@ -64,7 +64,7 @@
       <div class="col-sm-12 col-md-12 col-lg-10">
         <button class="fold" onclick="getFold(event)">Wash & Fold</button>
         <button class="dry" onclick="getDry(event)">Dry Cleaning</button>
-        <button class="duvet" onclick="getDuve(event)">Duvet & Bed Covers</button>
+        <button class="duvet" onclick="getDuve(event)">Ironing</button>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
     </div>
@@ -186,7 +186,7 @@
           <div class="price-card">
             <div class="price-content text-center">
               <h5 class="text-light">One - time wash</h5>
-              <h4 class="wash"><sup>N</sup><span class="price">7000</span><sub>Per Bag</sub></h4>
+              <h4 class="wash"><sup>₦</sup><span class="price"></span><sub>Per Bag</sub></h4>
               <p class="wash">$834/yr</p>
             </div>
             <div class="price-card-body">
@@ -234,7 +234,7 @@
           <div class="price-card2">
             <div class="price-content text-center">
               <h5 class="text-light">Smart Wash</h5>
-              <h4 class="wash2"><sup>N</sup><span class="price">7000</span><sub>Per Bag</sub></h4>
+              <h4 class="wash2"><sup>₦</sup><span class="priceSmart"></span><sub>Per Bag</sub></h4>
               <p class="wash2">$834/yr</p>
             </div>
             <div class="price-card-body">
@@ -293,75 +293,24 @@
       <div class="col-sm-12 col-md-12 col-lg-10">
         <div class="dry-section">
           <div class="dry-card">
-            <div class="dry-card-header">
+            <div class="dry-card-header overlay">
               <p class="text-center">Tops</p>
             </div>
-            <div class="sam">
-              <div class="dry-item">
-                <p>Shirt</p>
-                <p>N 800</p>
-              </div>
-              <div class="dry-item">
-                <p>Polo</p>
-                <p>N 800</p>
-              </div>
-              <div class="dry-item">
-                <p>Suit</p>
-                <p>N 800</p>
-              </div>
-              <div class="dry-item">
-                <p>Jacket</p>
-                <p>N 800</p>
-              </div>
-              <div class="dry-item">
-                <p>Hoodie</p>
-                <p>N 800</p>
-              </div>
-            </div>
+            <div class="sam"></div>
           </div>
           <div class="dry-card">
             <div class="dry-card-header2">
               <p class="text-center">Trouser</p>
             </div>
-            <div class="dry-item">
-              <p>Long Jean</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Shorts</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Combat</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Track</p>
-              <p>N 800</p>
-            </div>
+            <div class="sam2"></div>
           </div>
           <div class="dry-card">
             <div class="dry-card-header3">
               <p class="text-center">Full Cloths</p>
             </div>
-            <div class="dry-item">
-              <p>Casual dress</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Up & down</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Full Suit</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Office wear</p>
-              <p>N 800</p>
-            </div>
+            <div class="sam3"></div>
           </div>
-          <div class="dry-card">
+          <!-- <div class="dry-card">
             <div class="dry-card-header4">
               <p class="text-center">Native Wears</p>
             </div>
@@ -385,31 +334,12 @@
               <p>Gele / Fila</p>
               <p>N 800</p>
             </div>
-          </div>
+          </div> -->
           <div class="dry-card">
             <div class="dry-card-header5">
-              <p class="text-center">Special Garment</p>
+              <p class="text-center">House hold</p>
             </div>
-            <div class="dry-item">
-              <p>Starched Cloth</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Warm water wash</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Stain removal</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Hand wash</p>
-              <p>N 800</p>
-            </div>
-            <div class="dry-item">
-              <p>Wash and Hang</p>
-              <p>N 800</p>
-            </div>
+            <div class="sam4"></div>
           </div>
         </div>
       </div>
@@ -432,11 +362,11 @@
       <div class="col-sm-12 col-md-12 col-lg-4">
         <div class="duvet-card">
           <div class="duvet-header">
-            <p class="text-center">Duvet & Bed Cover</p>
+            <p class="text-center">Ironing</p>
           </div>
           <div class="duvet-body">
             <p class="text-center">wash your duvet and beg cover for as<br> low as</p>
-            <h4 class="wash text-center"><sup>N</sup><span class="price">7000</span><sub>Per Bag</sub></h4>
+            <h4 class="wash text-center"><sup>₦</sup><span class="priceIron"></span><sub>Per Bag</sub></h4>
             <p class="wash mt-3 text-center">$ 834/yr</p>
             <div class="price-card-body">
               <p class="mb-4">Monthly subscription</p>
@@ -776,6 +706,8 @@
 
   <script src="../js/script.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/app.js"></script>
+
 
 
 

@@ -484,7 +484,7 @@ body {
 @media screen and (max-width: 650px) {
     .fold, .dry, .duvet {
         font-size: 15px;
-        padding: 5px 2px;
+        padding: 5px 14px;
     }
 
     .wash-img img {
@@ -539,7 +539,7 @@ body {
 .price-card2 {
     background: #00AEEF;
 }
-.price {
+.price, .priceSmart {
     font-weight: 800;
     font-size: 30px;
 }
@@ -700,7 +700,7 @@ body {
 }
 
 .dry-card-header, .dry-card-header2, .dry-card-header3, .dry-card-header4, .dry-card-header5, .duvet-header {
-    background: url(./assets/box.png) no-repeat center center /cover;
+    background: url(./assets/shirts.jpg) no-repeat center center /cover;
     font-weight: 700;
     color: #fff;
     font-size: 22px;
@@ -711,23 +711,23 @@ body {
 }
 
 .dry-card-header2 {
-    background: url(./assets/box.png) no-repeat center center /cover;
+    background: url(./assets/men2.webp) no-repeat center center /cover;
 }
 
 .dry-card-header3 {
-    background: url(./assets/fc.png) no-repeat center center /cover;
+    background: url(./assets/native.jpg) no-repeat center center /cover;
 }
 
 .dry-card-header4 {
-    background: url(./assets/sg.png) no-repeat center center /cover;
+    background: url(./assets/native.jpg) no-repeat center center /cover;
 }
 
 .dry-card-header5 {
-    background: url(./assets/nw.png) no-repeat center center /cover;
+    background: url(./assets/men4.webp) no-repeat center center /cover;
 }
 
 .duvet-header {
-    background: url(./assets/box.png) no-repeat center center /cover;
+    background: url(./assets/men3.webp) no-repeat center center /cover;
     padding: 30px;
     border-radius: 10px;
 }
@@ -757,7 +757,7 @@ body {
    flex: 0 0 315px;
    border-radius: 10px;
    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   margin: 0;
+   margin: 0 15px 35px;
    padding: 0;
 
 }

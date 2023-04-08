@@ -3,6 +3,11 @@ let baseUrl = "https://washsmart.onrender.com";
 document.cookie = "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=454924869328-m14q0u1deaca3b921vm69jevpth1tv1m.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fapi%2Fuser%2Fgoogle%2Fauth";
 let x = document.cookie;
 
+function toLogin(event) {
+    event.preventDefault();
+    location.href = "../pages/login.html"
+}
+
 function signup(event) {
     event.preventDefault();
 
@@ -321,12 +326,22 @@ function dashboardApi() {
         if (result.user.hasOwnProperty("email")) {
             removeBtn.style.display = "none"
 
+            const newDiv = document.createElement("div");
             const para = document.createElement("p");
+            const pImg = document.createElement("img");
+            pImg.src = "../assets/avatar.png"
+            pImg.style.height = "40px";
+            pImg.style.marginTop = "10px";
+            pImg.style.marginRight = "6px";
+            newDiv.style.marginTop = "30px;"
             para.innerHTML = `${result.user.name}`;
             para.style.marginTop = "15px";
             para.style.fontWeight = "800";
             para.style.marginRight = "10px";
-            formParent.prepend(para);
+            newDiv.style.display = "flex";
+            newDiv.appendChild(pImg);
+            newDiv.appendChild(para);
+            formParent.prepend(newDiv)
         }
         else {
 
@@ -346,14 +361,96 @@ function googleSignIn(event) {
 }
 
 function getPricing() {
-    var request = {
+    let request = {
         method: 'GET',
     };
+
+    let data = [];
+    let data2 = [];
+    let data3 = [];
+    let data4 = [];
+
+
+
 
     let url = `${baseUrl}/api/pricing/get_pricing`;
     fetch(url, request)
     .then(response => response.json())
-    .then(result => console.log(result))
+    .then(result => {
+        console.log(result)
+        const sam = document.querySelector(".sam");
+        const sam2 = document.querySelector(".sam2");
+        const sam3 = document.querySelector(".sam3");
+        const sam4 = document.querySelector(".sam4");
+
+
+        const getPrice = document.querySelector(".price");
+        const getPrice2 = document.querySelector(".priceSmart");
+        const getPriceIron = document.querySelector(".priceIron");
+
+
+        getPrice.innerHTML = `${result.wash_and_fold_one_time}`;
+        getPrice2.innerHTML = `${result.wash_and_fold_smart_wash}`;
+
+        getPriceIron.innerHTML = `${result.ironing}`;
+        
+
+
+        if (result.dry_cleaning.top) {
+            result.dry_cleaning.top.map((item) => {
+                data += `
+                <div class="dry-item">
+                    <p>${item.name}</p>
+                    <p>₦${item.pricing}</p>
+                </div>
+                `
+                sam.innerHTML = data;
+            })
+        }
+        if (result.dry_cleaning.bottom) {
+            result.dry_cleaning.bottom.map((item) => {
+                data2 += `
+                <div class="dry-item">
+                    <p>${item.name}</p>
+                    <p>₦${item.pricing}</p>
+                </div>
+                `
+                sam2.innerHTML = data2;
+            })
+            
+        }
+
+        if (result.dry_cleaning.full_body) {
+            result.dry_cleaning.full_body.map((item) => {
+                data3 += `
+                <div class="dry-item">
+                    <p>${item.name}</p>
+                    <p>₦${item.pricing}</p>
+                </div>
+                `
+                sam3.innerHTML = data3;
+            })
+            
+        }
+
+        if (result.dry_cleaning.house_hold) {
+            result.dry_cleaning.house_hold.map((item) => {
+                data4 += `
+                <div class="dry-item">
+                    <p>${item.name}</p>
+                    <p>₦${item.pricing}</p>
+                </div>
+                `
+                sam4.innerHTML = data4;
+            })
+            
+        }
+        else {
+            
+
+            
+        }
+    })
     .catch(error => console.log('error', error));
 
 }

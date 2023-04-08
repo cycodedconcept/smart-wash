@@ -100,7 +100,7 @@ function getDuve(event) {
     const getDuve = document.querySelector(".duvet");
 
 
-    getClash.innerHTML = `<span class='wash'>Duvet & </span> Bed Covers`;
+    getClash.innerHTML = `<span class='wash'>Ironing </span>`;
     getM1.innerHTML = "Smart wash offers you a special and unique service for your Duvets.";
     getM2.innerHTML = "Your duvet will be returned to you in compact packaging, ideal for carrying and storing bulky items, and will keep your duvet clean and fresh until you’re ready to use it. All these will be done for you at a very affordable price.";
     getM3.innerHTML = "";
