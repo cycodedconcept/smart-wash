@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smartwash | Login</title>
+    <title>Smartwash | Admin Email</title>
 
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -13,47 +13,33 @@
 
 </head>
 <body>
+    <div class="su-img text-center mt-5">
+        <img src="../assets/logo.png" alt="">
+    </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-3"></div>
-        <div class="col-sm-12 col-md-12 col-lg-6">
-            <div class="sign-img text-center mt-3">
-                <img src="../assets/logo.png" alt="" class="mt-3 mb-4">
-
-                <h5 class="mt-3">Login to your account</h5>
+        <div class="col-sm-12 col-md-12 col-lg-6 roc2">
+            <div class="sign-img text-center ml-2">
+                <h5 class="mt-3 mb-3">Forgot Password?</h5>
+                <p>
+                    Click on the button below
+                    to receive a<br> confirmation code.
+                </p>
             </div>
             
             <div class="sign-form mt-5">
                 <form>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Enter company email address</label>
-                      <input type="email" class="myInput form-control" id="email" placeholder="Johnsonduru@gmail.com">
+                    <div class="form-group mb-4">
+                        <label for="exampleInputPassword1">Enter company email address</label>
+                        <input type="email" class="myInput form-control" id="adminEmail" placeholder="John*******@g****.com">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="myInput form-control" id="password" placeholder="Enter password">
-                    </div>
-                    <!-- <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Remember password</label>
-                    </div> -->
-
-                    <a href="forgot.html" class="wash race">Forgot password</a>
-
-                    <button class="btn-sign mt-3" onclick="signIn(event)">
+                    <button class="btn-sign" onclick="getAdminEmail(event)">
                         <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
                             <span class="sr-only"></span>
                         </div>
-                        Log in
+                        Continue
                     </button>
                 </form>
-
-                
-                <p class="sign-text ml-5 mt-3">Don't have an account?  <a href="@"><b>Create a account</b></a></p>
-
-                <button class="btn-sign2 mb-5" onclick="googleSignIn(event)">Login with google  </button>
-
-
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-3"></div>
@@ -63,9 +49,6 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   <script src="../js/app.js"></script>
-
-
 </body>
 </html>
