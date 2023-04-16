@@ -1,7 +1,5 @@
 
 let baseUrl = "https://washsmart.onrender.com";
-// document.cookie = "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=454924869328-m14q0u1deaca3b921vm69jevpth1tv1m.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fapi%2Fuser%2Fgoogle%2Fauth";
-// let x = document.cookie;
 
 function toLogin(event) {
     event.preventDefault();
@@ -374,123 +372,216 @@ dashboardApi();
 
 
 
-// function getAdminEmail(event) {
-//     event.preventDefault();
+function getAdminEmail(event) {
+    event.preventDefault();
 
-//     const getSpin = document.querySelector("#spin");
-//     getSpin.style.display = "inline-block";
+    const getSpin = document.querySelector("#spin");
+    getSpin.style.display = "inline-block";
 
-//     const getEmail = document.getElementById("adminEmail").value;
+    const getEmail = document.getElementById("adminEmail").value;
+    if(getEmail === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'The email field is required!',
+            confirmButtonColor: '#00AEEF'
+        })
+    }
 
-//     const signReq = {
-//         method: 'GET',
-//     }
-
-//     let url = `${baseUrl}/api/user/sendotp/` + `${getEmail}`;
-//     fetch(url, signReq)
-//     .then(response => response.json())
-//     .then(result => {
-//         console.log(result)
-//         localStorage.setItem("userAdmin", JSON.stringify(result));
-//         if (result.message === "Email Sent") {
-//             location.href = `otp2.html?email=${getEmail}`
-//         }
-//         else {
-//             Swal.fire({
-//                 icon: 'info',
-//                 text: 'Unsuccessful please try again',
-//                 confirmButtonColor: '#00AEEF'
-//             })
-//             getspin.style.display = "none";
-//         }
-//     })
-//     .catch(error => {
-//         console.log('error', error)
-//         Swal.fire({
-//             icon: 'info',
-//             text: error,
-//             confirmButtonColor: '#00AEEF'
-//         })
-//         getspin.style.display = "none";
-//     });
+    else {
+        const signReq = {
+            method: 'GET',
+        }
     
-// }
+        let url = `${baseUrl}/api/user/sendotp/` + `${getEmail}`;
+        fetch(url, signReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            localStorage.setItem("userAdmin", JSON.stringify(result));
+            if (result.message === "Email Sent") {
+                location.href = `otp2.html?email=${getEmail}`
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Unsuccessful please try again',
+                    confirmButtonColor: '#00AEEF'
+                })
+                getSpin.style.display = "none";
+            }
+        })
+        .catch(error => {
+            console.log('error', error)
+            Swal.fire({
+                icon: 'info',
+                text: error,
+                confirmButtonColor: '#00AEEF'
+            })
+            getSpin.style.display = "none";
+        });
+    }
+}
 
-// function sendOtp(event) {
-//     event.preventDefault();
+function sendOtp(event) {
+    event.preventDefault();
 
-//     const getSpin = document.querySelector("#spin");
-//     getSpin.style.display = "inline-block";
+    const getSpin = document.querySelector("#spin");
+    getSpin.style.display = "inline-block";
 
-//     const fn = document.querySelector(".ba").value;
-//     const sn = document.querySelector(".ba2").value;
-//     const tn = document.querySelector(".ba3").value;
-//     const fon = document.querySelector(".ba4").value;
+    const fn = document.querySelector(".ba").value;
+    const sn = document.querySelector(".ba2").value;
+    const tn = document.querySelector(".ba3").value;
+    const fon = document.querySelector(".ba4").value;
 
-//     if (fn === "" || sn === "" || tn === "" || fon === "") {
-//         Swal.fire({
-//             icon: 'info',
-//             text: 'All fields are required!',
-//             confirmButtonColor: '#00AEEF'
-//         })
-//         getSpin.style.display = "none"
-//     }
+    if (fn === "" || sn === "" || tn === "" || fon === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required!',
+            confirmButtonColor: '#00AEEF'
+        })
+        getSpin.style.display = "none"
+    }
 
-//     else {
-//         const otp = fn + sn + tn + fon;
+    else {
+        const otp = fn + sn + tn + fon;
+        localStorage.setItem("otp", otp);
 
-//         const getHash = localStorage.getItem("userAdmin");
-//         const hashIt = JSON.parse(getHash);
-//         const hash = hashIt.encrypted_data;
+        const getHash = localStorage.getItem("userAdmin");
+        const hashIt = JSON.parse(getHash);
+        const hash = hashIt.encrypted_data;
 
-//         const getEmail = localStorage.getItem("dash");
-//         const hashEmail = JSON.parse(getEmail);
-//         const hash2 = hashEmail.email;
+        const getEmail = localStorage.getItem("dash");
+        const hashEmail = JSON.parse(getEmail);
+        const hash2 = hashEmail.user.email;
 
-//         const myHeaders = new Headers();
-//         myHeaders.append("Content-Type", "application/json");
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-//         const raw = JSON.stringify({
-//             "otp": otp,
-//             "hash": hash,
-//             "email": hash2
-//         });
+        const raw = JSON.stringify({
+            "otp": otp,
+            "hash": hash,
+            "email": hash2
+        });
 
-//         const otpReq = {
-//             method: 'POST',
-//             body: raw,
-//             headers: myHeaders
-//         }
+        const otpReq = {
+            method: 'POST',
+            body: raw,
+            headers: myHeaders
+        }
 
-//        const url = `${baseUrl}/api/user/verify-otp/`;
-//        fetch(url, otpReq)
-//        .then(response => response.json())
-//         .then(result => {
-//             console.log(result)
+       const url = `${baseUrl}/api/user/verify-otp/`;
+       fetch(url, otpReq)
+       .then(response => response.json())
+        .then(result => {
+            console.log(result)
 
-//             if (result.message === "Valid") {
-//                 location.href = "../pages/update_password_admin.html"
-//             }
-//             else {
-//                 Swal.fire({
-//                     icon: 'info',
-//                     text: 'Unsuccessful please try again',
-//                     confirmButtonColor: '#00AEEF'
-//                 })
-//                 getSpin.style.display = "none";
-//             }
-//         })
-//         .catch(error => {
-//             console.log('error', error)
-//             Swal.fire({
-//                 icon: 'info',
-//                 text: error,
-//                 confirmButtonColor: '#00AEEF'
-//             })
-//             getSpin.style.display = "none";
-//         });
-//     }
-// }
+            if (result.message === "Valid") {
+                location.href = "../pages/change_password.html"
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: `${result.message}`,
+                    confirmButtonColor: '#00AEEF'
+                })
+                getSpin.style.display = "none";
+            }
+        })
+        .catch(error => {
+            console.log('error', error)
+            Swal.fire({
+                icon: 'info',
+                text: error,
+                confirmButtonColor: '#00AEEF'
+            })
+            getSpin.style.display = "none";
+        });
+    }
+}
+
+
+function changePassword(event) {
+    event.preventDefault();
+
+    const getSpin = document.getElementById("spin");
+    getSpin.style.display = "inline-block";
+
+    const fpassword = document.getElementById("cpassword").value;
+
+    if (fpassword === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required!',
+            confirmButtonColor: '#00AEEF'
+        })
+        getSpin.style.display = "none";
+    }
+
+    else {
+
+        const getHash = localStorage.getItem("userAdmin");
+        const hashIt = JSON.parse(getHash);
+        const hash = hashIt.encrypted_data;
+
+        const getEmail = localStorage.getItem("dash");
+        const hashEmail = JSON.parse(getEmail);
+        const hash2 = hashEmail.user.email;
+
+        const myOtp = localStorage.getItem("otp");
+
+        const otpGet = JSON.stringify({
+            "otp": myOtp,
+            "hash": hash,
+            "password": fpassword,
+            "email": hash2
+        })
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const optReq = {
+            method: 'POST',
+            headers: myHeaders,
+            body: otpGet
+        }
+
+       const url = `${baseUrl}/api/user/forgot-password`;
+       fetch(url, optReq)
+       .then(response => response.json())
+       .then(result => {
+           console.log(result)
+           if (result.message === "Password updated") {
+               Swal.fire({
+                   icon: 'success',
+                   text: `${result.message}`,
+                   confirmButtonColor: '#00AEEF'
+               })
+               setTimeout(() => {
+                   location.href = "../pages/successpassword.html"
+               }, 3000)
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: `${result.message}`,
+                    confirmButtonColor: '#00AEEF'
+                })
+                getSpin.style.display = "none";
+            }
+        })
+       .catch(error => {
+           console.log('error', error)
+           Swal.fire({
+            icon: 'warning',
+            text: error,
+            confirmButtonColor: '#00AEEF'
+        })
+        getSpin.style.display = "none";
+       });
+
+    }
+
+}
 
 function updatePasswordAdmin(event) {
     event.preventDefault();
@@ -561,6 +652,103 @@ function googleSignIn(event) {
         location.href = `${result.message}`;
     })
     .catch(error => console.log('error', error));
+}
+
+function schedule(event) {
+    event.preventDefault();
+
+
+    const getPhone = localStorage.getItem("dash");
+    const myPhone = JSON.parse(getPhone);
+    const phone = myPhone.user.phone_number;
+
+    if (phone === "" || phone === null || phone === undefined) {
+       const getModal = document.getElementById("dash-modal");
+       getModal.style.display = "block";
+    }
+    else {
+        location.href = "../pages/plan.html"
+    }
+
+}
+
+// function to close modal
+function closeDashModal() {
+    const getModal = document.getElementById("dash-modal");
+    getModal.style.display = "none";
+}
+
+// function to update phone number
+function updatePhone(event) {
+    event.preventDefault();
+
+    const getSpin = document.getElementById("spin");
+    getSpin.style.display = "inline-block";
+
+    const phoneNumber = document.getElementById("phone").value;
+    console.log(phoneNumber)
+    if (phoneNumber === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'This field is required!',
+            confirmButtonColor: '#00AEEF'
+        })
+        getSpin.style.display = "none";
+    }
+
+    else {
+        const getToken = localStorage.getItem("token");
+        const theToken = JSON.parse(getToken);
+
+
+        const phoneHeader = new Headers();
+        phoneHeader.append("Authorization", `Bearer ${theToken}`);
+
+        const phoneData = JSON.stringify({
+            "phone_number": phoneNumber
+        })
+
+        const phoneReq = {
+            method: 'POST',
+            headers: phoneHeader,
+            body: phoneData
+        }
+
+        const url = `${baseUrl}/api/user/update-phonenumber`;
+        fetch(url, phoneReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            if (result.message === "phone-number updated") {
+                Swal.fire({
+                    icon: 'success',
+                    text: `${result.message}`,
+                    confirmButtonColor: '#00AEEF'
+                })
+                setTimeout(() => {
+                    location.href = "../pages/plan.html"
+                }, 3000)
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: `${result.message}`,
+                    confirmButtonColor: '#00AEEF'
+                })
+                getSpin.style.display = "none";
+            }
+        })
+        .catch(error => {
+            console.log('error', error)
+            Swal.fire({
+                icon: 'warning',
+                text: error,
+                confirmButtonColor: '#00AEEF'
+            })
+            getSpin.style.display = "none";
+        });
+
+    }
 }
 
 function getPricing() {

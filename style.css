@@ -1632,3 +1632,77 @@ label {
     display: none;
 }
 
+.mymodal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.modal-content {
+    margin: 10% auto;
+    width: 40% !important;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 2s;
+}
+
+@media screen and (max-width: 650px) {
+    .modal-content {
+        width: 100%;
+        margin: 50% auto;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .modal-content {
+        width: 100%;
+        margin: 50% auto;
+    }
+}
+  
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+    background: #2D85DE;
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-body {
+    padding: 10px 20px;
+}
+
+
+.close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+    color: #fff;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+}
