@@ -860,7 +860,7 @@
   <div id="dash-modal" class="mymodal">
     <div class="modal-content">
         <div class="modal-header">
-         <h2>Update phone number</h2>
+         <h4>Update phone number</h4>
             <span class="close" onclick="closeDashModal()">&times;</span>
         </div>
         <div class="modal-body">
@@ -868,7 +868,7 @@
             <div class="form-group">
               <center>
                 <input type="tel" class="myInput form-control" id="phone" placeholder="Enter Phone number">
-                <button class="btn-sign mt-3" onclick="updatePhone(event)">
+                <button class="btn-sign3 mt-3" onclick="updatePhone(event)">
                   <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
                       <span class="sr-only"></span>
                   </div>
@@ -879,7 +879,39 @@
           </form>
         </div>
     </div>
-</div>
+  </div>
+
+  <div id="loc-modal" class="mymodal">
+    <div class="modal-content">
+        <div class="modal-header2">
+            <span class="close2" onclick="xclose()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-center">Give us your Location </h5>
+          <p class="text-center">
+            Kindly fill the form below with your appropriate<br> 
+            details so we will come pick-up your laundry.
+          </p>
+          <form class="omadi">
+            <div class="form-group">
+              <!-- <label for="state">choose state</label>
+                <select class="myInput myInput2">
+                  <option>Pick-up state</option>
+                </select> -->
+                <label for="address">Enter Address</label>
+                <input type="text" class="myInput2 form-control" id="phone" placeholder="Enter Pick-up address">
+
+                <button class="btn-sign4 mt-3" onclick="updatePhone(event)">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
+                      <span class="sr-only"></span>
+                  </div>
+                  Countinue
+              </button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
     
 
   <!-- jquery & javascript cdn -->

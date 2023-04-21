@@ -657,17 +657,29 @@ function googleSignIn(event) {
 function schedule(event) {
     event.preventDefault();
 
-
-    const getPhone = localStorage.getItem("dash");
-    const myPhone = JSON.parse(getPhone);
-    const phone = myPhone.user.phone_number;
-
-    if (phone === "" || phone === null || phone === undefined) {
-       const getModal = document.getElementById("dash-modal");
-       getModal.style.display = "block";
-    }
-    else {
-        location.href = "../pages/plan.html"
+    if (localStorage.getItem("dash")) {
+        const getDash = localStorage.getItem("dash");
+        const myMess = JSON.parse(getDash);
+        const viewMe = myMess.message;
+        
+        if (viewMe) {
+            location.href = "../pages/login.html"
+        }
+        else {
+            const getPhone = localStorage.getItem("dash");
+            const myPhone = JSON.parse(getPhone);
+            const phone = myPhone.user.phone_number;
+    
+            if (phone === "" || phone === null || phone === undefined) {
+                const getModal = document.getElementById("dash-modal");
+                getModal.style.display = "block";
+            }
+         
+            else {
+                const locationModal = document.getElementById("loc-modal");
+                locationModal.style.display = "block"
+            }
+        }
     }
 
 }
@@ -675,6 +687,11 @@ function schedule(event) {
 // function to close modal
 function closeDashModal() {
     const getModal = document.getElementById("dash-modal");
+    getModal.style.display = "none";
+}
+
+function xclose() {
+    const getModal = document.getElementById("loc-modal");
     getModal.style.display = "none";
 }
 
@@ -760,6 +777,8 @@ function getPricing() {
     let data2 = [];
     let data3 = [];
     let data4 = [];
+    let data5 = [];
+
 
 
 
@@ -773,6 +792,8 @@ function getPricing() {
         const sam2 = document.querySelector(".sam2");
         const sam3 = document.querySelector(".sam3");
         const sam4 = document.querySelector(".sam4");
+        const sam5 = document.querySelector(".sam5");
+
 
 
         const getPrice = document.querySelector(".price");
@@ -836,6 +857,19 @@ function getPricing() {
             })
             
         }
+
+        if (result.dry_cleaning.native_wear) {
+            result.dry_cleaning.native_wear.map((item) => {
+                data5 += `
+                <div class="dry-item">
+                    <p>${item.name}</p>
+                    <p>₦${item.pricing}</p>
+                </div>
+                `
+                sam5.innerHTML = data5;
+            })
+            
+        }
         else {
             
 
@@ -847,4 +881,40 @@ function getPricing() {
 }
 getPricing();
 
+function showOthers(event) {
+    const getDiv = document.querySelector(".odana");
+    const getOz = document.querySelector(".oz");
+    const getPlan = document.querySelector(".plan1");
+    const getPlan2 = document.querySelector(".plan2");
+    const getPlan3 = document.querySelector(".plan3");
+    const getPlan4 = document.querySelector(".plan4");
 
+
+
+    if (event.target.checked) {
+
+        getDiv.style.display = "block";
+        getOz.style.display = "block";
+
+        getPlan.style.border = "1px solid #00AEEF";
+        getPlan2.style.border = "1px solid #00AEEF";
+        getPlan3.style.border = "1px solid #00AEEF";
+        getPlan4.style.border = "1px solid #00AEEF";
+
+
+        getDiv.style.borderRadius = "10px";
+
+    }
+    
+    
+}
+
+function removeDrop(event) {
+    const getDiv = document.querySelector(".odana");
+    const getOz = document.querySelector(".oz");
+
+    if (event.target.checked) {
+        getDiv.style.display = "none";
+        getOz.style.display = "none";
+    }
+}
