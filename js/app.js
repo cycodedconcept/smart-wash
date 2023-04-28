@@ -788,6 +788,7 @@ function getPricing() {
     .then(response => response.json())
     .then(result => {
         console.log(result)
+        localStorage.setItem("price", JSON.stringify(result))
         const sam = document.querySelector(".sam");
         const sam2 = document.querySelector(".sam2");
         const sam3 = document.querySelector(".sam3");
@@ -881,6 +882,269 @@ function getPricing() {
 }
 getPricing();
 
+
+
+
+function topWears() {
+    const realDiv = document.querySelector(".show-details");
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    let topData = []
+
+    if (topIt.length === 0) {
+        realDiv.innerHTML = "No records found!";
+    }
+    else {
+        topIt.dry_cleaning.top.map((item) => {
+            topData +=`
+            <div class="p-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-5">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="" for="exampleCheck1">${item.name}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <div>
+                          <p id="pr">₦${item.pricing}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div>
+                        <input type="button" class="turn" onclick="increaseQty(${item.id}, ${item.pricing})" value="+">
+                        <input type="text" class="qty" value="1" disabled id="${item.id}">
+                        <button type="button" class="turn" onclick="decreaseQty(${item.id}, ${item.pricing})">-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+            realDiv.innerHTML = topData;
+            realDiv.style.display = "block";
+        })
+    }
+}
+
+function bottomWears() {
+    const realDiv = document.querySelector(".show-details");
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    let topData = []
+
+    if (topIt.length === 0) {
+        realDiv.innerHTML = "No records found!";
+    }
+    else {
+        topIt.dry_cleaning.bottom.map((item) => {
+            topData +=`
+            <div class="p-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-5">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="" for="exampleCheck1">${item.name}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <div>
+                        <p>₦${item.pricing}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div>
+                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
+                    <input type="text" class="qty" value="1" disabled id="${item.id}">
+                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            `
+            realDiv.innerHTML = topData;
+            realDiv.style.display = "block";
+        })
+    }
+
+}
+
+function fullBodyWears() {
+    const realDiv = document.querySelector(".show-details");
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    let topData = []
+
+    if (topIt.length === 0) {
+        realDiv.innerHTML = "No records found!";
+    }
+    else {
+        topIt.dry_cleaning.full_body.map((item) => {
+            topData +=`
+            <div class="p-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-5">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="" for="exampleCheck1">${item.name}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <div>
+                        <p>₦${item.pricing}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div>
+                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
+                    <input type="text" class="qty" value="1" disabled id="${item.id}">
+                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            `
+            realDiv.innerHTML = topData;
+            realDiv.style.display = "block";
+        })
+    }
+
+}
+function houseHold() {
+    const realDiv = document.querySelector(".show-details");
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    let topData = []
+
+    if (topIt.length === 0) {
+        realDiv.innerHTML = "No records found!";
+    }
+    else {
+        topIt.dry_cleaning.house_hold.map((item) => {
+            topData +=`
+            <div class="p-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-5">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="" for="exampleCheck1">${item.name}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <div>
+                        <p>₦${item.pricing}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div>
+                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
+                    <input type="text" class="qty" value="1" disabled id="${item.id}">
+                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            `
+            realDiv.innerHTML = topData;
+            realDiv.style.display = "block";
+        })
+    }
+
+}
+function nativeWears() {
+    const realDiv = document.querySelector(".show-details");
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    let topData = []
+
+    if (topIt.length === 0) {
+        realDiv.innerHTML = "No records found!";
+    }
+    else {
+        topIt.dry_cleaning.native_wear.map((item) => {
+            topData +=`
+            <div class="p-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-5">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="" for="exampleCheck1">${item.name}</label>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <div>
+                        <p>₦${item.pricing}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div>
+                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
+                    <input type="text" class="qty" value="1" disabled id="${item.id}">
+                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            `
+            realDiv.innerHTML = topData;
+            realDiv.style.display = "block";
+        })
+    }
+
+}
+
+function increaseQty(main, price){
+    let newPrice;
+    let getPrice = parseInt(price);
+    const gain = main.getAttribute("id");
+    let foni = document.getElementById(gain);
+
+    let myPrice = document.getElementById("pr");
+
+    let val = foni.value;
+    if (val) {
+        val++;
+        newPrice = getPrice * val;
+        foni.value = val;
+        myPrice.innerHTML = `₦${newPrice}`;
+    }
+    
+}
+
+function decreaseQty(main, price){
+    let newPrice;
+    let getPrice = parseInt(price);
+    const gain = main.getAttribute("id");
+    let foni = document.getElementById(gain);
+
+    let myPrice = document.getElementById("pr");
+
+    let val = foni.value;
+    
+
+    if (val > 1) {
+        val--;
+        newPrice = getPrice - val;
+        foni.value = val;
+        myPrice.innerHTML = `₦${newPrice}`;
+    }
+}
+
+// function decreaseQty(main){
+//     const gain = main.getAttribute("id");
+//     let foni = document.getElementById(gain);
+//     let val = foni.value;
+    
+
+//     if (val > 1) {
+//         val--;
+//         foni.value = val;
+//     }
+// }
+
+
+
+
+
 function showOthers(event) {
     const getDiv = document.querySelector(".odana");
     const getOz = document.querySelector(".oz");
@@ -918,3 +1182,5 @@ function removeDrop(event) {
         getOz.style.display = "none";
     }
 }
+
+
