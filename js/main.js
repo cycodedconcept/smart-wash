@@ -172,6 +172,7 @@ const dubem = theprice.dry_cleaning.top[0].pricing;
 const dubem2 = theprice.dry_cleaning.top[1].pricing;
 const dubem3 = theprice.dry_cleaning.top[2].pricing;
 const dubem4 = theprice.dry_cleaning.top[3].pricing;
+
 const dubem5 = theprice.dry_cleaning.bottom[0].pricing;
 const dubem6 = theprice.dry_cleaning.bottom[1].pricing;
 const dubem7 = theprice.dry_cleaning.bottom[2].pricing;
@@ -184,11 +185,30 @@ const dubem13 = theprice.dry_cleaning.native_wear[0].pricing;
 const dubem14 = theprice.dry_cleaning.native_wear[1].pricing;
 const dubem15 = theprice.dry_cleaning.native_wear[2].pricing;
 
+// for ironing
+const idubem = theprice.ironing.top[0].pricing;
+const idubem2 = theprice.ironing.top[1].pricing;
+const idubem3 = theprice.ironing.top[2].pricing;
+const idubem4 = theprice.ironing.top[3].pricing;
+
+const idubem5 = theprice.ironing.bottom[0].pricing;
+const idubem6 = theprice.ironing.bottom[1].pricing;
+const idubem7 = theprice.ironing.bottom[2].pricing;
+
+const idubem8 = theprice.ironing.full_body[0].pricing;
+const idubem9 = theprice.ironing.full_body[1].pricing;
+const idubem10 = theprice.ironing.full_body[2].pricing;
+
+const idubem13 = theprice.ironing.native_wear[0].pricing;
+const idubem14 = theprice.ironing.native_wear[1].pricing;
+const idubem15 = theprice.ironing.native_wear[2].pricing;
 
 
 
 
 let valueCount = 1;
+
+// for dry cleaning
 let btnin = document.querySelector(".btnin");
 let btnde = document.querySelector(".btnde");
 let count = document.querySelector("#quantity");
@@ -264,7 +284,82 @@ let btnde15 = document.querySelector(".btnde15");
 let count15 = document.querySelector("#quantity15");
 let toptea15 = document.querySelector("#agbadaprice");
 
-// for top
+
+
+
+
+
+// for ironing
+let ibtnin = document.querySelector(".ibtnin");
+let ibtnde = document.querySelector(".ibtnde");
+let icount = document.querySelector("#iquantity");
+let itoptea = document.querySelector("#itop");
+
+let ibtnin2 = document.querySelector(".ibtnin2");
+let ibtnde2 = document.querySelector(".ibtnde2");
+let icount2 = document.querySelector("#iquantity2");
+let itoptea2 = document.querySelector("#itop2");
+
+let ibtnin3 = document.querySelector(".ibtnin3");
+let ibtnde3 = document.querySelector(".ibtnde3");
+let icount3 = document.querySelector("#iquantity3");
+let itoptea3 = document.querySelector("#itop3");
+
+let ibtnin4 = document.querySelector(".ibtnin4");
+let ibtnde4 = document.querySelector(".ibtnde4");
+let icount4 = document.querySelector("#iquantity4");
+let itoptea4 = document.querySelector("#itop4");
+
+let ibtnin5 = document.querySelector(".ibtnin5");
+let ibtnde5 = document.querySelector(".ibtnde5");
+let icount5 = document.querySelector("#iquantity5");
+let itoptea5 = document.querySelector("#ipantprice");
+
+let ibtnin6 = document.querySelector(".ibtnin6");
+let ibtnde6 = document.querySelector(".ibtnde6");
+let icount6 = document.querySelector("#iquantity6");
+let itoptea6 = document.querySelector("#iskirtprice");
+
+let ibtnin7 = document.querySelector(".ibtnin7");
+let ibtnde7 = document.querySelector(".ibtnde7");
+let icount7 = document.querySelector("#iquantity7");
+let itoptea7 = document.querySelector("#ishortprice");
+
+let ibtnin8 = document.querySelector(".ibtnin8");
+let ibtnde8 = document.querySelector(".ibtnde8");
+let icount8 = document.querySelector("#iquantity8");
+let itoptea8 = document.querySelector("#icasualprice");
+
+let ibtnin9 = document.querySelector(".ibtnin9");
+let ibtnde9 = document.querySelector(".ibtnde9");
+let icount9 = document.querySelector("#iquantity9");
+let itoptea9 = document.querySelector("#iformalprice");
+
+let ibtnin10 = document.querySelector(".ibtnin10");
+let ibtnde10 = document.querySelector(".ibtnde10");
+let icount10 = document.querySelector("#iquantity10");
+let itoptea10 = document.querySelector("#icoatprice");
+
+let ibtnin13 = document.querySelector(".ibtnin13");
+let ibtnde13 = document.querySelector(".ibtnde13");
+let icount13 = document.querySelector("#iquantity13");
+let itoptea13 = document.querySelector("#iankaraprice");
+
+let ibtnin14 = document.querySelector(".ibtnin14");
+let ibtnde14 = document.querySelector(".ibtnde14");
+let icount14 = document.querySelector("#iquantity14");
+let itoptea14 = document.querySelector("#ilaceprice");
+
+let ibtnin15 = document.querySelector(".ibtnin15");
+let ibtnde15 = document.querySelector(".ibtnde15");
+let icount15 = document.querySelector("#iquantity15");
+let itoptea15 = document.querySelector("#iagbadaprice");
+
+
+
+
+
+// for dry cleaning top
 btnin.addEventListener("click", () => {
     let add = valueCount++;
     count.value = add;
@@ -488,5 +583,209 @@ btnde15.addEventListener("click", () => {
         let sub = --valueCount;
         count15.value = sub;
         toptea15.innerHTML = `₦${sub * dubem15}`;
+    }
+})
+
+
+
+
+
+
+
+
+// for ironing 
+ibtnin.addEventListener("click", () => {
+    let add = valueCount++;
+    icount.value = add;
+    itoptea.innerHTML = `₦${add * idubem}`;
+})
+
+ibtnde.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount.value = sub;
+        itoptea.innerHTML = `₦${sub * idubem}`;
+    }
+})
+
+// for polo
+
+ibtnin2.addEventListener("click", () => {
+    let add = valueCount++;
+    icount2.value = add;
+    itoptea2.innerHTML = `₦${add * idubem2}`;
+})
+
+ibtnde2.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount2.value = sub;
+        itoptea2.innerHTML = `₦${sub * idubem2}`;
+    }
+})
+
+// for sweater
+ibtnin3.addEventListener("click", () => {
+    let add = valueCount++;
+    icount3.value = add;
+    itoptea3.innerHTML = `₦${add * idubem3}`;
+})
+
+ibtnde3.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount3.value = sub;
+        itoptea3.innerHTML = `₦${sub * idubem3}`;
+    }
+})
+
+// for jacket/blazer
+
+ibtnin4.addEventListener("click", () => {
+    let add = valueCount++;
+    icount4.value = add;
+    itoptea4.innerHTML = `₦${add * idubem4}`;
+})
+
+ibtnde4.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount4.value = sub;
+        itoptea4.innerHTML = `₦${sub * idubem4}`;
+    }
+})
+
+// for pants
+ibtnin5.addEventListener("click", () => {
+    let add = valueCount++;
+    icount5.value = add;
+    itoptea5.innerHTML = `₦${add * idubem5}`;
+})
+
+ibtnde5.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount5.value = sub;
+        itoptea5.innerHTML = `₦${sub * idubem5}`;
+    }
+})
+
+// for skirt
+ibtnin6.addEventListener("click", () => {
+    let add = valueCount++;
+    icount6.value = add;
+    itoptea6.innerHTML = `₦${add * idubem6}`;
+})
+
+ibtnde6.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount6.value = sub;
+        itoptea6.innerHTML = `₦${sub * idubem6}`;
+    }
+})
+
+// for shorts
+ibtnin7.addEventListener("click", () => {
+    let add = valueCount++;
+    icount7.value = add;
+    itoptea7.innerHTML = `₦${add * idubem7}`;
+})
+
+ibtnde7.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount7.value = sub;
+        itoptea7.innerHTML = `₦${sub * idubem7}`;
+    }
+})
+
+// for casual
+ibtnin8.addEventListener("click", () => {
+    let add = valueCount++;
+    icount8.value = add;
+    itoptea8.innerHTML = `₦${add * idubem8}`;
+})
+
+ibtnde8.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount8.value = sub;
+        itoptea8.innerHTML = `₦${sub * idubem8}`;
+    }
+})
+
+// for formal
+ibtnin9.addEventListener("click", () => {
+    let add = valueCount++;
+    icount9.value = add;
+    itoptea9.innerHTML = `₦${add * idubem9}`;
+})
+
+ibtnde9.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount9.value = sub;
+        itoptea9.innerHTML = `₦${sub * idubem9}`;
+    }
+})
+
+// for coat
+ibtnin10.addEventListener("click", () => {
+    let add = valueCount++;
+    icount10.value = add;
+    itoptea10.innerHTML = `₦${add * idubem10}`;
+})
+
+ibtnde10.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount10.value = sub;
+        itoptea10.innerHTML = `₦${sub * idubem10}`;
+    }
+})
+
+// for ankara
+ibtnin13.addEventListener("click", () => {
+    let add = valueCount++;
+    icount13.value = add;
+    itoptea13.innerHTML = `₦${add * idubem13}`;
+})
+
+ibtnde13.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount13.value = sub;
+        itoptea13.innerHTML = `₦${sub * idubem13}`;
+    }
+})
+
+// for lace
+ibtnin14.addEventListener("click", () => {
+    let add = valueCount++;
+    icount14.value = add;
+    itoptea14.innerHTML = `₦${add * idubem14}`;
+})
+
+ibtnde14.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount14.value = sub;
+        itoptea14.innerHTML = `₦${sub * idubem14}`;
+    }
+})
+
+// for agbada
+ibtnin15.addEventListener("click", () => {
+    let add = valueCount++;
+    icount15.value = add;
+    itoptea15.innerHTML = `₦${add * idubem15}`;
+})
+
+ibtnde15.addEventListener("click", () => {
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        icount15.value = sub;
+        itoptea15.innerHTML = `₦${sub * idubem15}`;
     }
 })

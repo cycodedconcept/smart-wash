@@ -1209,8 +1209,36 @@ function nativeWears1() {
 }
 
 
+function getValue(item1, item2) {
+
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item1");
+    const fitem2 = document.getElementById("item2");
+
+    if (item1 === fitem) {
+        return console.log(fitem.value = theprice.dry_cleaning.top[0].name);
+    }
+
+    if(item2 === fitem2) {
+        console.log(fitem2.value = theprice.dry_cleaning.top[1].name);
+    }
+}
 
 
+// function calValues(event) {
+//     event.preventDefault();
+
+//     const getPrice = localStorage.getItem("price");
+//     const theprice = JSON.parse(getPrice);
+
+//     const getShirt = document.getElementById("item1");
+//     getShirt.value = theprice.dry_cleaning.top[0].name;
+//     const b = getShirt.value;
+//     console.log(b)
+
+// }
 
 
 
