@@ -28,7 +28,7 @@ body {
     font-size: 14px;
     background: #fff;
     font-weight: 600;
-    display: block;
+    display: inline-block;
 }
 
 .turn {
@@ -1256,8 +1256,8 @@ body {
 .plan-item, .plan-check {
     display: flex;
     justify-content: space-between;
-    /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
-    border: 2px solid #C4C4C4;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
 
     padding: 20px;
     border-radius: 10px;
@@ -1301,7 +1301,7 @@ body {
 .one-nine {
     border: 0;
     border-right: 1px solid #87c6f0;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .plan-item2 {
@@ -1962,7 +1962,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .show-details {
-    display: none;
+    /* display: none; */
     animation-name: modalopen;
     animation-duration: 2s;
 }
@@ -1992,3 +1992,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
+
+.top, .bottom, .fullbody, .houseHold, .nativeWear, .top2, .bottom2, .fullbody2, .nativeWear2 {
+    display: none;
+}
+

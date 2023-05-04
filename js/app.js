@@ -886,260 +886,329 @@ getPricing();
 
 
 function topWears() {
-    const realDiv = document.querySelector(".show-details");
 
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
+    const shirt = document.getElementById("shirt");
+    const topPrice1 = document.getElementById("top1")
+    const shirt2 = document.getElementById("shirt2");
+    const topPrice2 = document.getElementById("top2")
+    const shirt3 = document.getElementById("shirt3");
+    const topPrice3 = document.getElementById("top3")
+    const shirt4 = document.getElementById("shirt4");
+    const topPrice4 = document.getElementById("top4");
 
-    let topData = []
 
-    if (topIt.length === 0) {
-        realDiv.innerHTML = "No records found!";
-    }
-    else {
-        topIt.dry_cleaning.top.map((item) => {
-            topData +=`
-            <div class="p-3">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-5">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="" for="exampleCheck1">${item.name}</label>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                          <p id="pr">₦${item.pricing}</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                        <div>
-                        <input type="button" class="turn" onclick="increaseQty(${item.id}, ${item.pricing})" value="+">
-                        <input type="text" class="qty" value="1" disabled id="${item.id}">
-                        <button type="button" class="turn" onclick="decreaseQty(${item.id}, ${item.pricing})">-</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `
-            realDiv.innerHTML = topData;
-            realDiv.style.display = "block";
-        })
-    }
+    const top = document.querySelector(".top");
+    const bottom = document.querySelector(".bottom");
+    const fullbody = document.querySelector(".fullbody");
+    const household = document.querySelector(".houseHold");
+    const nativewear = document.querySelector(".nativeWear");
+
+
+    shirt.innerHTML = topIt.dry_cleaning.top[0].name;
+    topPrice1.innerHTML = "₦" + topIt.dry_cleaning.top[0].pricing;
+
+    shirt2.innerHTML = topIt.dry_cleaning.top[1].name;
+    topPrice2.innerHTML = "₦" + topIt.dry_cleaning.top[1].pricing;
+
+    shirt3.innerHTML = topIt.dry_cleaning.top[2].name;
+    topPrice3.innerHTML = "₦" + topIt.dry_cleaning.top[2].pricing;
+
+    shirt4.innerHTML = topIt.dry_cleaning.top[3].name;
+    topPrice4.innerHTML = "₦" + topIt.dry_cleaning.top[3].pricing;
+
+    top.style.display = "block";
+    bottom.style.display = "none";
+    fullbody.style.display = "none";
+    household.style.display = "none";
+    nativewear.style.display = "none";
+
+
 }
 
 function bottomWears() {
-    const realDiv = document.querySelector(".show-details");
-
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    let topData = []
+    const pants = document.getElementById("pants");
+    const pantprice = document.getElementById("pantprice")
+    const skirt = document.getElementById("skirt");
+    const skirtprice = document.getElementById("skirtprice")
+    const shorts = document.getElementById("shorts");
+    const shortprice = document.getElementById("shortprice");
 
-    if (topIt.length === 0) {
-        realDiv.innerHTML = "No records found!";
-    }
-    else {
-        topIt.dry_cleaning.bottom.map((item) => {
-            topData +=`
-            <div class="p-3">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-5">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="" for="exampleCheck1">${item.name}</label>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                        <p>₦${item.pricing}</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                    <div>
-                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
-                    <input type="text" class="qty" value="1" disabled id="${item.id}">
-                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            `
-            realDiv.innerHTML = topData;
-            realDiv.style.display = "block";
-        })
-    }
+    const bottom = document.querySelector(".bottom");
+    const top = document.querySelector(".top");
+    const fullbody = document.querySelector(".fullbody");
+    const household = document.querySelector(".houseHold");
+    const nativewear = document.querySelector(".nativeWear");
 
+
+    
+
+    pants.innerHTML = topIt.dry_cleaning.bottom[0].name;
+    pantprice.innerHTML = "₦" + topIt.dry_cleaning.bottom[0].pricing;
+
+    skirt.innerHTML = topIt.dry_cleaning.bottom[1].name;
+    skirtprice.innerHTML = "₦" + topIt.dry_cleaning.bottom[1].pricing;
+
+    shorts.innerHTML = topIt.dry_cleaning.bottom[2].name;
+    shortprice.innerHTML = "₦" + topIt.dry_cleaning.bottom[2].pricing;
+
+    bottom.style.display = "block";
+    top.style.display = "none";
+    fullbody.style.display = "none";
+    household.style.display = "none";
+    nativewear.style.display = "none";
 }
 
 function fullBodyWears() {
-    const realDiv = document.querySelector(".show-details");
-
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    let topData = []
+    const casual = document.getElementById("casual");
+    const casualprice = document.getElementById("casualprice")
+    const formal = document.getElementById("formal");
+    const formalprice = document.getElementById("formalprice")
+    const coat = document.getElementById("coat");
+    const coatprice = document.getElementById("coatprice");
 
-    if (topIt.length === 0) {
-        realDiv.innerHTML = "No records found!";
-    }
-    else {
-        topIt.dry_cleaning.full_body.map((item) => {
-            topData +=`
-            <div class="p-3">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-5">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="" for="exampleCheck1">${item.name}</label>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                        <p>₦${item.pricing}</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                    <div>
-                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
-                    <input type="text" class="qty" value="1" disabled id="${item.id}">
-                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            `
-            realDiv.innerHTML = topData;
-            realDiv.style.display = "block";
-        })
-    }
+    const bottom = document.querySelector(".bottom");
+    const top = document.querySelector(".top");
+    const fullbody = document.querySelector(".fullbody");
+    const household = document.querySelector(".houseHold");
+    const nativewear = document.querySelector(".nativeWear");
+    
+
+    casual.innerHTML = topIt.dry_cleaning.full_body[0].name;
+    casualprice.innerHTML = "₦" + topIt.dry_cleaning.full_body[0].pricing;
+
+    formal.innerHTML = topIt.dry_cleaning.full_body[1].name;
+    formalprice.innerHTML = "₦" + topIt.dry_cleaning.full_body[1].pricing;
+
+    coat.innerHTML = topIt.dry_cleaning.full_body[2].name;
+    coatprice.innerHTML = "₦" + topIt.dry_cleaning.full_body[2].pricing;
+
+    bottom.style.display = "none";
+    top.style.display = "none";
+    fullbody.style.display = "block";
+    household.style.display = "none";
+    nativewear.style.display = "none";
 
 }
+
 function houseHold() {
-    const realDiv = document.querySelector(".show-details");
-
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    let topData = []
+    const duvet = document.getElementById("duvet");
+    const duvetprice = document.getElementById("duveprice")
+    const sheet = document.getElementById("sheets");
+    const sheetprice = document.getElementById("sheetprice");
 
-    if (topIt.length === 0) {
-        realDiv.innerHTML = "No records found!";
-    }
-    else {
-        topIt.dry_cleaning.house_hold.map((item) => {
-            topData +=`
-            <div class="p-3">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-5">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="" for="exampleCheck1">${item.name}</label>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                        <p>₦${item.pricing}</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                    <div>
-                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
-                    <input type="text" class="qty" value="1" disabled id="${item.id}">
-                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            `
-            realDiv.innerHTML = topData;
-            realDiv.style.display = "block";
-        })
-    }
+    const bottom = document.querySelector(".bottom");
+    const top = document.querySelector(".top");
+    const fullbody = document.querySelector(".fullbody");
+    const household = document.querySelector(".houseHold");
+    const nativewear = document.querySelector(".nativeWear");
+    
 
+    duvet.innerHTML = topIt.dry_cleaning.house_hold[0].name;
+    duvetprice.innerHTML = "₦" + topIt.dry_cleaning.house_hold[0].pricing;
+
+    sheet.innerHTML = topIt.dry_cleaning.house_hold[1].name;
+    sheetprice.innerHTML = "₦" + topIt.dry_cleaning.house_hold[1].pricing;
+
+    bottom.style.display = "none";
+    top.style.display = "none";
+    fullbody.style.display = "none";
+    household.style.display = "block";
+    nativewear.style.display = "none";
 }
+
 function nativeWears() {
-    const realDiv = document.querySelector(".show-details");
 
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    let topData = []
+    const ankara = document.getElementById("ankara");
+    const ankaraprice = document.getElementById("ankaraprice")
+    const lace = document.getElementById("lace");
+    const laceprice = document.getElementById("laceprice");
+    const agbada = document.getElementById("agbada");
+    const agbadaprice = document.getElementById("agbadaprice");
+    
+    const bottom = document.querySelector(".bottom");
+    const top = document.querySelector(".top");
+    const fullbody = document.querySelector(".fullbody");
+    const household = document.querySelector(".houseHold");
+    const nativewear = document.querySelector(".nativeWear");
 
-    if (topIt.length === 0) {
-        realDiv.innerHTML = "No records found!";
-    }
-    else {
-        topIt.dry_cleaning.native_wear.map((item) => {
-            topData +=`
-            <div class="p-3">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-5">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="" for="exampleCheck1">${item.name}</label>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                        <p>₦${item.pricing}</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                    <div>
-                    <input type="button" class="turn" onclick="increaseQty(${item.id})" value="+">
-                    <input type="text" class="qty" value="1" disabled id="${item.id}">
-                    <button type="button" class="turn" onclick="decreaseQty(${item.id})">-</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            `
-            realDiv.innerHTML = topData;
-            realDiv.style.display = "block";
-        })
-    }
+    ankara.innerHTML = topIt.dry_cleaning.native_wear[0].name;
+    ankaraprice.innerHTML = "₦" + topIt.dry_cleaning.native_wear[0].pricing;
+
+    lace.innerHTML = topIt.dry_cleaning.native_wear[1].name;
+    laceprice.innerHTML = "₦" + topIt.dry_cleaning.native_wear[1].pricing;
+
+    agbada.innerHTML = topIt.dry_cleaning.native_wear[2].name;
+    agbadaprice.innerHTML = "₦" + topIt.dry_cleaning.native_wear[2].pricing;
+
+    bottom.style.display = "none";
+    top.style.display = "none";
+    fullbody.style.display = "none";
+    household.style.display = "none";
+    nativewear.style.display = "block";
+
 
 }
 
-function increaseQty(main, price){
-    let newPrice;
-    let getPrice = parseInt(price);
-    const gain = main.getAttribute("id");
-    let foni = document.getElementById(gain);
 
-    let myPrice = document.getElementById("pr");
+// ironing starts here
+function topWears1() {
 
-    let val = foni.value;
-    if (val) {
-        val++;
-        newPrice = getPrice * val;
-        foni.value = val;
-        myPrice.innerHTML = `₦${newPrice}`;
-    }
-    
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const shirt = document.getElementById("ishirt");
+    const topPrice1 = document.getElementById("itop")
+    const shirt2 = document.getElementById("ishirt2");
+    const topPrice2 = document.getElementById("itop2")
+    const shirt3 = document.getElementById("ishirt3");
+    const topPrice3 = document.getElementById("itop3")
+    const shirt4 = document.getElementById("ishirt4");
+    const topPrice4 = document.getElementById("itop4");
+
+
+    const top = document.querySelector(".top2");
+    const bottom = document.querySelector(".bottom2");
+    const fullbody = document.querySelector(".fullbody2");
+    const nativewear = document.querySelector(".nativeWear2");
+
+
+    shirt.innerHTML = topIt.ironing.top[0].name;
+    topPrice1.innerHTML = "₦" + topIt.ironing.top[0].pricing;
+    console.log(topPrice1)
+
+    shirt2.innerHTML = topIt.ironing.top[1].name;
+    topPrice2.innerHTML = "₦" + topIt.ironing.top[1].pricing;
+
+    shirt3.innerHTML = topIt.ironing.top[2].name;
+    topPrice3.innerHTML = "₦" + topIt.ironing.top[2].pricing;
+
+    shirt4.innerHTML = topIt.ironing.top[3].name;
+    topPrice4.innerHTML = "₦" + topIt.ironing.top[3].pricing;
+
+    top.style.display = "block";
+    bottom.style.display = "none";
+    fullbody.style.display = "none";
+    nativewear.style.display = "none";
+
+
 }
 
-function decreaseQty(main, price){
-    let newPrice;
-    let getPrice = parseInt(price);
-    const gain = main.getAttribute("id");
-    let foni = document.getElementById(gain);
+function bottomWears1() {
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
 
-    let myPrice = document.getElementById("pr");
+    const pants = document.getElementById("ipants");
+    const pantprice = document.getElementById("ipantprice")
+    const skirt = document.getElementById("iskirt");
+    const skirtprice = document.getElementById("iskirtprice")
+    const shorts = document.getElementById("ishorts");
+    const shortprice = document.getElementById("ishortprice");
 
-    let val = foni.value;
+    const bottom = document.querySelector(".bottom2");
+    const top = document.querySelector(".top2");
+    const fullbody = document.querySelector(".fullbody2");
+    const nativewear = document.querySelector(".nativeWear2");
+
+
     
 
-    if (val > 1) {
-        val--;
-        newPrice = getPrice - val;
-        foni.value = val;
-        myPrice.innerHTML = `₦${newPrice}`;
-    }
+    pants.innerHTML = topIt.ironing.bottom[0].name;
+    pantprice.innerHTML = "₦" + topIt.ironing.bottom[0].pricing;
+
+    skirt.innerHTML = topIt.ironing.bottom[1].name;
+    skirtprice.innerHTML = "₦" + topIt.ironing.bottom[1].pricing;
+
+    shorts.innerHTML = topIt.ironing.bottom[2].name;
+    shortprice.innerHTML = "₦" + topIt.ironing.bottom[2].pricing;
+
+    bottom.style.display = "block";
+    top.style.display = "none";
+    fullbody.style.display = "none";
+    nativewear.style.display = "none";
 }
 
-// function decreaseQty(main){
-//     const gain = main.getAttribute("id");
-//     let foni = document.getElementById(gain);
-//     let val = foni.value;
+function fullBodyWears1() {
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const casual = document.getElementById("icasual");
+    const casualprice = document.getElementById("icasualprice")
+    const formal = document.getElementById("iformal");
+    const formalprice = document.getElementById("iformalprice")
+    const coat = document.getElementById("icoat");
+    const coatprice = document.getElementById("icoatprice");
+
+    const bottom = document.querySelector(".bottom2");
+    const top = document.querySelector(".top2");
+    const fullbody = document.querySelector(".fullbody2");
+    const nativewear = document.querySelector(".nativeWear2");
     
 
-//     if (val > 1) {
-//         val--;
-//         foni.value = val;
-//     }
-// }
+    casual.innerHTML = topIt.ironing.full_body[0].name;
+    casualprice.innerHTML = "₦" + topIt.ironing.full_body[0].pricing;
+
+    formal.innerHTML = topIt.ironing.full_body[1].name;
+    formalprice.innerHTML = "₦" + topIt.ironing.full_body[1].pricing;
+
+    coat.innerHTML = topIt.ironing.full_body[2].name;
+    coatprice.innerHTML = "₦" + topIt.ironing.full_body[2].pricing;
+
+    bottom.style.display = "none";
+    top.style.display = "none";
+    fullbody.style.display = "block";
+    nativewear.style.display = "none";
+
+}
+
+function nativeWears1() {
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const ankara = document.getElementById("iankara");
+    const ankaraprice = document.getElementById("iankaraprice")
+    const lace = document.getElementById("ilace");
+    const laceprice = document.getElementById("ilaceprice");
+    const agbada = document.getElementById("iagbada");
+    const agbadaprice = document.getElementById("iagbadaprice");
+    
+    const bottom = document.querySelector(".bottom2");
+    const top = document.querySelector(".top2");
+    const fullbody = document.querySelector(".fullbody2");
+    const nativewear = document.querySelector(".nativeWear2");
+
+    ankara.innerHTML = topIt.ironing.native_wear[0].name;
+    ankaraprice.innerHTML = "₦" + topIt.ironing.native_wear[0].pricing;
+
+    lace.innerHTML = topIt.ironing.native_wear[1].name;
+    laceprice.innerHTML = "₦" + topIt.ironing.native_wear[1].pricing;
+
+    agbada.innerHTML = topIt.ironing.native_wear[2].name;
+    agbadaprice.innerHTML = "₦" + topIt.ironing.native_wear[2].pricing;
+
+    bottom.style.display = "none";
+    top.style.display = "none";
+    fullbody.style.display = "none";
+    nativewear.style.display = "block";
+
+
+}
+
+
 
 
 
