@@ -1,5 +1,5 @@
-
 let baseUrl = "https://washsmart.onrender.com";
+
 
 function toLogin(event) {
     event.preventDefault();
@@ -886,181 +886,219 @@ getPricing();
 
 
 function topWears() {
+    let data = []
 
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
-    const shirt = document.getElementById("shirt");
-    const topPrice1 = document.getElementById("top1")
-    const shirt2 = document.getElementById("shirt2");
-    const topPrice2 = document.getElementById("top2")
-    const shirt3 = document.getElementById("shirt3");
-    const topPrice3 = document.getElementById("top3")
-    const shirt4 = document.getElementById("shirt4");
-    const topPrice4 = document.getElementById("top4");
 
+    const show = document.querySelector(".show-details");
 
-    const top = document.querySelector(".top");
-    const bottom = document.querySelector(".bottom");
-    const fullbody = document.querySelector(".fullbody");
-    const household = document.querySelector(".houseHold");
-    const nativewear = document.querySelector(".nativeWear");
+    topIt.dry_cleaning.top.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.style.display = "block";
 
-
-    shirt.innerHTML = topIt.dry_cleaning.top[0].name;
-    topPrice1.innerHTML = "₦" + topIt.dry_cleaning.top[0].pricing;
-
-    shirt2.innerHTML = topIt.dry_cleaning.top[1].name;
-    topPrice2.innerHTML = "₦" + topIt.dry_cleaning.top[1].pricing;
-
-    shirt3.innerHTML = topIt.dry_cleaning.top[2].name;
-    topPrice3.innerHTML = "₦" + topIt.dry_cleaning.top[2].pricing;
-
-    shirt4.innerHTML = topIt.dry_cleaning.top[3].name;
-    topPrice4.innerHTML = "₦" + topIt.dry_cleaning.top[3].pricing;
-
-    top.style.display = "block";
-    bottom.style.display = "none";
-    fullbody.style.display = "none";
-    household.style.display = "none";
-    nativewear.style.display = "none";
+        show.innerHTML = data;
+    })
 
 
 }
 
 function bottomWears() {
+    let data = []
+
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const pants = document.getElementById("pants");
-    const pantprice = document.getElementById("pantprice")
-    const skirt = document.getElementById("skirt");
-    const skirtprice = document.getElementById("skirtprice")
-    const shorts = document.getElementById("shorts");
-    const shortprice = document.getElementById("shortprice");
+    const show = document.querySelector(".show-details");
 
-    const bottom = document.querySelector(".bottom");
-    const top = document.querySelector(".top");
-    const fullbody = document.querySelector(".fullbody");
-    const household = document.querySelector(".houseHold");
-    const nativewear = document.querySelector(".nativeWear");
-
-
-    
-
-    pants.innerHTML = topIt.dry_cleaning.bottom[0].name;
-    pantprice.innerHTML = "₦" + topIt.dry_cleaning.bottom[0].pricing;
-
-    skirt.innerHTML = topIt.dry_cleaning.bottom[1].name;
-    skirtprice.innerHTML = "₦" + topIt.dry_cleaning.bottom[1].pricing;
-
-    shorts.innerHTML = topIt.dry_cleaning.bottom[2].name;
-    shortprice.innerHTML = "₦" + topIt.dry_cleaning.bottom[2].pricing;
-
-    bottom.style.display = "block";
-    top.style.display = "none";
-    fullbody.style.display = "none";
-    household.style.display = "none";
-    nativewear.style.display = "none";
+    topIt.dry_cleaning.bottom.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
 }
 
 function fullBodyWears() {
+    let data = []
+
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const casual = document.getElementById("casual");
-    const casualprice = document.getElementById("casualprice")
-    const formal = document.getElementById("formal");
-    const formalprice = document.getElementById("formalprice")
-    const coat = document.getElementById("coat");
-    const coatprice = document.getElementById("coatprice");
+    const show = document.querySelector(".show-details");
 
-    const bottom = document.querySelector(".bottom");
-    const top = document.querySelector(".top");
-    const fullbody = document.querySelector(".fullbody");
-    const household = document.querySelector(".houseHold");
-    const nativewear = document.querySelector(".nativeWear");
-    
-
-    casual.innerHTML = topIt.dry_cleaning.full_body[0].name;
-    casualprice.innerHTML = "₦" + topIt.dry_cleaning.full_body[0].pricing;
-
-    formal.innerHTML = topIt.dry_cleaning.full_body[1].name;
-    formalprice.innerHTML = "₦" + topIt.dry_cleaning.full_body[1].pricing;
-
-    coat.innerHTML = topIt.dry_cleaning.full_body[2].name;
-    coatprice.innerHTML = "₦" + topIt.dry_cleaning.full_body[2].pricing;
-
-    bottom.style.display = "none";
-    top.style.display = "none";
-    fullbody.style.display = "block";
-    household.style.display = "none";
-    nativewear.style.display = "none";
-
+    topIt.dry_cleaning.full_body.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
 }
 
 function houseHold() {
+    let data = []
+
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const duvet = document.getElementById("duvet");
-    const duvetprice = document.getElementById("duveprice")
-    const sheet = document.getElementById("sheets");
-    const sheetprice = document.getElementById("sheetprice");
+    const show = document.querySelector(".show-details");
 
-    const bottom = document.querySelector(".bottom");
-    const top = document.querySelector(".top");
-    const fullbody = document.querySelector(".fullbody");
-    const household = document.querySelector(".houseHold");
-    const nativewear = document.querySelector(".nativeWear");
-    
-
-    duvet.innerHTML = topIt.dry_cleaning.house_hold[0].name;
-    duvetprice.innerHTML = "₦" + topIt.dry_cleaning.house_hold[0].pricing;
-
-    sheet.innerHTML = topIt.dry_cleaning.house_hold[1].name;
-    sheetprice.innerHTML = "₦" + topIt.dry_cleaning.house_hold[1].pricing;
-
-    bottom.style.display = "none";
-    top.style.display = "none";
-    fullbody.style.display = "none";
-    household.style.display = "block";
-    nativewear.style.display = "none";
+    topIt.dry_cleaning.house_hold.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
 }
 
 function nativeWears() {
 
+    let data = []
+
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const ankara = document.getElementById("ankara");
-    const ankaraprice = document.getElementById("ankaraprice")
-    const lace = document.getElementById("lace");
-    const laceprice = document.getElementById("laceprice");
-    const agbada = document.getElementById("agbada");
-    const agbadaprice = document.getElementById("agbadaprice");
-    
-    const bottom = document.querySelector(".bottom");
-    const top = document.querySelector(".top");
-    const fullbody = document.querySelector(".fullbody");
-    const household = document.querySelector(".houseHold");
-    const nativewear = document.querySelector(".nativeWear");
+    const show = document.querySelector(".show-details");
 
-    ankara.innerHTML = topIt.dry_cleaning.native_wear[0].name;
-    ankaraprice.innerHTML = "₦" + topIt.dry_cleaning.native_wear[0].pricing;
+    topIt.dry_cleaning.native_wear.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
 
-    lace.innerHTML = topIt.dry_cleaning.native_wear[1].name;
-    laceprice.innerHTML = "₦" + topIt.dry_cleaning.native_wear[1].pricing;
 
-    agbada.innerHTML = topIt.dry_cleaning.native_wear[2].name;
-    agbadaprice.innerHTML = "₦" + topIt.dry_cleaning.native_wear[2].pricing;
+}
 
-    bottom.style.display = "none";
-    top.style.display = "none";
-    fullbody.style.display = "none";
-    household.style.display = "none";
-    nativewear.style.display = "block";
+let valueCount = 1;
 
+function increase(id, priceId, pricing) {
+  let price = id.getAttribute("id");
+  let quantity = priceId.innerHTML;
+  let newPrice = document.getElementById(price);
+  let newQ = priceId.getAttribute("id");
+  let momo = document.getElementById(newQ)
 
+  let add = valueCount++;
+  momo.innerHTML = add;
+  newPrice.innerHTML = `₦${add * pricing}`;
+  console.log(price, quantity, priceId)
+}
+
+function decrease(id, priceId, pricing) {
+    let price = id.getAttribute("id");
+    let quantity = priceId.innerHTML;
+    let newPrice = document.getElementById(price);
+    let newQ = priceId.getAttribute("id");
+    let momo = document.getElementById(newQ);
+
+    if (valueCount >=2) {
+        let sub = --valueCount;
+        momo.innerHTML = sub;
+        newPrice.innerHTML = `₦${sub * pricing}`;
+        console.log(price, quantity, priceId)
+    }
 }
 
 
@@ -1209,36 +1247,220 @@ function nativeWears1() {
 }
 
 
-function getValue(item1, item2) {
-
+function getValue() {
     const getPrice = localStorage.getItem("price");
     const theprice = JSON.parse(getPrice);
 
     const fitem = document.getElementById("item1");
-    const fitem2 = document.getElementById("item2");
-
-    if (item1 === fitem) {
-        return console.log(fitem.value = theprice.dry_cleaning.top[0].name);
+    if (fitem.checked) {
+      fitem.value = theprice.dry_cleaning.top[0].name;
     }
+    else {
+        fitem.value = '';
+    }
+}
 
-    if(item2 === fitem2) {
-        console.log(fitem2.value = theprice.dry_cleaning.top[1].name);
+function getValue2() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item2");
+
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.top[1].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue3() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item3");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.top[2].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue4() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item4");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.top[3].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue5() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item5");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.bottom[0].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue6() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item6");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.bottom[1].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue7() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item7");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.bottom[2].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue8() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item8");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.full_body[0].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue9() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item9");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.full_body[1].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue10() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item10");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.full_body[2].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue11() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item11");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.house_hold[0].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue12() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item12");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.house_hold[1].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue13() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item13");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.native_wear[0].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue14() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item14");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.native_wear[1].name;
+    }
+    else {
+        fitem.value = '';
+    }
+}
+
+function getValue15() {
+    const getPrice = localStorage.getItem("price");
+    const theprice = JSON.parse(getPrice);
+
+    const fitem = document.getElementById("item15");
+    if (fitem.checked) {
+        fitem.value = theprice.dry_cleaning.native_wear[2].name;
+    }
+    else {
+        fitem.value = '';
     }
 }
 
 
-// function calValues(event) {
-//     event.preventDefault();
 
-//     const getPrice = localStorage.getItem("price");
-//     const theprice = JSON.parse(getPrice);
+function calValues(event) {
+    event.preventDefault();
 
-//     const getShirt = document.getElementById("item1");
-//     getShirt.value = theprice.dry_cleaning.top[0].name;
-//     const b = getShirt.value;
-//     console.log(b)
+    const getShirt = document.getElementById("item15").value;
+    const getShirt2 = document.getElementById("item2").value;
 
-// }
+
+
+    
+    console.log(getShirt);
+    console.log(getShirt2);
+
+
+
+
+}
 
 
 

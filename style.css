@@ -1962,7 +1962,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 
 .show-details {
-    /* display: none; */
+    display: none;
+    /* animation-name: modalopen;
+    animation-duration: 2s; */
+}
+
+.hoski {
     animation-name: modalopen;
     animation-duration: 2s;
 }
