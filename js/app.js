@@ -883,7 +883,7 @@ function getPricing() {
 getPricing();
 
 
-
+// for dry cleaning
 
 function topWears() {
     let data = []
@@ -898,12 +898,12 @@ function topWears() {
         <div class="p-3 hoski">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
-                <p id="${item.id}">₦${item.pricing}</p>
+                <p id="${item.id}" class="isprice">₦${item.pricing}</p>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-3">
@@ -930,19 +930,19 @@ function bottomWears() {
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const show = document.querySelector(".show-details");
+    const show = document.querySelector(".show-details2");
 
     topIt.dry_cleaning.bottom.map((item) => {
         data +=`
         <div class="p-3 hoski">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
-                <p id="${item.id}">₦${item.pricing}</p>
+                <p id="${item.id}" class="isprice">₦${item.pricing}</p>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-3">
@@ -966,19 +966,19 @@ function fullBodyWears() {
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const show = document.querySelector(".show-details");
+    const show = document.querySelector(".show-details3");
 
     topIt.dry_cleaning.full_body.map((item) => {
         data +=`
         <div class="p-3 hoski">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
-                <p id="${item.id}">₦${item.pricing}</p>
+                <p id="${item.id}" class="isprice">₦${item.pricing}</p>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-3">
@@ -1002,19 +1002,19 @@ function houseHold() {
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const show = document.querySelector(".show-details");
+    const show = document.querySelector(".show-details4");
 
     topIt.dry_cleaning.house_hold.map((item) => {
         data +=`
         <div class="p-3 hoski">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
-                <p id="${item.id}">₦${item.pricing}</p>
+                <p id="${item.id}" class="isprice">₦${item.pricing}</p>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-3">
@@ -1039,9 +1039,48 @@ function nativeWears() {
     const getTop = localStorage.getItem("price");
     const topIt = JSON.parse(getTop);
 
-    const show = document.querySelector(".show-details");
+    const show = document.querySelector(".show-details5");
 
     topIt.dry_cleaning.native_wear.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="ischeck" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}" class="isprice">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
+
+
+}
+
+// for ironing
+function topWears1() {
+    let data = []
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const show = document.querySelector(".show-details2");
+
+    topIt.ironing.top.map((item) => {
         data +=`
         <div class="p-3 hoski">
         <div class="row">
@@ -1067,25 +1106,130 @@ function nativeWears() {
         show.innerHTML = data;
         show.style.display = "block";
     })
-
-
 }
 
-let valueCount = 1;
+function bottomWears1() {
+    let data = []
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const show = document.querySelector(".show-details2");
+
+    topIt.ironing.bottom.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
+}
+
+function fullBodyWears1() {
+    let data = []
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const show = document.querySelector(".show-details2");
+
+    topIt.ironing.full_body.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
+}
+
+function nativeWears1() {
+    let data = []
+
+    const getTop = localStorage.getItem("price");
+    const topIt = JSON.parse(getTop);
+
+    const show = document.querySelector(".show-details2");
+
+    topIt.ironing.native_wear.map((item) => {
+        data +=`
+        <div class="p-3 hoski">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <input type="checkbox" class="form-check-input" value="${item.name}">
+              <label class="" for="exampleCheck1">${item.name}</label>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div>
+                <p id="${item.id}">₦${item.pricing}</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+              <div>
+                <button type="button" class="turn" onclick="increase(${item.id}, ${item.pricing_id}, ${item.pricing})">+</button>
+                <span id="${item.pricing_id}">1</span>
+                <button type="button" class="turn" onclick="decrease(${item.id}, ${item.pricing_id}, ${item.pricing})">-</button>
+              </div>
+            </div>
+        </div>
+      </div>
+        `
+        show.innerHTML = data;
+        show.style.display = "block";
+    })
+}
 
 function increase(id, priceId, pricing) {
-  let price = id.getAttribute("id");
-  let quantity = priceId.innerHTML;
-  let newPrice = document.getElementById(price);
-  let newQ = priceId.getAttribute("id");
-  let momo = document.getElementById(newQ)
-
-  let add = valueCount++;
-  momo.innerHTML = add;
-  newPrice.innerHTML = `₦${add * pricing}`;
-  console.log(price, quantity, priceId)
+    let price = id.getAttribute("id");
+    let quantity = priceId.innerHTML;
+    let newPrice = document.getElementById(price);
+    let newQ = priceId.getAttribute("id");
+    let momo = document.getElementById(newQ);
+  
+    let valueCount = parseInt(momo.innerHTML);
+    let add = valueCount + 1;
+    momo.innerHTML = add;
+    newPrice.innerHTML = `₦${add * pricing}`;
+    console.log(price, quantity, priceId);
 }
-
+  
 function decrease(id, priceId, pricing) {
     let price = id.getAttribute("id");
     let quantity = priceId.innerHTML;
@@ -1093,16 +1237,35 @@ function decrease(id, priceId, pricing) {
     let newQ = priceId.getAttribute("id");
     let momo = document.getElementById(newQ);
 
+    let valueCount = parseInt(momo.innerHTML);
     if (valueCount >=2) {
-        let sub = --valueCount;
+        let sub = valueCount - 1;
         momo.innerHTML = sub;
         newPrice.innerHTML = `₦${sub * pricing}`;
-        console.log(price, quantity, priceId)
+        console.log(price, quantity, priceId);
     }
 }
 
+function calValues(event) {
+    event.preventDefault();
+    let data = []
 
-
+    const getAll = document.querySelectorAll(".ischeck");
+    const getPrice = document.querySelectorAll(".isprice");
+    
+    for (i = 0; i < getAll.length; i++) {
+        if (getAll[i].checked) {
+            data.push(getAll[i].value)
+        }
+    }
+    for (i = 0; i < getPrice.length; i++) {
+        data.push(getPrice[i].innerHTML)
+        
+    }
+    console.log(data)
+    
+}
+  
 
 function showOthers(event) {
     const getDiv = document.querySelector(".odana");
@@ -1141,5 +1304,4 @@ function removeDrop(event) {
         getOz.style.display = "none";
     }
 }
-
 

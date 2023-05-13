@@ -1257,10 +1257,16 @@ body {
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-
-
     padding: 20px;
     border-radius: 10px;
+}
+
+.ex {
+    border: 1px solid rgb(0, 174, 239);
+}
+
+.plan-item h5 {
+    color: #000;
 }
 
 .plan {
@@ -1961,10 +1967,10 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     border: 0;
 }
 
-.show-details {
+.show-details, .show-details2, .show-details3, .show-details4, .show-details5 {
     display: none;
-    /* animation-name: modalopen;
-    animation-duration: 2s; */
+    animation-name: modalopen;
+    animation-duration: 2s;
 }
 
 .hoski {
