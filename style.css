@@ -1261,7 +1261,7 @@ body {
     border-radius: 10px;
 }
 
-.ex {
+.ex, .ex2 {
     border: 1px solid rgb(0, 174, 239);
 }
 
@@ -1967,7 +1967,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     border: 0;
 }
 
-.show-details, .show-details2, .show-details3, .show-details4, .show-details5 {
+.show-details, .show-details2, .show-details3, .show-details4, .show-details5, .show-details6, .show-details7, .show-details8, .show-details9 {
     display: none;
     animation-name: modalopen;
     animation-duration: 2s;
@@ -2007,4 +2007,5 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .top, .bottom, .fullbody, .houseHold, .nativeWear, .top2, .bottom2, .fullbody2, .nativeWear2 {
     display: none;
 }
+
 
