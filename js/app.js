@@ -1394,14 +1394,41 @@ function chooseItem() {
 
 }
 
+const getMoto = document.querySelectorAll(".moto");
+let bagsQty;
+getMoto.forEach((i) => {
+    i.addEventListener("click", () => {
+        bagsQty = i.value;
+    })
+})
+
 // function for one time wash
 function calOneTime(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const getMoto = document.querySelectorAll(".moto");
-    for (i = 0; i < getMoto.length; i++) {
-        if (getMoto[i])
+    const mycheck = document.querySelector(".mycheck");
+    const stype = document.querySelector(".service_type");
+    const sname = document.querySelector(".service_name");
+    const myprice = localStorage.getItem("price");
+    const dprice = JSON.parse(myprice);
+    const price = dprice.wash_and_fold_one_time;
+    const exData = localStorage.getItem("allitem");
+    const oneData = JSON.parse(exData);
+
+    if (mycheck.checked) {
+        const item = {};
+
+        item.service_type = stype.value;
+        item.service_name = sname.value;
+        item.quantity = bagsQty;
+        item.price = price;
+
+        oneData.push(item);
+
+        console.log(oneData)
     }
+
+
 }
 
 function showOthers(event) {
