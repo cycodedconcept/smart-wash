@@ -795,6 +795,17 @@ function getPricing() {
         const sam4 = document.querySelector(".sam4");
         const sam5 = document.querySelector(".sam5");
 
+        const getOnetime = document.querySelector(".oneprice");
+        const getOnetime2 = document.querySelector(".oneprice2");
+        const getOnetime3 = document.querySelector(".bozo");
+
+
+        getOnetime.innerHTML = `₦${result.wash_and_fold_one_time}/bag`;
+        getOnetime2.innerHTML = `₦${result.wash_and_fold_one_time}/month`;
+        getOnetime3.innerHTML = `₦${result.wash_and_fold_one_time}`;
+
+
+
 
 
         const getPrice = document.querySelector(".price");
@@ -1307,14 +1318,17 @@ function calValues(event) {
 
         }
     }
-    if(data.length > 0 || localStorage.getItem("wash")){
-        const total = data.reduce((acc, item) => {
-            const price = Number(item.price.replace(/[^\d.-]/g, ''));
-            return acc + price;
-        }, 0);
-        console.log(data)
-        console.log("Total Price: ", total)
+    if(localStorage.getItem("wash")){
+        // const total = data.reduce((acc, item) => {
+        //     const price = Number(item.price.replace(/[^\d.-]/g, ''));
+        //     return acc + price;
+        // }, 0);
+        // console.log(data)
+        // console.log("Total Price: ", total)
         location.href = "../pages/plan2.html"
+    }
+    if (!localStorage.getItem("wash")) {
+        location.href = "onetime.html";
     }
     else{
         Swal.fire({
@@ -1380,7 +1394,15 @@ function chooseItem() {
 
 }
 
+// function for one time wash
+function calOneTime(event) {
+    event.preventDefault()
 
+    const getMoto = document.querySelectorAll(".moto");
+    for (i = 0; i < getMoto.length; i++) {
+        if (getMoto[i])
+    }
+}
 
 function showOthers(event) {
     const getDiv = document.querySelector(".odana");

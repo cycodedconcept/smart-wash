@@ -1937,7 +1937,7 @@ label {
 
 
 .odana {
-    display: none;
+    /* display: none; */
     animation-name: modalopen;
     animation-duration: 2s;
 }
