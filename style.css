@@ -18,7 +18,7 @@ body {
     padding: 0;
 }
 
-.sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2, .plan-btn, .get-btn-nav, .btn-sign, .btn-sign2, .btn-sign3, .btn-sign4, .otp-btn, .pl-btn, .mo-btn, .an-btn, .moto, .turn, .ps-btn {
+.sign-btn, .get-btn, .get-btn2, .get-btn3, .btn-move, .btn-move2, .plan-btn, .get-btn-nav, .btn-sign, .btn-sign2, .btn-sign3, .btn-sign4, .otp-btn, .pl-btn, .mo-btn, .an-btn, .mo-btn2, .an-btn2, .moto, .turn, .ps-btn {
     outline: none;
     box-shadow: none;
     border: 1px solid #424345;
@@ -64,9 +64,14 @@ body {
     font-weight: 400;
 }
 
-.mo-btn, .an-btn {
+.mo-btn, .an-btn, .mo-btn2, .an-btn2 {
     border: 1px solid #afb0b2;
     padding: 9px 25px;
+}
+
+.active {
+    background: #00AEEF;
+    color: #fff;
 }
 
 .mo-btn:hover {
@@ -74,6 +79,14 @@ body {
 }
 
 .an-btn:hover {
+    border: 2px solid #00AEEF;
+}
+
+.mo-btn2:hover {
+    border: 2px solid #00AEEF;
+}
+
+.an-btn2:hover {
     border: 2px solid #00AEEF;
 }
 
@@ -145,6 +158,8 @@ body {
 .oz {
     display: none;
 }
+
+
 
 .sign-btn:hover {
     background: #0B3140;
@@ -247,7 +262,7 @@ body {
 }
 
 .wash {
-    color: #00AEEF;
+    color: #00AEEF !important;
 }
 
 .row {
@@ -1256,7 +1271,7 @@ body {
 .plan-item, .plan-check {
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(11, 99, 186, 0.15) 0px 0px 0px 1px;
     padding: 20px;
     border-radius: 10px;
 }
@@ -1280,7 +1295,7 @@ body {
 }
 
 .bag-mon, .bag-mon2 {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     border: 2px solid #C4C4C4;
     padding: 10px 23px;
@@ -1289,6 +1304,7 @@ body {
 }
 
 .bag-mon2 {
+    display: flex;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px; 
 }
@@ -1936,10 +1952,13 @@ label {
 }
 
 
-.odana {
-    /* display: none; */
+.odana, .flowki, .odana3 {
     animation-name: modalopen;
     animation-duration: 2s;
+}
+
+.egun, .egun2 {
+    display: none;
 }
 
 .time-slot {
@@ -2008,4 +2027,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+.search-card {
+    display: flex;
+    justify-content: space-between;
+}
 
+.okTotal {
+    font-weight: 800;
+}

@@ -13,7 +13,7 @@
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body onload="chooseItem()">
+<body onload="chooseItem(), getPricing(), picked()">
   <!-- navigation -->
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -46,7 +46,7 @@
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
       <div class="col-sm-12 col-md-12 col-lg-4">
           <div class="plan-question">
-              <h3>Which <span class="wash">Wash Smart</span> services would you like to use?</h3>
+            <h3>Which <span class="wash">Wash Smart</span> services would you like to use?</h3>
           </div>
       </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
@@ -56,83 +56,62 @@
                 <p class="op2">For monthly laundry </p>
                 <div class="plan-item">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="wash" onclick="showOthers(event)"/>
+                    <input class="form-check-input smart" type="radio" name="flexRadioDefault" value="Smart Wash" id="wash" onclick="showOthers(event)"/>
+                    <input type="hidden" class="serviceName" value="wash and fold smart wash">
+                    <input type="hidden" class="serviceType" value="wash_and_fold_smart_wash">
                     <label class="form-check-label" for="flexRadioDefault1"> Smart Wash <button class="pl-btn ml-3">Get up to 30% off</button> </label>
                     <p class="ibile mt-2">Per bag subscription.  </p>
                   </div>
                     <div class="plan-img">
-                        <img src="../assets/able.png" alt="">
+                      <img src="../assets/able.png" alt="">
                     </div>
                 </div>
-                <div class="odana mt-3">
-                    <div class="plan-item plan1 mb-3">
-                      <h6 class="h-item mt-4">Billing</h6>
-  
-                      <div class="item-by">
-                        <button class="mo-btn">Monthly</button>
-                        <button class="an-btn">Annually</button>
-                        <div class="stre">
-                          <img src="../assets/fre.png" alt="" class="vog">
-                        </div>
-                      </div>
+                <div class="egun">
+                  <div class="flowki mt-3">
+                   
+                  </div>
+                  <div class="plan-check plan4">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                      <label class="form-check-label" for="exampleCheck1">Always free Next-Day delivery.</label>
                     </div>
-                    <div class="plan-item plan2 mb-3">
-                      <h6 class="h-item mt-3">Bags / month</h6>
-    
-                      <div class="item-by">
-                        <button class="moto">1</button>
-                        <button class="moto">2</button>
-                        <button class="moto">3</button>
-                        <button class="moto">4</button>
-                        <button class="moto">5</button>
-                      </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                      <label class="form-check-label" for="exampleCheck1">Never any additional fees.</label>
                     </div>
-                    <div class="plan-item plan3 mb-3">
-                      <h6 class="h-item mt-4">Billing</h6>
-  
-                      <div class="item-by">
-                        <h4>₦5000 / bag</h4>
-                        <p>₦5,000/month</p>
-                      </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                      <label class="form-check-label" for="exampleCheck1">Unlimited Smart-rollover for unused bags.</label>
                     </div>
-                    <div class="plan-item plan3 mb-3 ex">
-                      
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                      <label class="form-check-label" for="exampleCheck1">Pause, modify, or cancle anytime.</label>
                     </div>
-                    <div class="plan-item plan3 mb-3 ex2">
-                      
-                    </div>
-                    
-                    <div class="plan-check plan4">
-                      <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Always free Next-Day delivery.</label>
-                      </div>
-                      <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Never any additional fees.</label>
-                      </div>
-                      <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Unlimited Smart-rollover for unused bags.</label>
-                      </div>
-                      <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Pause, modify, or cancle anytime.</label>
-                      </div>
-                    </div>
+                  </div>
                 </div>
+                
+                
                 
 
                 <p class="op2 mt-5">i only need one wash</p>
                 <div class="plan-item mt-3">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="dry" onclick="removeDrop(event)"/>
-                      <label class="form-check-label" for="flexRadioDefault2"> One-time wash </label>
-                      <p class="ibile mt-2">One-time price per bag is N5,000</p>
-                    </div>
+                  <div class="form-check">
+                    <input class="form-check-input one" type="radio" value="One Time Wash" name="flexRadioDefault" id="dry" onclick="removeDrop(event)"/>
+                    <input type="hidden" class="serviceName" value="wash and fold one time wash">
+                    <input type="hidden" class="serviceType" value="wash_and_fold_one_time">
+                    <label class="form-check-label" for="flexRadioDefault2"> One-time wash </label>
+                    <p class="ibile mt-2">One-time price per bag is N5,000</p>
+                  </div>
+                </div>
+                <div class="egun2">
+                  <div class="odana3 mt-3">
+                 
+                  </div>
                 </div>
                 <button class="get-btn3 mt-3">What's the difference?</button>
-                <button class="plan-btn oz mt-3">Proceed</button>
+                <button class="plan-btn oz mt-3">
+                  Proceed
+                </button>
             </div>
           </form>
         </div>
@@ -149,6 +128,8 @@
 
   <script src="../js/script.js"></script>
   <script src="../js/app.js"></script>
+
+
 
 
 </body>

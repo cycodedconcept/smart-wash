@@ -912,6 +912,7 @@ function topWears() {
               <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Dry Cleaning">
+              <input type="hidden" class="serviceType" value="dry_cleaning">
               <input type="hidden" class="clothName" value="top">
 
             </div>
@@ -955,6 +956,7 @@ function bottomWears() {
               <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Dry Cleaning">
+              <input type="hidden" class="serviceType" value="dry_cleaning">
               <input type="hidden" class="clothName" value="bottom">
 
             </div>
@@ -994,7 +996,8 @@ function fullBodyWears() {
               <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Dry Cleaning">
-              <input type="hidden" class="clothName" value="Full Body">
+              <input type="hidden" class="serviceType" value="dry_cleaning">
+              <input type="hidden" class="clothName" value="full_body">
 
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -1033,7 +1036,8 @@ function houseHold() {
               <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Dry Cleaning">
-              <input type="hidden" class="clothName" value="House Hold">
+              <input type="hidden" class="serviceType" value="dry_cleaning">
+              <input type="hidden" class="clothName" value="house_hold">
 
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -1073,7 +1077,8 @@ function nativeWears() {
               <input type="checkbox" class="ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Dry Cleaning">
-              <input type="hidden" class="clothName" value="Native Wear">
+              <input type="hidden" class="serviceType" value="dry_cleaning">
+              <input type="hidden" class="clothName" value="native_wear">
 
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
@@ -1115,7 +1120,8 @@ function topWears1() {
               <input type="checkbox" class="form-check-input ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Ironing">
-              <input type="hidden" class="clothName" value="Top">
+              <input type="hidden" class="serviceType" value="ironing">
+              <input type="hidden" class="clothName" value="top">
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
@@ -1153,7 +1159,8 @@ function bottomWears1() {
               <input type="checkbox" class="form-check-input ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Ironing">
-              <input type="hidden" class="clothName" value="Bottom">
+              <input type="hidden" class="serviceType" value="ironing">
+              <input type="hidden" class="clothName" value="bottom">
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
@@ -1191,7 +1198,8 @@ function fullBodyWears1() {
               <input type="checkbox" class="form-check-input ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Ironing">
-              <input type="hidden" class="clothName" value="Full Body">
+              <input type="hidden" class="serviceType" value="ironing">
+              <input type="hidden" class="clothName" value="full_body">
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
@@ -1231,7 +1239,8 @@ function nativeWears1() {
               <input type="checkbox" class="form-check-input ischeck" value="${item.name}">
               <label class="" for="exampleCheck1">${item.name}</label>
               <input type="hidden" class="serviceName" value="Ironing">
-              <input type="hidden" class="clothName" value="Native Wear">
+              <input type="hidden" class="serviceType" value="ironing">
+              <input type="hidden" class="clothName" value="native_wear">
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
               <div>
@@ -1293,6 +1302,7 @@ function calValues(event) {
     const getPrice = document.querySelectorAll(".isprice");
     const getQuantity = document.querySelectorAll(".pricing_id");
     const getServices = document.querySelectorAll(".serviceName");
+    const getServty = document.querySelectorAll(".serviceType");
     const getClothes = document.querySelectorAll(".clothName");
     const getWash = document.querySelectorAll(".fold");
 
@@ -1307,12 +1317,12 @@ function calValues(event) {
     for (i = 0; i < getAll.length; i++) {
         if (getAll[i].checked) {
             const item = {};
-            item.cloth_name = getAll[i].value;
-            item.price = getPrice[i].innerHTML;
-            item.quantity = getQuantity[i].innerHTML;
+            item.service_type = getServty[i].value;
             item.service_name = getServices[i].value;
-            item.service_type = getServices[i].value;
             item.cloth_category = getClothes[i].value;
+            item.cloth_name = getAll[i].value;
+            item.quantity = getQuantity[i].innerHTML;
+            item.pricing = getPrice[i].innerHTML.replace("₦", "");
             data.push(item)
             localStorage.setItem("allitem", JSON.stringify(data))
 
@@ -1327,27 +1337,87 @@ function calValues(event) {
         // console.log("Total Price: ", total)
         location.href = "../pages/plan2.html"
     }
-    if (!localStorage.getItem("wash")) {
-        location.href = "onetime.html";
-    }
+    // if (!localStorage.getItem("wash")) {
+    // }
     else{
-        Swal.fire({
-            icon: 'info',
-            text: 'Please choose a service',
-            confirmButtonColor: '#00AEEF'
-        })
+        location.href = "onetime.html";
     }
     
 }
 
+let dvogue;
+let dsum;
+let dtotal;
+let ivogue;
+let isum;
+let itotal;
+
+
+// function chooseItem() {
+//     const myStuff = localStorage.getItem("allitem");
+//     const stuff = JSON.parse(myStuff);
+//     const ex2 = document.querySelector(".ex2");
+
+//     let mydry = [];
+//     let mydry2 = [];
+
+//     let vogue;
+//     let vogue2;
+//     let total = 0;
+//     let total2 = 0;
+
+
+//     let sum = 0;
+//     let sum2 = 0;
+//     for (let index = 0; index < stuff.length; index++) {
+//         if (stuff[index].service_type === "dry_cleaning") {
+//           sum += JSON.parse(stuff[index].quantity);
+//           let mok = stuff[index].pricing
+//           total += JSON.parse(mok);
+//           vogue = stuff[index].service_name;
+//           dsum = sum;
+//           dtotal = total;
+//           dvogue = vogue
+          
+//         }
+
+        
+//         if (stuff[index].service_type === "ironing") {
+//             sum2 += JSON.parse(stuff[index].quantity);
+//             let mok2 = stuff[index].pricing;
+//             total2 += JSON.parse(mok2);
+//             vogue2 = stuff[index].service_name;
+//             isum = sum2
+//             itotal = total2
+//             ivogue = vogue2
+//         }
+//     }
+
+//     mydry += `
+//         <h6 class="mt-4">${vogue}</h6>
+
+//         <div class="item-by mt-4">
+//         <h6><b>${sum} pieces (₦${total})</b></h6>
+//         </div>
+//     `
+//     ex.innerHTML = mydry
+    
+
+
+//     mydry2 += `
+//         <h6 class="mt-4">${vogue2}</h6>
+
+//         <div class="item-by mt-4">
+//         <h6><b>${sum2} pieces (₦${total2})</b></h6>
+//         </div>
+//     `
+//     ex2.innerHTML = mydry2
+
+// }
+
 function chooseItem() {
     const myStuff = localStorage.getItem("allitem");
     const stuff = JSON.parse(myStuff);
-    const ex = document.querySelector(".ex");
-    const ex2 = document.querySelector(".ex2");
-
-    let mydry = [];
-    let mydry2 = [];
 
     let vogue;
     let vogue2;
@@ -1358,40 +1428,54 @@ function chooseItem() {
     let sum = 0;
     let sum2 = 0;
     for (let index = 0; index < stuff.length; index++) {
-        if (stuff[index].service_type === "Dry Cleaning") {
-          sum += JSON.parse(stuff[index].quantity);
-          let mok = stuff[index].price.slice(1)
+        if (stuff[index].service_type === "dry_cleaning") {
+         sum += JSON.parse(stuff[index].quantity);
+          let mok = stuff[index].pricing
           total += JSON.parse(mok);
-          vogue = stuff[index].service_type;
+          vogue = stuff[index].service_name;
+          dvogue = vogue;
+          dtotal = total;
+          dsum = sum
+          console.log(vogue, sum, total)
         }
+
         
-        if (stuff[index].service_type === "Ironing") {
+        if (stuff[index].service_type === "ironing") {
             sum2 += JSON.parse(stuff[index].quantity);
-            let mok2 = stuff[index].price.slice(1);
+            let mok2 = stuff[index].pricing;
             total2 += JSON.parse(mok2);
-            vogue2 = stuff[index].service_type;
+            vogue2 = stuff[index].service_name;
+            ivogue = vogue2;
+            itotal = total2;
+            isum = sum2
+            console.log(vogue2, sum2, total2)
         }
     }
 
-    mydry += `
-        <h6 class="mt-4">${vogue}</h6>
+
+}
+
+function picked() {
+    const ex = document.querySelector(".ex");
+
+    if (dvogue === "Dry Cleaning") {
+        ex.innerHTML +=`
+           <h6 class="mt-4">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+              <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+        `
+    }
+    if (ivogue === "Ironing") {
+        ex.innerHTML +=`
+        <h6 class="mt-4">${ivogue}</h6>
 
         <div class="item-by mt-4">
-        <h6><b>${sum} pieces (₦${total})</b></h6>
+        <h6><b>${isum} pieces (₦${itotal})</b></h6>
         </div>
-    `
-    ex.innerHTML = mydry
-
-    mydry2 += `
-        <h6 class="mt-4">${vogue2}</h6>
-
-        <div class="item-by mt-4">
-        <h6><b>${sum2} pieces (₦${total2})</b></h6>
-        </div>
-    `
-    ex2.innerHTML = mydry2
-
-
+        `
+    }
 }
 
 const getMoto = document.querySelectorAll(".moto");
@@ -1399,6 +1483,21 @@ let bagsQty;
 getMoto.forEach((i) => {
     i.addEventListener("click", () => {
         bagsQty = i.value;
+        if (bagsQty === "1") {
+            Swal.fire({
+                icon: 'info',
+                text: `You chose ${bagsQty} bag click OK if you are satisfied and click on the proceed button`,
+                confirmButtonColor: '#00AEEF'
+            })
+        }
+        else {
+            Swal.fire({
+                icon: 'info',
+                text: `You chose ${bagsQty} bags click OK if you are satisfied click on the proceed button`,
+                confirmButtonColor: '#00AEEF'
+            })
+        }
+        
     })
 })
 
@@ -1407,64 +1506,640 @@ function calOneTime(event) {
     event.preventDefault();
 
     const mycheck = document.querySelector(".mycheck");
-    const stype = document.querySelector(".service_type");
-    const sname = document.querySelector(".service_name");
-    const myprice = localStorage.getItem("price");
-    const dprice = JSON.parse(myprice);
-    const price = dprice.wash_and_fold_one_time;
-    const exData = localStorage.getItem("allitem");
-    const oneData = JSON.parse(exData);
 
     if (mycheck.checked) {
-        const item = {};
-
-        item.service_type = stype.value;
-        item.service_name = sname.value;
-        item.quantity = bagsQty;
-        item.price = price;
-
-        oneData.push(item);
-
-        console.log(oneData)
+        localStorage.setItem("oneplan", mycheck.value);
+        location.href = "plan3.html"
+    }
+    else {
+        Swal.fire({
+            icon: 'info',
+            text: 'Please choose a service',
+            confirmButtonColor: '#00AEEF'
+        })
     }
 
 
 }
+
+function oneDetails() {
+    const det = localStorage.getItem("oneplan");
+    const gre = document.querySelector(".dre");
+    gre.innerHTML = det;
+
+    const myBag = document.querySelector(".bag-mon");
+    const ototal = document.querySelector(".okTotal");
+
+
+    const getItem = localStorage.getItem("allitem");
+    const theItem = JSON.parse(getItem);
+
+
+
+    theItem.map((item) => {
+        if (item.service_type === "dry_cleaning") {
+            return myBag.innerHTML += `
+            <div>
+                <div class="search-card">
+                  <div>
+                    <p><b>${item.service_name}</b></p>
+                  </div>
+                </div>
+                <div class="search-card">
+                <div>
+                    <p>${item.cloth_category} x ${item.quantity}</p>
+                </div>
+                <div>
+                    <p>₦${item.pricing}</p>
+                </div>
+                </div>
+            </div>
+            `
+        }
+        else if (item.service_type === "ironing") {
+            return myBag.innerHTML += `
+            <div>
+                <div class="search-card">
+                  <div>
+                    <p><b>${item.service_name}</b></p>
+                  </div>
+                </div>
+                <div class="search-card">
+                <div>
+                    <p>${item.cloth_category} x ${item.quantity}</p>
+                </div>
+                <div>
+                    <p>₦${item.pricing}</p>
+                </div>
+                </div>
+            </div>
+            `
+        }
+    })
+
+    const sum = theItem.reduce((accumulator, object) => {
+        let result = JSON.parse(object.pricing)
+        return accumulator + result;
+    }, 0);
+
+    ototal.innerHTML = `₦${sum}`;
+    
+}
+
+// function to send first request
+function validateOrder(event) {
+    event.preventDefault();
+    const getSpin = document.getElementById("spin");
+    getSpin.style.display = "inline-block";
+
+    const getToken = localStorage.getItem("token");
+    const myToken = JSON.parse(getToken);
+    console.log(myToken)
+
+    const logUser = new Headers();
+    logUser.append("Authorization", `Bearer ${myToken}`);
+
+    const myItem = localStorage.getItem("allitem");
+    const itemNew = JSON.parse(myItem);
+
+
+    if (itemNew.length === 0) {
+        Swal.fire({
+            icon: 'info',
+            text: 'You didn\'t choose any service',
+            confirmButtonColor: '#00AEEF'
+        })
+        setTimeout(() => {
+          location.href = "../pages/plan.html"
+        }, 3000)
+    }
+    else {
+
+        const userOrder = JSON.stringify({
+            "items":itemNew
+        });
+
+        console.log(userOrder)
+
+        const request = {
+            method: 'POST',
+            headers: logUser,
+            body: userOrder
+        }
+
+        const url = `${baseUrl}/api/booking/calculate-booking`;
+
+        fetch(url, request)
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+}
+
+
+
+
+let bered;
+let bewhite
+
 
 function showOthers(event) {
-    const getDiv = document.querySelector(".odana");
-    const getOz = document.querySelector(".oz");
-    const getPlan = document.querySelector(".plan1");
-    const getPlan2 = document.querySelector(".plan2");
-    const getPlan3 = document.querySelector(".plan3");
-    const getPlan4 = document.querySelector(".plan4");
-
-
-
     if (event.target.checked) {
+        
+        const getWash = localStorage.getItem("wash");
+        const myWash = JSON.parse(getWash);
+        const one = document.querySelector(".one")
+        const myodana = document.querySelector(".flowki");
+        const egun = document.querySelector(".egun");
+        const getoz = document.querySelector(".oz");
 
-        getDiv.style.display = "block";
-        getOz.style.display = "block";
+        const getPrice = localStorage.getItem("price");
+        const priceItem = JSON.parse(getPrice);
 
-        getPlan.style.border = "1px solid #00AEEF";
-        getPlan2.style.border = "1px solid #00AEEF";
-        getPlan3.style.border = "1px solid #00AEEF";
-        getPlan4.style.border = "1px solid #00AEEF";
+        const waf = priceItem.wash_and_fold_smart_wash;
+        const wif = priceItem.wash_iron_and_fold_smart_wash;
+
+        bered = waf
+        bewhite = wif
 
 
-        getDiv.style.borderRadius = "10px";
+        console.log(bered, bewhite)
 
+
+
+        egun.style.display = "block"
+        // one.disabled = true;
+        one.style.display = "none";
+
+
+        getoz.style.display = "block";
+
+        
+
+        if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
+        return myodana.innerHTML += `
+        <div class="plan-item mb-3">
+            <h5 class="wash">${myWash[0]}</h5>
+        </div>
+        <input type="hidden" class="serviceName" value="wash and fold smart wash">
+        <input type="hidden" class="serviceType" value="wash_and_fold_smart_wash">
+
+        <div class="plan-item plan1 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+        <div class="item-by">
+            <button class="mo-btn" onclick="month(event)">Monthly</button>
+            <button class="an-btn" onclick="yearly(event)">Annually</button>
+            <div class="stre">
+            <img src="../assets/fre.png" alt="" class="vog">
+            </div>
+        </div>
+        </div>
+        <div class="plan-item plan2 mb-3">
+        <h6 class="h-item mt-3">Bags / month</h6>
+
+        <div class="item-by">
+            <button class="moto">1</button>
+            <button class="moto">2</button>
+            <button class="moto">3</button>
+            <button class="moto">4</button>
+            <button class="moto">5</button>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+
+        <div class="item-by">
+            <h4 class="blu">₦${waf} / bag</h4>
+            <p class="bul">₦${waf}/month</p>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex">
+            <h6 class="mt-4 dh">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex2">
+            <h6 class="mt-4 ih">${ivogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${isum} pieces (₦${itotal})</b></h6>
+            </div>
+        </div>
+    
+        <hr>
+        <div class="plan-item mb-3">
+            <h5 class="wash">${myWash[1]}</h5>
+        </div>
+        <input type="hidden" class="serviceName" value="wash iron and fold smart wash">
+        <input type="hidden" class="serviceType" value="wash_iron_and_fold_smart_wash">
+
+        <div class="plan-item plan1 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+        <div class="item-by">
+            <button class="mo-btn2" onclick="month2(event)">Monthly</button>
+            <button class="an-btn2" onclick="yearly2(event)">Annually</button>
+            <div class="stre">
+            <img src="../assets/fre.png" alt="" class="vog">
+            </div>
+        </div>
+        </div>
+        <div class="plan-item plan2 mb-3">
+        <h6 class="h-item mt-3">Bags / month</h6>
+
+        <div class="item-by">
+            <button class="moto">1</button>
+            <button class="moto">2</button>
+            <button class="moto">3</button>
+            <button class="moto">4</button>
+            <button class="moto">5</button>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+
+        <div class="item-by">
+            <h4 class="iblu">₦${wif} / bag</h4>
+            <p class="ibul">₦${wif}/month</p>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex">
+            <h6 class="mt-4">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex2">
+            <h6 class="mt-4">${ivogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${isum} pieces (₦${itotal})</b></h6>
+            </div>
+        </div>
+        `
+        }
+        else if (myWash.includes("wash & fold")) {
+        console.log(myWash, waf)
+        return myodana.innerHTML += `
+        <div class="plan-item mb-3">
+            <h5 class="wash">${myWash}</h5>
+        </div>
+        <input type="hidden" class="serviceName" value="wash and fold smart wash">
+        <input type="hidden" class="serviceType" value="wash_and_fold_smart_wash">
+        
+        <div class="plan-item plan1 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+        <div class="item-by">
+            <button class="mo-btn" onclick="month(event)">Monthly</button>
+            <button class="an-btn" onclick="yearly(event)">Annually</button>
+            <div class="stre">
+            <img src="../assets/fre.png" alt="" class="vog">
+            </div>
+        </div>
+        </div>
+        <div class="plan-item plan2 mb-3">
+        <h6 class="h-item mt-3">Bags / month</h6>
+
+        <div class="item-by">
+            <button class="moto">1</button>
+            <button class="moto">2</button>
+            <button class="moto">3</button>
+            <button class="moto">4</button>
+            <button class="moto">5</button>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+
+        <div class="item-by">
+            <h5 class="blu">₦${bered} / bag</h5>
+            <p class="bul">₦${bered}/month</p>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex">
+            <h6 class="mt-4 dh">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex2">
+            <h6 class="mt-4 ih">${ivogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${isum} pieces (₦${itotal})</b></h6>
+            </div>
+        </div>
+        `
+        }
+        else if(myWash.includes("wash iron & fold")) {
+        console.log(myWash, wif)
+        return myodana.innerHTML += `
+        <div class="plan-item mb-3">
+            <h5 class="wash">${myWash}</h5>
+        </div>
+        <input type="hidden" class="serviceName" value="wash iron and fold smart wash">
+        <input type="hidden" class="serviceType" value="wash_iron_and_fold_smart_wash">
+        
+        <div class="plan-item plan1 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+        <div class="item-by">
+            <button class="mo-btn" onclick="month2(event)">Monthly</button>
+            <button class="an-btn" onclick="yearly2(event)">Annually</button>
+            <div class="stre">
+            <img src="../assets/fre.png" alt="" class="vog">
+            </div>
+        </div>
+        </div>
+        <div class="plan-item plan2 mb-3">
+        <h6 class="h-item mt-3">Bags / month</h6>
+
+        <div class="item-by">
+            <button class="moto">1</button>
+            <button class="moto">2</button>
+            <button class="moto">3</button>
+            <button class="moto">4</button>
+            <button class="moto">5</button>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3">
+        <h6 class="h-item mt-4">Billing</h6>
+
+        <div class="item-by">
+            <h5 class="iblu">₦${bewhite} / bag</h5>
+            <p class="ibul">₦${bewhite}/month</p>
+        </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex">
+            <h6 class="mt-4 dh">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+        </div>
+        <div class="plan-item plan3 mb-3 ex2">
+            <h6 class="mt-4 ih">${ivogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${isum} pieces (₦${itotal})</b></h6>
+            </div>
+        </div>
+        `
+        }
     }
     
-    
 }
+
+
 
 function removeDrop(event) {
-    const getDiv = document.querySelector(".odana");
-    const getOz = document.querySelector(".oz");
-
     if (event.target.checked) {
-        getDiv.style.display = "none";
-        getOz.style.display = "none";
+        const getWash = localStorage.getItem("wash");
+        const myWash = JSON.parse(getWash);
+        const smart = document.querySelector(".smart")
+        const myodana = document.querySelector(".odana3");
+        const egun = document.querySelector(".egun2");
+        const getoz = document.querySelector(".oz");
+        egun.style.display = "block"
+        // smart.disabled = true;
+        smart.style.display = "none";
+
+        getoz.style.display = "block";
+
+
+        const getPrice = localStorage.getItem("price");
+        const priceItem = JSON.parse(getPrice);
+
+        onewaf = priceItem.wash_and_fold_one_time;
+        onewif = priceItem.wash_iron_and_fold_one_time;
+
+
+        if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
+            return myodana.innerHTML += `
+            <div class="plan-item mb-3">
+              <h5 class="wash">${myWash[0]}</h5>
+            </div>
+            <input type="hidden" class="serviceName" value="wash and fold one time">
+            <input type="hidden" class="serviceType" value="wash_and_fold_one_time">
+            <div class="plan-item plan2 mb-3">
+            <h6 class="h-item mt-3">Bags / month</h6>
+
+            <div class="item-by">
+                <button class="moto">1</button>
+                <button class="moto">2</button>
+                <button class="moto">3</button>
+                <button class="moto">4</button>
+                <button class="moto">5</button>
+            </div>
+            </div>
+            <div class="plan-item plan3 mb-3">
+                <h6 class="h-item mt-4">Billing</h6>
+
+                <div class="item-by">
+                    <h4>₦${onewaf} / bag</h4>
+                    <p>₦${onewaf}/month</p>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex">
+                <h6 class="mt-4">${dvogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex2">
+                <h6 class="mt-4">${ivogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${isum} pieces (₦${itotal})</b></h6>
+                </div>
+            </div>
+
+            <hr>
+            <div class="plan-item mb-3">
+              <h5>${myWash[1]}</h5>
+            </div>
+            <input type="hidden" class="serviceName" value="wash iron and fold one time">
+            <input type="hidden" class="serviceType" value="wash_iron_and_fold_one_time">
+            <div class="plan-item plan2 mb-3">
+            <h6 class="h-item mt-3">Bags / month</h6>
+
+            <div class="item-by">
+                <button class="moto">1</button>
+                <button class="moto">2</button>
+                <button class="moto">3</button>
+                <button class="moto">4</button>
+                <button class="moto">5</button>
+            </div>
+            </div>
+            <div class="plan-item plan3 mb-3">
+                <h6 class="h-item mt-4">Billing</h6>
+
+                <div class="item-by">
+                    <h4>₦${onewif} / bag</h4>
+                    <p>₦${onewif}/month</p>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex">
+                <h6 class="mt-4">${dvogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex2">
+                <h6 class="mt-4">${ivogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${isum} pieces (₦${itotal})</b></h6>
+                </div>
+            </div>
+            `
+        }
+        else if (myWash.includes("wash & fold")) {
+            return myodana.innerHTML += `
+            <div class="plan-item mb-3">
+              <h5 class="wash">${myWash}</h5>
+            </div>
+            <input type="hidden" class="serviceName" value="wash and fold one time">
+            <input type="hidden" class="serviceType" value="wash_and_fold_one_time">
+            <div class="plan-item plan2 mb-3">
+            <h6 class="h-item mt-3">Bags / month</h6>
+
+            <div class="item-by">
+                <button class="moto">1</button>
+                <button class="moto">2</button>
+                <button class="moto">3</button>
+                <button class="moto">4</button>
+                <button class="moto">5</button>
+            </div>
+            </div>
+            <div class="plan-item plan3 mb-3">
+                <h6 class="h-item mt-4">Billing</h6>
+
+                <div class="item-by">
+                    <h4>₦${onewaf} / bag</h4>
+                    <p>₦${onewaf}/month</p>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex">
+                <h6 class="mt-4">${dvogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex2">
+                <h6 class="mt-4">${ivogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${isum} pieces (₦${itotal})</b></h6>
+                </div>
+            </div>
+            `
+        }
+        else if(myWash.includes("wash iron & fold")) {
+            return myodana.innerHTML +=`
+            <div class="plan-item mb-3">
+             <h5 class="wash">${myWash}</h5>
+            </div>
+            <input type="hidden" class="serviceName" value="wash iron and fold one time">
+                <input type="hidden" class="serviceType" value="wash_iron_and_fold_one_time">
+            <div class="plan-item plan2 mb-3">
+            <h6 class="h-item mt-3">Bags / month</h6>
+
+            <div class="item-by">
+                <button class="moto">1</button>
+                <button class="moto">2</button>
+                <button class="moto">3</button>
+                <button class="moto">4</button>
+                <button class="moto">5</button>
+            </div>
+            </div>
+            <div class="plan-item plan3 mb-3">
+                <h6 class="h-item mt-4">Billing</h6>
+
+                <div class="item-by">
+                    <h4>₦${onewif} / bag</h4>
+                    <p>₦${onewif}/month</p>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex">
+                <h6 class="mt-4">${dvogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+                </div>
+            </div>
+            <div class="plan-item plan3 mb-3 ex2">
+                <h6 class="mt-4">${ivogue}</h6>
+
+                <div class="item-by mt-4">
+                <h6><b>${isum} pieces (₦${itotal})</b></h6>
+                </div>
+            </div>
+            `
+        }
     }
 }
+
+function yearly(event) {
+    event.preventDefault();
+    const blu = document.querySelector(".blu");
+    const bul = document.querySelector(".bul");
+    
+
+    const getPrice = localStorage.getItem("price");
+    const priceItem = JSON.parse(getPrice);
+
+    const chati = priceItem.wash_and_fold_smart_wash_yearly_plan_per_bag;
+    blu.innerHTML = `₦${chati}/ bag`
+    bul.innerHTML = `₦${chati}/month`
+
+}
+function yearly2(event) {
+    event.preventDefault();
+    const blu = document.querySelector(".iblu");
+    const bul = document.querySelector(".ibul");
+
+
+
+    const getPrice = localStorage.getItem("price");
+    const priceItem = JSON.parse(getPrice);
+
+    const chati = priceItem.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
+    blu.innerHTML = `₦${chati}/ bag`
+    bul.innerHTML = `₦${chati}/month`
+}
+
+function month(event) {
+    event.preventDefault();
+    const blu = document.querySelector(".blu");
+    const bul = document.querySelector(".bul");
+
+
+    const getPrice = localStorage.getItem("price");
+    const priceItem = JSON.parse(getPrice);
+    const chati = priceItem.wash_and_fold_smart_wash;
+    blu.innerHTML = `₦${chati}/ bag`
+    bul.innerHTML = `₦${chati}/month`
+}
+
+function month2(event) {
+    event.preventDefault();
+    const blu = document.querySelector(".iblu");
+    const bul = document.querySelector(".ibul");
+
+
+    const getPrice = localStorage.getItem("price");
+    const priceItem = JSON.parse(getPrice);
+    const chati = priceItem.wash_iron_and_fold_smart_wash;
+    blu.innerHTML = `₦${chati}/ bag`
+    bul.innerHTML = `₦${chati}/month`
+}
+
+
+
+

@@ -13,7 +13,7 @@
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body onload="oneDetails()">
   <!-- navigation -->
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -65,19 +65,10 @@
                     <img src="../assets/able.png" alt="">
                   </div>
                   <div class="form-check mt-3">
-                    <h6>Wash & Fold</h6>
-                    <p class="h-item mt-2">Monthly Subscribtions </p>
+                    <h4 class="dre"></h4>
                   </div>
                 </div>
                 <div class="bag-mon">
-                  <div class="">
-                    <p>1 bag / mo</p>
-                    <p class="h-item">Mobile app signup promo</p>
-                  </div>
-                  <div class="form-check">
-                    <p>₦5,000 / Mo</p>
-                    <p class="wash mt-2">-₦500  </p>
-                  </div>
                 </div>
 
                 <div class="bag-mon2">
@@ -85,7 +76,7 @@
                     <p class="h-item">Total due today</p>
                   </div>
                   <div class="form-check">
-                    <p>₦4,500 </p>
+                    <p class="okTotal"></p>
                   </div>
                 </div>
                 <h6 class="op mt-3">Choose pickup date:</h6>
@@ -109,7 +100,12 @@
                   </div>
                 </div>
                 
-                <button class="plan-btn mt-3">Proceed</button>
+                <button class="plan-btn mt-3" onclick="validateOrder(event)">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
+                    <span class="sr-only"></span>
+                  </div>
+                  Proceed
+                </button>
             </div>
           </form>
         </div>
