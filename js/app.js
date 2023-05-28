@@ -2101,20 +2101,25 @@ function month2(event) {
 }
 
 
-
+let wfbag;
+let wifbag
 function insert(num){
     const obj = {
         num: num,
         type: "wash & fold"
     }
     console.log(obj)
+    wfbag = obj.num;
 }
+
 function inserts(num){
     const obj = {
         num: num,
         type: "wash iron & fold"
     }
     console.log(obj)
+    wifbag = obj.num;
+
 }
 
 function smartWash(event) {
@@ -2123,12 +2128,49 @@ function smartWash(event) {
     const getPrice = localStorage.getItem("price");
     const topIt = JSON.parse(getPrice);
 
+    const wfitem = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
+    const wfitemMon = topIt.wash_and_fold_smart_wash;
+    const wifitem = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
+
     const getServices = document.querySelectorAll(".serviceName");
     const getServty = document.querySelectorAll(".serviceType");
 
-    if(getServty.value === "wash_and_fold_smart_wash_yearly_plan_per_bag" && getServices.value === "wash and fold smart wash yearly plan per bag") {
-        
+    const item = {};
+
+
+
+    for (i = 0; i < getServty.length; i++) {
+        if((getServty[i].value === "wash_and_fold_smart_wash_yearly_plan_per_bag") || (getServices[i].value === "wash and fold smart wash yearly plan per bag")) {
+            item.service_type = getServty[i].value;
+            item.service_name = getServices[i].value;
+            item.quantity = wfbag;
+            item.pricing = wfitem;
+        }
+
+        if((getServty[i].value === "wash_and_fold_smart_wash") || (getServices[i].value === "wash and fold smart wash")) {
+            item.service_type = getServty[i].value;
+            item.service_name = getServices[i].value;
+            item.quantity = wfbag;
+            item.pricing = wfitemMon;
+
+            
+        }
+
+        // if((getServty[i].value === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") || (getServices[i].value === "wash iron and fold smart wash yearly plan per bag")) {
+        //     item.service_type = getServty[i].value;
+        //     item.service_name = getServices[i].value;
+        //     item.quantity = wifbag;
+        //     item.pricing = wifitem;
+        // }
+
+        console.log(item)
+
+            
+
     }
+
+    
+
 
     
 }
