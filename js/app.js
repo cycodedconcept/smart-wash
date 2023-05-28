@@ -1353,68 +1353,6 @@ let isum;
 let itotal;
 
 
-// function chooseItem() {
-//     const myStuff = localStorage.getItem("allitem");
-//     const stuff = JSON.parse(myStuff);
-//     const ex2 = document.querySelector(".ex2");
-
-//     let mydry = [];
-//     let mydry2 = [];
-
-//     let vogue;
-//     let vogue2;
-//     let total = 0;
-//     let total2 = 0;
-
-
-//     let sum = 0;
-//     let sum2 = 0;
-//     for (let index = 0; index < stuff.length; index++) {
-//         if (stuff[index].service_type === "dry_cleaning") {
-//           sum += JSON.parse(stuff[index].quantity);
-//           let mok = stuff[index].pricing
-//           total += JSON.parse(mok);
-//           vogue = stuff[index].service_name;
-//           dsum = sum;
-//           dtotal = total;
-//           dvogue = vogue
-          
-//         }
-
-        
-//         if (stuff[index].service_type === "ironing") {
-//             sum2 += JSON.parse(stuff[index].quantity);
-//             let mok2 = stuff[index].pricing;
-//             total2 += JSON.parse(mok2);
-//             vogue2 = stuff[index].service_name;
-//             isum = sum2
-//             itotal = total2
-//             ivogue = vogue2
-//         }
-//     }
-
-//     mydry += `
-//         <h6 class="mt-4">${vogue}</h6>
-
-//         <div class="item-by mt-4">
-//         <h6><b>${sum} pieces (₦${total})</b></h6>
-//         </div>
-//     `
-//     ex.innerHTML = mydry
-    
-
-
-//     mydry2 += `
-//         <h6 class="mt-4">${vogue2}</h6>
-
-//         <div class="item-by mt-4">
-//         <h6><b>${sum2} pieces (₦${total2})</b></h6>
-//         </div>
-//     `
-//     ex2.innerHTML = mydry2
-
-// }
-
 function chooseItem() {
     const myStuff = localStorage.getItem("allitem");
     const stuff = JSON.parse(myStuff);
@@ -1478,28 +1416,7 @@ function picked() {
     }
 }
 
-const getMoto = document.querySelectorAll(".moto");
-let bagsQty;
-getMoto.forEach((i) => {
-    i.addEventListener("click", () => {
-        bagsQty = i.value;
-        if (bagsQty === "1") {
-            Swal.fire({
-                icon: 'info',
-                text: `You chose ${bagsQty} bag click OK if you are satisfied and click on the proceed button`,
-                confirmButtonColor: '#00AEEF'
-            })
-        }
-        else {
-            Swal.fire({
-                icon: 'info',
-                text: `You chose ${bagsQty} bags click OK if you are satisfied click on the proceed button`,
-                confirmButtonColor: '#00AEEF'
-            })
-        }
-        
-    })
-})
+
 
 // function for one time wash
 function calOneTime(event) {
@@ -1644,12 +1561,17 @@ let bewhite
 
 
 function showOthers(event) {
+    
+
+
     if (event.target.checked) {
         
         const getWash = localStorage.getItem("wash");
         const myWash = JSON.parse(getWash);
         const one = document.querySelector(".one")
         const myodana = document.querySelector(".flowki");
+        console.log(document.querySelector('.moto'))
+        console.log(document.querySelector('.one'))
         const egun = document.querySelector(".egun");
         const getoz = document.querySelector(".oz");
 
@@ -1665,12 +1587,8 @@ function showOthers(event) {
 
         console.log(bered, bewhite)
 
-
-
         egun.style.display = "block"
-        // one.disabled = true;
-        one.style.display = "none";
-
+        one.disabled = true;
 
         getoz.style.display = "block";
 
@@ -1698,11 +1616,12 @@ function showOthers(event) {
         <h6 class="h-item mt-3">Bags / month</h6>
 
         <div class="item-by">
-            <button class="moto">1</button>
-            <button class="moto">2</button>
-            <button class="moto">3</button>
-            <button class="moto">4</button>
-            <button class="moto">5</button>
+        <div class="moto" onClick="insert(1)">1</div>
+        <div class="moto" onClick="insert(2)">2</div>
+        <div class="moto" onClick="insert(3)">3</div>
+        <div class="moto" onClick="insert(4)">4</div>
+        <div class="moto" onClick="insert(5)">5</div>
+            
         </div>
         </div>
         <div class="plan-item plan3 mb-3">
@@ -1749,11 +1668,11 @@ function showOthers(event) {
         <h6 class="h-item mt-3">Bags / month</h6>
 
         <div class="item-by">
-            <button class="moto">1</button>
-            <button class="moto">2</button>
-            <button class="moto">3</button>
-            <button class="moto">4</button>
-            <button class="moto">5</button>
+            <div class="moto" onClick="inserts(1)">1</div>
+            <div class="moto" onClick="inserts(2)">2</div>
+            <div class="moto" onClick="inserts(3)">3</div>
+            <div class="moto" onClick="inserts(4)">4</div>
+            <div class="moto" onClick="inserts(5)">5</div>
         </div>
         </div>
         <div class="plan-item plan3 mb-3">
@@ -1780,6 +1699,7 @@ function showOthers(event) {
         </div>
         `
         }
+
         else if (myWash.includes("wash & fold")) {
         console.log(myWash, waf)
         return myodana.innerHTML += `
@@ -1803,11 +1723,11 @@ function showOthers(event) {
         <h6 class="h-item mt-3">Bags / month</h6>
 
         <div class="item-by">
-            <button class="moto">1</button>
-            <button class="moto">2</button>
-            <button class="moto">3</button>
-            <button class="moto">4</button>
-            <button class="moto">5</button>
+        <div class="moto" onClick="insert(1)">1</div>
+        <div class="moto" onClick="insert(2)">2</div>
+        <div class="moto" onClick="insert(3)">3</div>
+        <div class="moto" onClick="insert(4)">4</div>
+        <div class="moto" onClick="insert(5)">5</div>
         </div>
         </div>
         <div class="plan-item plan3 mb-3">
@@ -1857,11 +1777,11 @@ function showOthers(event) {
         <h6 class="h-item mt-3">Bags / month</h6>
 
         <div class="item-by">
-            <button class="moto">1</button>
-            <button class="moto">2</button>
-            <button class="moto">3</button>
-            <button class="moto">4</button>
-            <button class="moto">5</button>
+        <div class="moto" onClick="inserts(1)">1</div>
+        <div class="moto" onClick="inserts(2)">2</div>
+        <div class="moto" onClick="inserts(3)">3</div>
+        <div class="moto" onClick="inserts(4)">4</div>
+        <div class="moto" onClick="inserts(5)">5</div>
         </div>
         </div>
         <div class="plan-item plan3 mb-3">
@@ -1887,7 +1807,7 @@ function showOthers(event) {
             </div>
         </div>
         `
-        }
+    }
     }
     
 }
@@ -1895,18 +1815,20 @@ function showOthers(event) {
 
 
 function removeDrop(event) {
+    
+
     if (event.target.checked) {
         const getWash = localStorage.getItem("wash");
         const myWash = JSON.parse(getWash);
         const smart = document.querySelector(".smart")
         const myodana = document.querySelector(".odana3");
+
         const egun = document.querySelector(".egun2");
         const getoz = document.querySelector(".oz");
         egun.style.display = "block"
-        // smart.disabled = true;
-        smart.style.display = "none";
-
+        smart.disabled = true;
         getoz.style.display = "block";
+
 
 
         const getPrice = localStorage.getItem("price");
@@ -1927,11 +1849,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="moto">1</button>
-                <button class="moto">2</button>
-                <button class="moto">3</button>
-                <button class="moto">4</button>
-                <button class="moto">5</button>
+                <button class="">1</button>
+                <button class="">2</button>
+                <button class="">3</button>
+                <button class="">4</button>
+                <button class="">5</button>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -1959,7 +1881,7 @@ function removeDrop(event) {
 
             <hr>
             <div class="plan-item mb-3">
-              <h5>${myWash[1]}</h5>
+              <h5 class="wash">${myWash[1]}</h5>
             </div>
             <input type="hidden" class="serviceName" value="wash iron and fold one time">
             <input type="hidden" class="serviceType" value="wash_iron_and_fold_one_time">
@@ -1967,11 +1889,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="moto">1</button>
-                <button class="moto">2</button>
-                <button class="moto">3</button>
-                <button class="moto">4</button>
-                <button class="moto">5</button>
+                <button class="">1</button>
+                <button class="">2</button>
+                <button class="">3</button>
+                <button class="">4</button>
+                <button class="">5</button>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -2009,11 +1931,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="moto">1</button>
-                <button class="moto">2</button>
-                <button class="moto">3</button>
-                <button class="moto">4</button>
-                <button class="moto">5</button>
+                <button class="">1</button>
+                <button class="">2</button>
+                <button class="">3</button>
+                <button class="">4</button>
+                <button class="">5</button>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -2051,11 +1973,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="moto">1</button>
-                <button class="moto">2</button>
-                <button class="moto">3</button>
-                <button class="moto">4</button>
-                <button class="moto">5</button>
+                <button class="">1</button>
+                <button class="">2</button>
+                <button class="">3</button>
+                <button class="">4</button>
+                <button class="">5</button>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -2083,7 +2005,11 @@ function removeDrop(event) {
             `
         }
     }
+    
 }
+
+
+
 
 function yearly(event) {
     event.preventDefault();
@@ -2142,4 +2068,18 @@ function month2(event) {
 
 
 
+function insert(num){
+    const obj = {
+        num: num,
+        type: "wash & fold"
+    }
+    console.log(obj)
+}
+function inserts(num){
+    const obj = {
+        num: num,
+        type: "wash iron & fold"
+    }
+    console.log(obj)
+}
 
