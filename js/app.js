@@ -1560,6 +1560,7 @@ let bered;
 let bewhite
 
 
+
 function showOthers(event) {
     
 
@@ -1599,14 +1600,14 @@ function showOthers(event) {
         <div class="plan-item mb-3">
             <h5 class="wash">${myWash[0]}</h5>
         </div>
-        <input type="hidden" class="serviceName" value="wash and fold smart wash">
-        <input type="hidden" class="serviceType" value="wash_and_fold_smart_wash">
+        <input type="hidden" class="serviceName warcrafname" value="wash and fold smart wash">
+        <input type="hidden" class="serviceType warcraftype" value="wash_and_fold_smart_wash">
 
         <div class="plan-item plan1 mb-3">
         <h6 class="h-item mt-4">Billing</h6>
         <div class="item-by">
-            <button class="mo-btn" onclick="month(event)">Monthly</button>
-            <button class="an-btn" onclick="yearly(event)">Annually</button>
+            <div class="mo-btn" onClick="month(event)">Monthly</div>
+            <div class="an-btn" onClick="yearly(event)">Annually</div>
             <div class="stre">
             <img src="../assets/fre.png" alt="" class="vog">
             </div>
@@ -1651,14 +1652,14 @@ function showOthers(event) {
         <div class="plan-item mb-3">
             <h5 class="wash">${myWash[1]}</h5>
         </div>
-        <input type="hidden" class="serviceName" value="wash iron and fold smart wash">
-        <input type="hidden" class="serviceType" value="wash_iron_and_fold_smart_wash">
+        <input type="hidden" class="serviceName warcrafname2" value="wash iron and fold smart wash">
+        <input type="hidden" class="serviceType warcraftype2" value="wash_iron_and_fold_smart_wash">
 
         <div class="plan-item plan1 mb-3">
         <h6 class="h-item mt-4">Billing</h6>
         <div class="item-by">
-            <button class="mo-btn2" onclick="month2(event)">Monthly</button>
-            <button class="an-btn2" onclick="yearly2(event)">Annually</button>
+            <div class="mo-btn2" onClick="month2(event)">Monthly</div>
+            <div class="an-btn2" onClick="yearly2(event)">Annually</div>
             <div class="stre">
             <img src="../assets/fre.png" alt="" class="vog">
             </div>
@@ -1706,14 +1707,14 @@ function showOthers(event) {
         <div class="plan-item mb-3">
             <h5 class="wash">${myWash}</h5>
         </div>
-        <input type="hidden" class="serviceName" value="wash and fold smart wash">
-        <input type="hidden" class="serviceType" value="wash_and_fold_smart_wash">
+        <input type="hidden" class="serviceName warcrafname" value="wash and fold smart wash">
+        <input type="hidden" class="serviceType warcraftype" value="wash_and_fold_smart_wash">
         
         <div class="plan-item plan1 mb-3">
         <h6 class="h-item mt-4">Billing</h6>
         <div class="item-by">
-            <button class="mo-btn" onclick="month(event)">Monthly</button>
-            <button class="an-btn" onclick="yearly(event)">Annually</button>
+            <div class="mo-btn" onClick="month(event)">Monthly</div>
+            <div class="an-btn" onClick="yearly(event)">Annually</div>
             <div class="stre">
             <img src="../assets/fre.png" alt="" class="vog">
             </div>
@@ -1760,14 +1761,14 @@ function showOthers(event) {
         <div class="plan-item mb-3">
             <h5 class="wash">${myWash}</h5>
         </div>
-        <input type="hidden" class="serviceName" value="wash iron and fold smart wash">
-        <input type="hidden" class="serviceType" value="wash_iron_and_fold_smart_wash">
+        <input type="hidden" class="serviceName warcrafname2" value="wash iron and fold smart wash">
+        <input type="hidden" class="serviceType warcraftype2" value="wash_iron_and_fold_smart_wash">
         
         <div class="plan-item plan1 mb-3">
         <h6 class="h-item mt-4">Billing</h6>
         <div class="item-by">
-            <button class="mo-btn" onclick="month2(event)">Monthly</button>
-            <button class="an-btn" onclick="yearly2(event)">Annually</button>
+            <div class="mo-btn" onClick="month2(event)">Monthly</div>
+            <div class="an-btn" onClick="yearly2(event)">Annually</div>
             <div class="stre">
             <img src="../assets/fre.png" alt="" class="vog">
             </div>
@@ -1849,11 +1850,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="">1</button>
-                <button class="">2</button>
-                <button class="">3</button>
-                <button class="">4</button>
-                <button class="">5</button>
+            <div class="moto" onClick="insert(1)">1</div>
+            <div class="moto" onClick="insert(2)">2</div>
+            <div class="moto" onClick="insert(3)">3</div>
+            <div class="moto" onClick="insert(4)">4</div>
+            <div class="moto" onClick="insert(5)">5</div>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -1889,11 +1890,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="">1</button>
-                <button class="">2</button>
-                <button class="">3</button>
-                <button class="">4</button>
-                <button class="">5</button>
+            <div class="moto" onClick="inserts(1)">1</div>
+            <div class="moto" onClick="inserts(2)">2</div>
+            <div class="moto" onClick="inserts(3)">3</div>
+            <div class="moto" onClick="inserts(4)">4</div>
+            <div class="moto" onClick="inserts(5)">5</div>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -1931,11 +1932,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="">1</button>
-                <button class="">2</button>
-                <button class="">3</button>
-                <button class="">4</button>
-                <button class="">5</button>
+            <div class="moto" onClick="insert(1)">1</div>
+            <div class="moto" onClick="insert(2)">2</div>
+            <div class="moto" onClick="insert(3)">3</div>
+            <div class="moto" onClick="insert(4)">4</div>
+            <div class="moto" onClick="insert(5)">5</div>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -1973,11 +1974,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-                <button class="">1</button>
-                <button class="">2</button>
-                <button class="">3</button>
-                <button class="">4</button>
-                <button class="">5</button>
+            <div class="moto" onClick="inserts(1)">1</div>
+            <div class="moto" onClick="inserts(2)">2</div>
+            <div class="moto" onClick="inserts(3)">3</div>
+            <div class="moto" onClick="inserts(4)">4</div>
+            <div class="moto" onClick="inserts(5)">5</div>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -2010,11 +2011,19 @@ function removeDrop(event) {
 
 
 
-
 function yearly(event) {
     event.preventDefault();
     const blu = document.querySelector(".blu");
     const bul = document.querySelector(".bul");
+
+    const getServiceType = document.querySelector(".warcraftype");
+    const getServiceName = document.querySelector(".warcrafname");
+
+    getServiceType.value = "wash_and_fold_smart_wash_yearly_plan_per_bag";
+    getServiceName.value = "wash and fold smart wash yearly plan per bag";
+
+    console.log(getServiceType.value, getServiceName.value)
+
     
 
     const getPrice = localStorage.getItem("price");
@@ -2030,7 +2039,15 @@ function yearly2(event) {
     const blu = document.querySelector(".iblu");
     const bul = document.querySelector(".ibul");
 
+    const getServiceType = document.querySelector(".warcraftype2");
+    const getServiceName = document.querySelector(".warcrafname2");
 
+    getServiceType.value = "wash_iron_and_fold_smart_wash_yearly_plan_per_bag";
+    getServiceName.value = "wash iron and fold smart wash yearly plan per bag";
+
+    console.log(getServiceType.value, getServiceName.value)
+
+    
 
     const getPrice = localStorage.getItem("price");
     const priceItem = JSON.parse(getPrice);
@@ -2038,12 +2055,23 @@ function yearly2(event) {
     const chati = priceItem.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
     blu.innerHTML = `₦${chati}/ bag`
     bul.innerHTML = `₦${chati}/month`
+
+    
 }
+
 
 function month(event) {
     event.preventDefault();
     const blu = document.querySelector(".blu");
     const bul = document.querySelector(".bul");
+
+    const getServiceType = document.querySelector(".warcraftype");
+    const getServiceName = document.querySelector(".warcrafname");
+
+    getServiceType.value = "wash_and_fold_smart_wash";
+    getServiceName.value = "wash and fold smart wash";
+
+    console.log(getServiceType.value, getServiceName.value)
 
 
     const getPrice = localStorage.getItem("price");
@@ -2057,6 +2085,12 @@ function month2(event) {
     event.preventDefault();
     const blu = document.querySelector(".iblu");
     const bul = document.querySelector(".ibul");
+
+    const getServiceType = document.querySelector(".warcraftype2");
+    const getServiceName = document.querySelector(".warcrafname2");
+
+    getServiceType.value = "wash_iron_and_fold_smart_wash";
+    getServiceName.value = "wash iron and fold smart wash";
 
 
     const getPrice = localStorage.getItem("price");
@@ -2083,3 +2117,18 @@ function inserts(num){
     console.log(obj)
 }
 
+function smartWash(event) {
+    event.preventDefault();
+
+    const getPrice = localStorage.getItem("price");
+    const topIt = JSON.parse(getPrice);
+
+    const getServices = document.querySelectorAll(".serviceName");
+    const getServty = document.querySelectorAll(".serviceType");
+
+    if(getServty.value === "wash_and_fold_smart_wash_yearly_plan_per_bag" && getServices.value === "wash and fold smart wash yearly plan per bag") {
+        
+    }
+
+    
+}
