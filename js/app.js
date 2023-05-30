@@ -2100,7 +2100,8 @@ function month2(event) {
     bul.innerHTML = `₦${chati}/month`
 }
 
-
+let thePrice = [];
+let bag = []
 let wfbag;
 let wifbag
 function insert(num){
@@ -2110,6 +2111,7 @@ function insert(num){
     }
     console.log(obj)
     wfbag = obj.num;
+    bag.push(wfbag)
 }
 
 function inserts(num){
@@ -2119,6 +2121,7 @@ function inserts(num){
     }
     console.log(obj)
     wifbag = obj.num;
+    bag.push(wifbag)
 
 }
 
@@ -2128,49 +2131,56 @@ function smartWash(event) {
     const getPrice = localStorage.getItem("price");
     const topIt = JSON.parse(getPrice);
 
-    const wfitem = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
-    const wfitemMon = topIt.wash_and_fold_smart_wash;
-    const wifitem = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
+
+    const getWash = localStorage.getItem("wash");
+    const myWash = JSON.parse(getWash);
+    if (myWash.includes("wash & fold") && myWash.includes("wash iron & fold")) {
+        thePrice.push(topIt.wash_and_fold_smart_wash, topIt.wash_iron_and_fold_smart_wash)
+        console.log(thePrice)
+    }
+    else if (myWash.includes("wash & fold")) {
+        thePrice.push(topIt.wash_and_fold_smart_wash)
+    }
+    else if (myWash.includes("wash iron & fold")) {
+        thePrice.push(topIt.wash_iron_and_fold_smart_wash)
+    }
+
+    // const wfitem = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
+    // const wfitemMon = topIt.wash_and_fold_smart_wash;
+    // const wifitem = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
+    // const wil = topIt.wash_iron_and_fold_smart_wash;
 
     const getServices = document.querySelectorAll(".serviceName");
     const getServty = document.querySelectorAll(".serviceType");
 
-    const item = {};
-
-
-
-    for (i = 0; i < getServty.length; i++) {
-        if((getServty[i].value === "wash_and_fold_smart_wash_yearly_plan_per_bag") || (getServices[i].value === "wash and fold smart wash yearly plan per bag")) {
-            item.service_type = getServty[i].value;
-            item.service_name = getServices[i].value;
-            item.quantity = wfbag;
-            item.pricing = wfitem;
-        }
-
-        if((getServty[i].value === "wash_and_fold_smart_wash") || (getServices[i].value === "wash and fold smart wash")) {
-            item.service_type = getServty[i].value;
-            item.service_name = getServices[i].value;
-            item.quantity = wfbag;
-            item.pricing = wfitemMon;
-
-            
-        }
-
-        // if((getServty[i].value === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") || (getServices[i].value === "wash iron and fold smart wash yearly plan per bag")) {
-        //     item.service_type = getServty[i].value;
-        //     item.service_name = getServices[i].value;
-        //     item.quantity = wifbag;
-        //     item.pricing = wifitem;
-        // }
-
-        console.log(item)
-
-            
-
-    }
-
     
 
+    let service = [];
+    let typ = [];
 
+
+
+    for (i = 0; i < getServices.length; i++) {
+        
+        let cs = getServices[i].value;
+        service.push(cs);
+    }
+    for (j = 0; j < getServty.length; j++) {
+        let bs = getServty[j].value;
+        typ.push(bs)
+    }
+    
+
+    console.log(service, typ, bag);
+    const peopleService = typ.map((service_type, index) => {
+        return Object.assign({}, {
+            service_type,
+            service_name: service[index],
+            quantity: bag[index],
+            pricing: thePrice[index]
+        })
+    })
+
+    console.log(peopleService)
     
 }
