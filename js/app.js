@@ -1329,16 +1329,15 @@ function calValues(event) {
         }
     }
     if(localStorage.getItem("wash")){
-        // const total = data.reduce((acc, item) => {
-        //     const price = Number(item.price.replace(/[^\d.-]/g, ''));
-        //     return acc + price;
-        // }, 0);
-        // console.log(data)
-        // console.log("Total Price: ", total)
+        const total = data.reduce((acc, item) => {
+            const price = Number(item.pricing.replace(/[^\d.-]/g, ''));
+            return acc + price;
+        }, 0);
+        console.log(data)
+        console.log("Total Price: ", total)
+        localStorage.setItem("bis", total)
         location.href = "../pages/plan2.html"
     }
-    // if (!localStorage.getItem("wash")) {
-    // }
     else{
         location.href = "onetime.html";
     }
@@ -1439,6 +1438,7 @@ function calOneTime(event) {
 
 }
 
+
 function oneDetails() {
     const det = localStorage.getItem("oneplan");
     const gre = document.querySelector(".dre");
@@ -1500,8 +1500,10 @@ function oneDetails() {
     }, 0);
 
     ototal.innerHTML = `₦${sum}`;
-    
+
 }
+
+
 
 // function to send first request
 function validateOrder(event) {
@@ -1571,8 +1573,6 @@ function showOthers(event) {
         const myWash = JSON.parse(getWash);
         const one = document.querySelector(".one")
         const myodana = document.querySelector(".flowki");
-        console.log(document.querySelector('.moto'))
-        console.log(document.querySelector('.one'))
         const egun = document.querySelector(".egun");
         const getoz = document.querySelector(".oz");
 
@@ -1735,8 +1735,8 @@ function showOthers(event) {
         <h6 class="h-item mt-4">Billing</h6>
 
         <div class="item-by">
-            <h5 class="blu">₦${bered} / bag</h5>
-            <p class="bul">₦${bered}/month</p>
+            <h5 class="blu">₦${waf} / bag</h5>
+            <p class="bul">₦${waf}/month</p>
         </div>
         </div>
         <div class="plan-item plan3 mb-3 ex">
@@ -1789,8 +1789,8 @@ function showOthers(event) {
         <h6 class="h-item mt-4">Billing</h6>
 
         <div class="item-by">
-            <h5 class="iblu">₦${bewhite} / bag</h5>
-            <p class="ibul">₦${bewhite}/month</p>
+            <h5 class="iblu">₦${wif} / bag</h5>
+            <p class="ibul">₦${wif}/month</p>
         </div>
         </div>
         <div class="plan-item plan3 mb-3 ex">
@@ -2128,15 +2128,23 @@ function inserts(num){
 function smartWash(event) {
     event.preventDefault();
 
+    const getItems = localStorage.getItem("allitem");
+    const sivItems = JSON.parse(getItems);
+
     const getPrice = localStorage.getItem("price");
     const topIt = JSON.parse(getPrice);
+    const mywplan = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
+    const mywiplan = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
+
+    const onetime = topIt.wash_and_fold_one_time;
+    const onetimei = topIt.wash_iron_and_fold_one_time;
+
 
 
     const getWash = localStorage.getItem("wash");
     const myWash = JSON.parse(getWash);
     if (myWash.includes("wash & fold") && myWash.includes("wash iron & fold")) {
         thePrice.push(topIt.wash_and_fold_smart_wash, topIt.wash_iron_and_fold_smart_wash)
-        console.log(thePrice)
     }
     else if (myWash.includes("wash & fold")) {
         thePrice.push(topIt.wash_and_fold_smart_wash)
@@ -2145,18 +2153,13 @@ function smartWash(event) {
         thePrice.push(topIt.wash_iron_and_fold_smart_wash)
     }
 
-    // const wfitem = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
-    // const wfitemMon = topIt.wash_and_fold_smart_wash;
-    // const wifitem = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
-    // const wil = topIt.wash_iron_and_fold_smart_wash;
-
     const getServices = document.querySelectorAll(".serviceName");
     const getServty = document.querySelectorAll(".serviceType");
 
     
 
     let service = [];
-    let typ = [];
+    let typ = []; 
 
 
 
@@ -2170,17 +2173,155 @@ function smartWash(event) {
         typ.push(bs)
     }
     
-
-    console.log(service, typ, bag);
-    const peopleService = typ.map((service_type, index) => {
-        return Object.assign({}, {
-            service_type,
-            service_name: service[index],
-            quantity: bag[index],
-            pricing: thePrice[index]
-        })
+    const customerService = typ.map((service_type, index) => {
+        if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: mywplan
+            })
+        }
+        else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: mywiplan
+            })
+        }
+        else if (service_type === "wash_and_fold_one_time") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: onetime
+            })
+        }
+        else if (service_type === "wash_iron_and_fold_one_time") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: onetimei
+            })
+        }
+        else {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: thePrice[index]
+            })
+        }
+        
     })
 
-    console.log(peopleService)
+    for (let i = 0; i < customerService.length; i++) {
+        sivItems.push(customerService[i])
+    }
+
+    localStorage.setItem("newService", JSON.stringify(sivItems));
+    location.href = "../pages/wash.html"
+}
+
+function washBag() {
+    const washObji = localStorage.getItem("wash");
+    const washObj = JSON.parse(washObji)
+    const getPupu = document.querySelector(".pupu");
+    const getPrice = localStorage.getItem("bis")
+
+    const getItem = localStorage.getItem("allitem");
+    const theItem = JSON.parse(getItem);
+
+
+    let data = [];
+    washObj.map((item) => {
+        data += `
+        <div class="plan">
+            <div class="plan-img2">
+                <img src="../assets/able.png" alt="">
+            </div>
+            <div class="form-check mt-3">
+                <h4 class="wash">${item}</h4>
+            </div>
+        </div>
+        <div class="bag-mon">
+         ${theItem.map((item) => {
+            if (item.service_type === "dry_cleaning") {
+                return `
+                <div>
+                    <div class="search-card">
+                      <div>
+                        <p><b>${item.service_name}</b></p>
+                      </div>
+                    </div>
+                    <div class="search-card">
+                    <div>
+                        <p>${item.cloth_category} x ${item.quantity}</p>
+                    </div>
+                    <div>
+                        <p>₦${item.pricing}</p>
+                    </div>
+                    </div>
+                </div>
+                `
+            }
+            else if (item.service_type === "ironing") {
+                return `
+                <div>
+                    <div class="search-card">
+                      <div>
+                        <p><b>${item.service_name}</b></p>
+                      </div>
+                    </div>
+                    <div class="search-card">
+                    <div>
+                        <p>${item.cloth_category} x ${item.quantity}</p>
+                    </div>
+                    <div>
+                        <p>₦${item.pricing}</p>
+                    </div>
+                    </div>
+                </div>
+                `
+            }
+            else {
+                return `
+                <div>
+                    <div class="search-card">
+                      <div>
+                        <p><b>${item.service_name}</b></p>
+                      </div>
+                    </div>
+                    <div class="search-card">
+                    <div>
+                        <p>${item.cloth_category} x ${item.quantity}</p>
+                    </div>
+                    <div>
+                        <p>₦${item.pricing}</p>
+                    </div>
+                    </div>
+                </div>
+                `
+            }
+        })}
+        </div>
+
+        <div class="bag-mon2">
+            <div class="">
+            <p class="h-item">Total due today</p>
+            </div>
+            <div class="form-check">
+            <p class="okTotal">₦${getPrice}</p>
+            </div>
+        </div>
+        <hr>
+        `
+        getPupu.innerHTML = data;
+
+    })
+    
     
 }
+washBag()
