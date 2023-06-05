@@ -1516,6 +1516,7 @@ function validateOrder(event) {
     console.log(myToken)
 
     const logUser = new Headers();
+    logUser.append('Content-Type', 'application/json')
     logUser.append("Authorization", `Bearer ${myToken}`);
 
     const myItem = localStorage.getItem("allitem");
@@ -1550,7 +1551,11 @@ function validateOrder(event) {
 
         fetch(url, request)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result)
+            localStorage.setItem("order", JSON.stringify(result))
+            location.href = "../pages/payment.html"
+        })
         .catch(error => console.log('error', error));
     }
 }
@@ -1812,6 +1817,10 @@ function showOthers(event) {
     }
     
 }
+
+
+
+
 
 
 
@@ -2161,6 +2170,8 @@ function smartWash(event) {
     let service = [];
     let typ = []; 
 
+    let komo = []
+
 
 
     for (i = 0; i < getServices.length; i++) {
@@ -2219,25 +2230,129 @@ function smartWash(event) {
 
     for (let i = 0; i < customerService.length; i++) {
         sivItems.push(customerService[i])
+        komo.push(customerService[i].pricing)
     }
+    localStorage.setItem("komoprice", JSON.stringify(komo))
+
 
     localStorage.setItem("newService", JSON.stringify(sivItems));
     location.href = "../pages/wash.html"
 }
 
+// function washBag() {
+//     const washObji = localStorage.getItem("wash");
+//     const washObj = JSON.parse(washObji)
+//     const getPupu = document.querySelector(".pupu");
+//     const getPrice = localStorage.getItem("bis")
+
+//     const getItem = localStorage.getItem("allitem");
+//     const theItem = JSON.parse(getItem);
+
+
+//     let data = [];
+//     washObj.map((item) => {
+//         data += `
+//         <div class="plan">
+//             <div class="plan-img2">
+//                 <img src="../assets/able.png" alt="">
+//             </div>
+//             <div class="form-check mt-3">
+//                 <h4 class="wash">${item}</h4>
+//             </div>
+//         </div>
+//         <div class="bag-mon">
+//          ${theItem.map((item) => {
+//             if (item.service_type === 'dry_cleaning') {
+//                 return `
+//                     <div class="search-card">
+//                       <div>
+//                         <p><b>${item.service_name}</b></p>
+//                       </div>
+//                     </div>
+//                     <div class="search-card">
+//                         <div>
+//                             <p>${item.cloth_category} x ${item.quantity}</p>
+//                         </div>
+//                         <div>
+//                             <p>₦${item.pricing}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             }
+//             else if (item.service_type === 'ironing') {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                     <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//             else {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                      <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//         })}
+//         </div>
+
+//         <div class="bag-mon2">
+//             <div class="">
+//             <p class="h-item">Total due today</p>
+//             </div>
+//             <div class="form-check">
+//             <p class="okTotal">₦${getPrice}</p>
+//             </div>
+//         </div>
+//         <hr>
+//         `
+//         getPupu.innerHTML = data;
+
+//     })
+    
+    
+// }
+
+
 function washBag() {
     const washObji = localStorage.getItem("wash");
     const washObj = JSON.parse(washObji)
     const getPupu = document.querySelector(".pupu");
-    const getPrice = localStorage.getItem("bis")
+    const getPrice = localStorage.getItem("bis");
+
+    const ibiza = localStorage.getItem("komoprice");
+    const one9 = JSON.parse(ibiza);
+
+    
 
     const getItem = localStorage.getItem("allitem");
     const theItem = JSON.parse(getItem);
 
 
-    let data = [];
-    washObj.map((item) => {
-        data += `
+    if ((washObj.includes("wash & fold")) && (washObj.includes("wash iron & fold"))) {
+        washObj.map((item) => {
+
+            return getPupu.innerHTML += `
         <div class="plan">
             <div class="plan-img2">
                 <img src="../assets/able.png" alt="">
@@ -2246,61 +2361,56 @@ function washBag() {
                 <h4 class="wash">${item}</h4>
             </div>
         </div>
+        
         <div class="bag-mon">
          ${theItem.map((item) => {
-            if (item.service_type === "dry_cleaning") {
+            if (item.service_type === 'dry_cleaning') {
                 return `
-                <div>
                     <div class="search-card">
                       <div>
                         <p><b>${item.service_name}</b></p>
                       </div>
                     </div>
                     <div class="search-card">
-                    <div>
-                        <p>${item.cloth_category} x ${item.quantity}</p>
+                        <div>
+                            <p>${item.cloth_category} x ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p>₦${item.pricing}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>₦${item.pricing}</p>
-                    </div>
-                    </div>
-                </div>
                 `
             }
-            else if (item.service_type === "ironing") {
+            else if (item.service_type === 'ironing') {
                 return `
-                <div>
-                    <div class="search-card">
-                      <div>
-                        <p><b>${item.service_name}</b></p>
-                      </div>
+                <div class="search-card">
+                    <div>
+                    <p><b>${item.service_name}</b></p>
                     </div>
-                    <div class="search-card">
+                </div>
+                <div class="search-card">
                     <div>
                         <p>${item.cloth_category} x ${item.quantity}</p>
                     </div>
                     <div>
                         <p>₦${item.pricing}</p>
-                    </div>
                     </div>
                 </div>
                 `
             }
             else {
                 return `
-                <div>
-                    <div class="search-card">
-                      <div>
-                        <p><b>${item.service_name}</b></p>
-                      </div>
+                <div class="search-card">
+                    <div>
+                     <p><b>${item.service_name}</b></p>
                     </div>
-                    <div class="search-card">
+                </div>
+                <div class="search-card">
                     <div>
                         <p>${item.cloth_category} x ${item.quantity}</p>
                     </div>
                     <div>
                         <p>₦${item.pricing}</p>
-                    </div>
                     </div>
                 </div>
                 `
@@ -2318,10 +2428,72 @@ function washBag() {
         </div>
         <hr>
         `
-        getPupu.innerHTML = data;
+        })
+        
+    }
 
-    })
+    
     
     
 }
-washBag()
+
+function validateOrder2(event) {
+    event.preventDefault();
+
+    const getToken = localStorage.getItem("token");
+    const myToken = JSON.parse(getToken);
+    console.log(myToken)
+
+    const logUser = new Headers();
+    logUser.append('Content-Type', 'application/json')
+    logUser.append("Authorization", `Bearer ${myToken}`);
+
+    const myItem = localStorage.getItem("newService");
+    const itemNew = JSON.parse(myItem);
+
+    if (itemNew.length === 0) {
+        Swal.fire({
+            icon: 'info',
+            text: 'You didn\'t choose any service',
+            confirmButtonColor: '#00AEEF'
+        })
+        setTimeout(() => {
+          location.href = "../pages/plan.html"
+        }, 3000)
+    }
+    else {
+
+        const userOrder = JSON.stringify({
+            "items":itemNew
+        });
+
+        console.log(userOrder)
+
+        const request = {
+            method: 'POST',
+            headers: logUser,
+            body: userOrder
+        }
+
+        const url = `${baseUrl}/api/booking/calculate-booking`;
+
+        fetch(url, request)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            localStorage.setItem("order", JSON.stringify(result))
+            location.href = "../pages/payment.html"
+        })
+        .catch(error => console.log('error', error));
+    }
+}
+
+function getOrder() {
+    const myOrder = localStorage.getItem("order");
+    const order = JSON.parse(myOrder);
+
+    const getAmt = document.getElementById("amount");
+    getAmt.setAttribute("value", `${order.totalAmount}`)
+
+}
+getOrder();

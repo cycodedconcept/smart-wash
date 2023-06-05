@@ -69,10 +69,7 @@ body {
     padding: 9px 25px;
 }
 
-.active {
-    background: #00AEEF;
-    color: #fff;
-}
+
 
 .mo-btn:hover {
     border: 2px solid #00AEEF;
