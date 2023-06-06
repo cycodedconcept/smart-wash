@@ -2239,120 +2239,19 @@ function smartWash(event) {
     location.href = "../pages/wash.html"
 }
 
-// function washBag() {
-//     const washObji = localStorage.getItem("wash");
-//     const washObj = JSON.parse(washObji)
-//     const getPupu = document.querySelector(".pupu");
-//     const getPrice = localStorage.getItem("bis")
-
-//     const getItem = localStorage.getItem("allitem");
-//     const theItem = JSON.parse(getItem);
-
-
-//     let data = [];
-//     washObj.map((item) => {
-//         data += `
-//         <div class="plan">
-//             <div class="plan-img2">
-//                 <img src="../assets/able.png" alt="">
-//             </div>
-//             <div class="form-check mt-3">
-//                 <h4 class="wash">${item}</h4>
-//             </div>
-//         </div>
-//         <div class="bag-mon">
-//          ${theItem.map((item) => {
-//             if (item.service_type === 'dry_cleaning') {
-//                 return `
-//                     <div class="search-card">
-//                       <div>
-//                         <p><b>${item.service_name}</b></p>
-//                       </div>
-//                     </div>
-//                     <div class="search-card">
-//                         <div>
-//                             <p>${item.cloth_category} x ${item.quantity}</p>
-//                         </div>
-//                         <div>
-//                             <p>₦${item.pricing}</p>
-//                         </div>
-//                     </div>
-//                 `
-//             }
-//             else if (item.service_type === 'ironing') {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                     <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//             else {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                      <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//         })}
-//         </div>
-
-//         <div class="bag-mon2">
-//             <div class="">
-//             <p class="h-item">Total due today</p>
-//             </div>
-//             <div class="form-check">
-//             <p class="okTotal">₦${getPrice}</p>
-//             </div>
-//         </div>
-//         <hr>
-//         `
-//         getPupu.innerHTML = data;
-
-//     })
-    
-    
-// }
-
-
 function washBag() {
     const washObji = localStorage.getItem("wash");
     const washObj = JSON.parse(washObji)
     const getPupu = document.querySelector(".pupu");
-    const getPrice = localStorage.getItem("bis");
-
-    const ibiza = localStorage.getItem("komoprice");
-    const one9 = JSON.parse(ibiza);
-
-    
+    const getPrice = localStorage.getItem("bis")
 
     const getItem = localStorage.getItem("allitem");
     const theItem = JSON.parse(getItem);
 
 
-    if ((washObj.includes("wash & fold")) && (washObj.includes("wash iron & fold"))) {
-        washObj.map((item) => {
-
-            return getPupu.innerHTML += `
+    let data = [];
+    washObj.map((item) => {
+        data += `
         <div class="plan">
             <div class="plan-img2">
                 <img src="../assets/able.png" alt="">
@@ -2361,7 +2260,6 @@ function washBag() {
                 <h4 class="wash">${item}</h4>
             </div>
         </div>
-        
         <div class="bag-mon">
          ${theItem.map((item) => {
             if (item.service_type === 'dry_cleaning') {
@@ -2428,14 +2326,15 @@ function washBag() {
         </div>
         <hr>
         `
-        })
-        
-    }
+        getPupu.innerHTML = data;
 
-    
+    })
     
     
 }
+
+
+
 
 function validateOrder2(event) {
     event.preventDefault();
@@ -2445,7 +2344,7 @@ function validateOrder2(event) {
     console.log(myToken)
 
     const logUser = new Headers();
-    logUser.append('Content-Type', 'application/json')
+    logUser.append('Content-Type', 'application/json');
     logUser.append("Authorization", `Bearer ${myToken}`);
 
     const myItem = localStorage.getItem("newService");
