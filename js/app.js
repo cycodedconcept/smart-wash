@@ -2427,13 +2427,12 @@ function getOrder() {
     const order = JSON.parse(myOrder);
 
     const mytd = localStorage.getItem("td");
-    // const orderTd = JSON.parse(mytd);
 
     const getAmt = document.getElementById("amount");
     getAmt.setAttribute("value", `${order.totalAmount}`)
 
     const getTd = document.getElementById("pickup");
-    getTd.setAttribute("value", `${mytd}`)
+    getTd.setAttribute("value", `${mytd}`);
 
 }
 getOrder();
@@ -2465,3 +2464,12 @@ function getCurrentDate() {
 
 }
 getCurrentDate();
+
+function getDateTime() {
+    const mytd = localStorage.getItem("td");
+
+    const itemDetal = document.querySelector(".motime");
+    itemDetal.innerHTML = mytd;
+
+    console.log(mytd)
+}
