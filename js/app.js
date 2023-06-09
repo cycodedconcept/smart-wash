@@ -2333,11 +2333,45 @@ function washBag() {
     
 }
 
-
+// function datetimeLocal(datetime) {
+//     const dt = new Date(datetime);
+//     dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset());
+//     return dt.toISOString().slice(0, 16);
+// }
 
 
 function validateOrder2(event) {
     event.preventDefault();
+
+    const getOrderTime = document.querySelector(".time").value;
+    if (!getOrderTime || getOrderTime === "") {
+        
+    }
+
+    var newDate = new Date(getOrderTime);
+
+    var sMonth = newDate.getMonth() + 1;
+    var sDay = newDate.getDate();
+    var sYear = newDate.getFullYear();
+    var sHour = newDate.getHours();
+    var sMinute = newDate.getMinutes();
+    var sAMPM = "AM";
+
+    var iHourCheck = parseInt(sHour);
+
+    if (iHourCheck > 12) {
+        sAMPM = "PM";
+        sHour = iHourCheck - 12;
+    }
+    else if (iHourCheck === 0) {
+        sHour = "12";
+    }
+
+    sHour = sHour;
+
+    const mope = sMonth + "-" + sDay + "-" + sYear + " " + sHour + ":" + sMinute + " " + sAMPM;
+
+    localStorage.setItem("td", mope);
 
     const getToken = localStorage.getItem("token");
     const myToken = JSON.parse(getToken);
@@ -2396,3 +2430,31 @@ function getOrder() {
 
 }
 getOrder();
+
+
+function getCurrentDate() {
+    const tanMonth = document.querySelector(".tan");
+    const day = document.querySelector(".day");
+
+    const d = new Date();
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let month = months[d.getMonth()];
+
+    if (d.getDate() == 31 || d.getDate() == 21 || d.getDate() == 1) {
+      day.innerHTML = `${d.getDate()}<sup>st</sup>`
+    }
+    else if (d.getDate() == 22 || d.getDate() == 2) {
+      day.innerHTML = `${d.getDate()}<sup>nd</sup>`
+    }
+
+    else if (d.getDate() == 23 || d.getDate() == 3) {
+        day.innerHTML = `${d.getDate()}<sup>rd</sup>`
+    }
+    else {
+        day.innerHTML = `${d.getDate()}<sup>th</sup>`
+    }
+    tanMonth.innerHTML = month;
+
+}
+getCurrentDate();

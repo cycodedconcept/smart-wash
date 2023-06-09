@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Wash | Summary</title>
+  <title>Smart Wash | Order</title>
   <link rel="stylesheet" href="../style.css">
   <!-- bootstrap css cdn -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -33,8 +33,8 @@
         <div class="col-sm-12 col-md-12 col-lg-1"></div>
         <div class="col-sm-12 col-md-12 col-lg-10">
             <button class="dry">Service</button>
-            <button class="fold">Summary</button>
-            <button class="duvet">Order Review</button>
+            <button class="duvet">Summary</button>
+            <button class="fold">Order Review</button>
             <hr class="hr2">
         </div>
         <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -47,67 +47,56 @@
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
       <div class="col-sm-12 col-md-12 col-lg-4">
-          <div class="plan-question">
-              <h2>Smart <span class="wash">Wash</span></h2>
-              <p>
-                Save your preferred payment method to your<br> <span class="wash">Wash Smart</span> account to confirm your pickup<br> 
-                and pay for your <span class="wash">Wash Smart</span> services. below<br> are the summary of your selected service:
-              </p>
+        <div class="plan-question">
+            <h2>Your <span class="wash">Order </span>Review</h2>
+            <p>
+                We will send you and email when your pick-up driver is at your location
+            </p>
           </div>
       </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
-          <form>
-            <div class="plan-box">
-                <h5 class="op">Options</h5>
-                <p class="op2">total amount: </p>
-                <div class="plan">
-                  <div class="plan-img2">
-                    <img src="../assets/able.png" alt="">
-                  </div>
-                  <div class="form-check mt-3">
-                    <h4 class="dre"></h4>
-                  </div>
+            <form>
+                <div class="plan-box">
+                    <div class="timeline-container">
+                        <ul class="tl">
+                          <li>
+                            <div class="item-icon"></div>
+                            <div class="item-text">
+                              <div class="item-title wash"><b>Ordered Placed</b></div>
+                              <div class="item-detail wash">Nov. 26 | 02:00PM</div>
+                            </div>
+                          </li>
+                          <li class="tl-item">
+                            <div class="item-icon"></div>
+                            <div class="item-text">
+                                <div class="item-title wash"><b>Pick-up On it way</b></div>
+                                <div class="item-detail wash">Nov. 26 | 02:00PM | 30min away</div>
+                            </div>
+                          </li>
+                          <li class="tl-item  dashed">
+                            <div class="item-icon"></div>
+                            <div class="item-text">
+                                <div class="item-title wash"><b>Ordered Placed</b></div>
+                                <div class="item-detail wash">Nov. 26 | 02:00PM</div>
+                            </div>
+                          </li>
+                          <li class="tl-item">
+                            <div class="item-icon"></div>
+                            <div class="item-text">
+                              <div class="item-title wash">Patient check</div>
+                              <div class="item-detail wash">A specialized doctor will have a look at your symptoms</div>
+                            </div>
+                      
+                          </li>
+                      
+                        </ul>
+                      
+                    </div>
+                    <button class="plan-btn mt-3">
+                        Back to Home
+                    </button>
                 </div>
-                <div class="bag-mon">
-                </div>
-
-                <div class="bag-mon2">
-                  <div class="">
-                    <p class="h-item">Total due today</p>
-                  </div>
-                  <div class="form-check">
-                    <p class="okTotal"></p>
-                  </div>
-                </div>
-                <h6 class="op mt-3">Choose pickup date:</h6>
-
-                <p class="ibile">
-                  Your Wash Smart valet will stop by between 8am to 10am. at 7:30am we will text 
-                  you with the specific 30min window you can expect your valet to arrive in.
-                </p>
-
-                <div class="time-slot">
-                  <div class="time-text text-center">
-                    <p class="ibile">November</p>
-                    <p><b>26th</b></p>
-                    <small class="ibile">Today</small>
-                  </div>
-                  <div class="aga-time">
-                    <center class="mt-2">
-                    <input type="datetime-local">
-                    </center>
-                    <p class="ibile mt-5">Other date</p>
-                  </div>
-                </div>
-                
-                <button class="plan-btn mt-3" onclick="validateOrder(event)">
-                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
-                    <span class="sr-only"></span>
-                  </div>
-                  Proceed
-                </button>
-            </div>
-          </form>
+            </form>
         </div>
       <div class="col-sm-12 col-md-12 col-lg-1"></div>
     </div>
