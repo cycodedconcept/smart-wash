@@ -2333,11 +2333,6 @@ function washBag() {
     
 }
 
-// function datetimeLocal(datetime) {
-//     const dt = new Date(datetime);
-//     dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset());
-//     return dt.toISOString().slice(0, 16);
-// }
 
 
 function validateOrder2(event) {
@@ -2345,79 +2340,85 @@ function validateOrder2(event) {
 
     const getOrderTime = document.querySelector(".time").value;
     if (!getOrderTime || getOrderTime === "") {
-        
-    }
-
-    var newDate = new Date(getOrderTime);
-
-    var sMonth = newDate.getMonth() + 1;
-    var sDay = newDate.getDate();
-    var sYear = newDate.getFullYear();
-    var sHour = newDate.getHours();
-    var sMinute = newDate.getMinutes();
-    var sAMPM = "AM";
-
-    var iHourCheck = parseInt(sHour);
-
-    if (iHourCheck > 12) {
-        sAMPM = "PM";
-        sHour = iHourCheck - 12;
-    }
-    else if (iHourCheck === 0) {
-        sHour = "12";
-    }
-
-    sHour = sHour;
-
-    const mope = sMonth + "-" + sDay + "-" + sYear + " " + sHour + ":" + sMinute + " " + sAMPM;
-
-    localStorage.setItem("td", mope);
-
-    const getToken = localStorage.getItem("token");
-    const myToken = JSON.parse(getToken);
-    console.log(myToken)
-
-    const logUser = new Headers();
-    logUser.append('Content-Type', 'application/json');
-    logUser.append("Authorization", `Bearer ${myToken}`);
-
-    const myItem = localStorage.getItem("newService");
-    const itemNew = JSON.parse(myItem);
-
-    if (itemNew.length === 0) {
         Swal.fire({
             icon: 'info',
-            text: 'You didn\'t choose any service',
+            text: 'Please select your pickup date',
             confirmButtonColor: '#00AEEF'
         })
-        setTimeout(() => {
-          location.href = "../pages/plan.html"
-        }, 3000)
     }
     else {
+        let newDate = new Date(getOrderTime);
 
-        const userOrder = JSON.stringify({
-            "items":itemNew
-        });
+        let sMonth = newDate.getMonth() + 1;
+        let sDay = newDate.getDate();
+        let sYear = newDate.getFullYear();
+        let sHour = newDate.getHours();
+        let sMinute = newDate.getMinutes();
+        let sAMPM = "AM";
 
-        console.log(userOrder)
+        let iHourCheck = parseInt(sHour);
 
-        const request = {
-            method: 'POST',
-            headers: logUser,
-            body: userOrder
+        if (iHourCheck > 12) {
+            sAMPM = "PM";
+            sHour = iHourCheck - 12;
+        }
+        else if (iHourCheck === 0) {
+            sHour = "12";
         }
 
-        const url = `${baseUrl}/api/booking/calculate-booking`;
+        sHour = sHour;
 
-        fetch(url, request)
-        .then(response => response.json())
-        .then(result => {
-            console.log(result)
-            localStorage.setItem("order", JSON.stringify(result))
-            location.href = "../pages/payment.html"
-        })
-        .catch(error => console.log('error', error));
+        const mope = sMonth + "-" + sDay + "-" + sYear + " " + sHour + ":" + sMinute + " " + sAMPM;
+
+        localStorage.setItem("td", mope);
+
+        const getToken = localStorage.getItem("token");
+        const myToken = JSON.parse(getToken);
+        console.log(myToken)
+
+        const logUser = new Headers();
+        logUser.append('Content-Type', 'application/json');
+        logUser.append("Authorization", `Bearer ${myToken}`);
+
+        const myItem = localStorage.getItem("newService");
+        const itemNew = JSON.parse(myItem);
+
+        if (itemNew.length === 0) {
+            Swal.fire({
+                icon: 'info',
+                text: 'You didn\'t choose any service',
+                confirmButtonColor: '#00AEEF'
+            })
+            setTimeout(() => {
+            location.href = "../pages/plan.html"
+            }, 3000)
+        }
+        else {
+
+            const userOrder = JSON.stringify({
+                "pickup_time": mope,
+                "items":itemNew
+            });
+
+            console.log(userOrder)
+
+            const request = {
+                method: 'POST',
+                headers: logUser,
+                body: userOrder
+            }
+
+            const url = `${baseUrl}/api/booking/calculate-booking`;
+
+            fetch(url, request)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                localStorage.setItem("order", JSON.stringify(result))
+                location.href = "../pages/payment.html"
+            })
+            .catch(error => console.log('error', error));
+        }
     }
 }
 
@@ -2425,8 +2426,14 @@ function getOrder() {
     const myOrder = localStorage.getItem("order");
     const order = JSON.parse(myOrder);
 
+    const mytd = localStorage.getItem("td");
+    // const orderTd = JSON.parse(mytd);
+
     const getAmt = document.getElementById("amount");
     getAmt.setAttribute("value", `${order.totalAmount}`)
+
+    const getTd = document.getElementById("pickup");
+    getTd.setAttribute("value", `${mytd}`)
 
 }
 getOrder();

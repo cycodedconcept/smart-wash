@@ -7,20 +7,26 @@ function randomStr(len, arr) {
     console.log(ans);
 }
 
-var paymentForm = document.getElementById('paymentForm');
+let paymentForm = document.getElementById('paymentForm');
 paymentForm.addEventListener('submit', payWithPaystack, false);
 function payWithPaystack() {
-  var handler = PaystackPop.setup({
-    key: 'pk_test_943f098905d14e4d5fda0e493e72a1bfd5369b21', // Replace with your public key
+  let handler = PaystackPop.setup({
+    key: 'pk_test_943f098905d14e4d5fda0e493e72a1bfd5369b21',
     email: document.getElementById('email-address').value,
-    amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
-    currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
+    amount: document.getElementById('amount').value * 100, 
+    firstName: document.getElementById('first-name').value,
+    lastName: document.getElementById('last-name').value,
+    pickUp: document.getElementById('pickup').value,
+
+
+
+    currency: 'NGN',
     // ref: ""+Math.floor((Math.random() * 1000000000) + 1),
     ref: randomStr(16, '12345abcde'),
 
     callback: function(response) {
       //this happens after the payment is completed successfully
-      var reference = response.reference;
+      let reference = response.reference;
     //   alert('Payment complete! Reference: ' + reference);
 
     const getToken = localStorage.getItem("token");
@@ -33,8 +39,11 @@ function payWithPaystack() {
     const getNew = localStorage.getItem("newService");
     const newSer = JSON.parse(getNew);
 
+    const mytd = localStorage.getItem("td");
+
     const sendOrder = JSON.stringify({
         ref: reference,
+        "pickup_time": mytd,
         "items":newSer
     });
     console.log(sendOrder)
