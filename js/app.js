@@ -1508,55 +1508,89 @@ function oneDetails() {
 // function to send first request
 function validateOrder(event) {
     event.preventDefault();
-    const getSpin = document.getElementById("spin");
-    getSpin.style.display = "inline-block";
 
-    const getToken = localStorage.getItem("token");
-    const myToken = JSON.parse(getToken);
-    console.log(myToken)
-
-    const logUser = new Headers();
-    logUser.append('Content-Type', 'application/json')
-    logUser.append("Authorization", `Bearer ${myToken}`);
-
-    const myItem = localStorage.getItem("allitem");
-    const itemNew = JSON.parse(myItem);
-
-
-    if (itemNew.length === 0) {
+    const getOrderTime = document.querySelector(".time").value;
+    if (!getOrderTime || getOrderTime === "") {
         Swal.fire({
             icon: 'info',
-            text: 'You didn\'t choose any service',
+            text: 'Please select your pickup date',
             confirmButtonColor: '#00AEEF'
         })
-        setTimeout(() => {
-          location.href = "../pages/plan.html"
-        }, 3000)
     }
     else {
+        let newDate = new Date(getOrderTime);
 
-        const userOrder = JSON.stringify({
-            "items":itemNew
-        });
+        let sMonth = newDate.getMonth() + 1;
+        let sDay = newDate.getDate();
+        let sYear = newDate.getFullYear();
+        let sHour = newDate.getHours();
+        let sMinute = newDate.getMinutes();
+        let sAMPM = "AM";
 
-        console.log(userOrder)
+        let iHourCheck = parseInt(sHour);
 
-        const request = {
-            method: 'POST',
-            headers: logUser,
-            body: userOrder
+        if (iHourCheck > 12) {
+            sAMPM = "PM";
+            sHour = iHourCheck - 12;
+        }
+        else if (iHourCheck === 0) {
+            sHour = "12";
         }
 
-        const url = `${baseUrl}/api/booking/calculate-booking`;
+        sHour = sHour;
 
-        fetch(url, request)
-        .then(response => response.json())
-        .then(result => {
-            console.log(result)
-            localStorage.setItem("order", JSON.stringify(result))
-            location.href = "../pages/payment.html"
-        })
-        .catch(error => console.log('error', error));
+        const mope = sMonth + "-" + sDay + "-" + sYear + " " + sHour + ":" + sMinute + " " + sAMPM;
+
+        localStorage.setItem("td", mope);
+
+        const getToken = localStorage.getItem("token");
+        const myToken = JSON.parse(getToken);
+        console.log(myToken)
+
+        const logUser = new Headers();
+        logUser.append('Content-Type', 'application/json')
+        logUser.append("Authorization", `Bearer ${myToken}`);
+
+        const myItem = localStorage.getItem("allitem");
+        const itemNew = JSON.parse(myItem);
+
+
+        if (itemNew.length === 0) {
+            Swal.fire({
+                icon: 'info',
+                text: 'You didn\'t choose any service',
+                confirmButtonColor: '#00AEEF'
+            })
+            setTimeout(() => {
+            location.href = "../pages/plan.html"
+            }, 3000)
+        }
+        else {
+
+            const userOrder = JSON.stringify({
+                "pickup_time": mope,
+                "items":itemNew
+            });
+
+            console.log(userOrder)
+
+            const request = {
+                method: 'POST',
+                headers: logUser,
+                body: userOrder
+            }
+
+            const url = `${baseUrl}/api/booking/calculate-booking`;
+
+            fetch(url, request)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                localStorage.setItem("order", JSON.stringify(result))
+                location.href = "../pages/payment.html"
+            })
+            .catch(error => console.log('error', error));
+        }
     }
 }
 
