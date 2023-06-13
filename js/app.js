@@ -1459,16 +1459,103 @@ function picked2() {
             </div>
         `
     }
-    // else if (ivogue === "Ironing") {
-    //     return `
-    //     <h6 class="mt-4">${ivogue}</h6>
-
-    //     <div class="item-by mt-4">
-    //     <h6><b>${isum} pieces (₦${itotal})</b></h6>
-    //     </div>
-    //     `
-    // }
 }
+
+// function serviceIn() {
+//     const getItem = localStorage.getItem("allitem");
+//     const theItem = JSON.parse(getItem);
+
+//     const getPupu = document.querySelector(".pupu");
+//     const getPrice = localStorage.getItem("bis")
+
+//     const washObji = localStorage.getItem("wash");
+//     const washObj = JSON.parse(washObji)
+
+//     let data = [];
+
+//     washObj.map((item) => {
+//         data += `
+//         <div class="plan">
+//             <div class="plan-img2">
+//                 <img src="../assets/able.png" alt="">
+//             </div>
+//             <div class="form-check mt-3">
+//                 <h4 class="wash">${item}</h4>
+//             </div>
+//         </div>
+//         <div class="bag-mon">
+//          ${theItem.map((item) => {
+//             if (item.service_type === 'dry_cleaning') {
+//                 return `
+//                     <div class="search-card">
+//                       <div>
+//                         <p><b>${item.service_name}</b></p>
+//                       </div>
+//                     </div>
+//                     <div class="search-card">
+//                         <div>
+//                             <p>${item.cloth_category} x ${item.quantity}</p>
+//                         </div>
+//                         <div>
+//                             <p>₦${item.pricing}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             }
+//             else if (item.service_type === 'ironing') {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                     <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//             else {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                      <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//         })}
+//         </div>
+
+//         <div class="bag-mon2">
+//             <div class="">
+//             <p class="h-item">Total due today</p>
+//             </div>
+//             <div class="form-check">
+//             <p class="okTotal">₦${getPrice}</p>
+//             </div>
+//         </div>
+//         <hr>
+//         `
+//         getPupu.innerHTML = data;
+
+//     })
+
+    
+
+// }
 
 function calOneTime(event) {
     event.preventDefault();
@@ -1839,11 +1926,11 @@ function showOthers(event) {
         <h6 class="h-item mt-3">Bags / month</h6>
 
         <div class="item-by">
-        <div class="moto" onClick="inserts(1)">1</div>
-        <div class="moto" onClick="inserts(2)">2</div>
-        <div class="moto" onClick="inserts(3)">3</div>
-        <div class="moto" onClick="inserts(4)">4</div>
-        <div class="moto" onClick="inserts(5)">5</div>
+        <div class="moto2" onClick="inserts(1)">1</div>
+        <div class="moto2" onClick="inserts(2)">2</div>
+        <div class="moto2" onClick="inserts(3)">3</div>
+        <div class="moto2" onClick="inserts(4)">4</div>
+        <div class="moto2" onClick="inserts(5)">5</div>
         </div>
         </div>
         <div class="plan-item plan3 mb-3">
@@ -1997,11 +2084,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-            <div class="moto" onClick="inserts(1)">1</div>
-            <div class="moto" onClick="inserts(2)">2</div>
-            <div class="moto" onClick="inserts(3)">3</div>
-            <div class="moto" onClick="inserts(4)">4</div>
-            <div class="moto" onClick="inserts(5)">5</div>
+            <div class="moto2" onClick="inserts(1)">1</div>
+            <div class="moto2" onClick="inserts(2)">2</div>
+            <div class="moto2" onClick="inserts(3)">3</div>
+            <div class="moto2" onClick="inserts(4)">4</div>
+            <div class="moto2" onClick="inserts(5)">5</div>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -2138,6 +2225,7 @@ function insert(num){
 }
 
 function inserts(num){
+    
     const obj = {
         num: num,
         type: "wash iron & fold"
@@ -2145,6 +2233,7 @@ function inserts(num){
     console.log(obj)
     wifbag = obj.num;
     bag.push(wifbag)
+
     const buttons = document.querySelectorAll('.moto2');
 
     buttons.forEach(button => {
@@ -2156,7 +2245,115 @@ function inserts(num){
         this.classList.add('obrafor');
     }
 
+    console.log(bag)
+
 }
+
+// function smartWash(event) {
+//     event.preventDefault();
+
+//     const getItems = localStorage.getItem("allitem");
+//     const sivItems = JSON.parse(getItems);
+
+//     const getPrice = localStorage.getItem("price");
+//     const topIt = JSON.parse(getPrice);
+//     const mywplan = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
+//     const mywiplan = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
+
+//     const onetime = topIt.wash_and_fold_one_time;
+//     const onetimei = topIt.wash_iron_and_fold_one_time;
+
+
+
+//     const getWash = localStorage.getItem("wash");
+//     const myWash = JSON.parse(getWash);
+//     if (myWash.includes("wash & fold") && myWash.includes("wash iron & fold")) {
+//         thePrice.push(topIt.wash_and_fold_smart_wash, topIt.wash_iron_and_fold_smart_wash)
+//     }
+//     else if (myWash.includes("wash & fold")) {
+//         thePrice.push(topIt.wash_and_fold_smart_wash)
+//     }
+//     else if (myWash.includes("wash iron & fold")) {
+//         thePrice.push(topIt.wash_iron_and_fold_smart_wash)
+//     }
+
+//     const getServices = document.querySelectorAll(".serviceName");
+//     const getServty = document.querySelectorAll(".serviceType");
+
+    
+
+//     let service = [];
+//     let typ = []; 
+
+//     let komo = []
+
+
+
+//     for (i = 0; i < getServices.length; i++) {
+        
+//         let cs = getServices[i].value;
+//         service.push(cs);
+//     }
+//     for (j = 0; j < getServty.length; j++) {
+//         let bs = getServty[j].value;
+//         typ.push(bs)
+//     }
+    
+//     const customerService = typ.map((service_type, index) => {
+//         if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
+//             return Object.assign({}, {
+//                 service_type,
+//                 service_name: service[index],
+//                 quantity: bag[index],
+//                 pricing: mywplan
+//             })
+//         }
+//         else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
+//             return Object.assign({}, {
+//                 service_type,
+//                 service_name: service[index],
+//                 quantity: bag[index],
+//                 pricing: mywiplan
+//             })
+//         }
+//         else if (service_type === "wash_and_fold_one_time") {
+//             return Object.assign({}, {
+//                 service_type,
+//                 service_name: service[index],
+//                 quantity: bag[index],
+//                 pricing: onetime
+//             })
+//         }
+//         else if (service_type === "wash_iron_and_fold_one_time") {
+//             return Object.assign({}, {
+//                 service_type,
+//                 service_name: service[index],
+//                 quantity: bag[index],
+//                 pricing: onetimei
+//             })
+//         }
+//         else {
+//             return Object.assign({}, {
+//                 service_type,
+//                 service_name: service[index],
+//                 quantity: bag[index],
+//                 pricing: thePrice[index]
+//             })
+//         }
+        
+//     })
+
+//     for (let i = 0; i < customerService.length; i++) {
+//         sivItems.push(customerService[i])
+//         komo.push(customerService[i].pricing)
+//     }
+//     localStorage.setItem("komoprice", JSON.stringify(komo))
+
+
+//     localStorage.setItem("newService", JSON.stringify(sivItems));
+//     location.href = "../pages/wash.html"
+// }
+
 
 function smartWash(event) {
     event.preventDefault();
@@ -2207,61 +2404,356 @@ function smartWash(event) {
         let bs = getServty[j].value;
         typ.push(bs)
     }
-    
-    const customerService = typ.map((service_type, index) => {
-        if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
-            return Object.assign({}, {
-                service_type,
-                service_name: service[index],
-                quantity: bag[index],
-                pricing: mywplan
-            })
-        }
-        else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
-            return Object.assign({}, {
-                service_type,
-                service_name: service[index],
-                quantity: bag[index],
-                pricing: mywiplan
-            })
-        }
-        else if (service_type === "wash_and_fold_one_time") {
-            return Object.assign({}, {
-                service_type,
-                service_name: service[index],
-                quantity: bag[index],
-                pricing: onetime
-            })
-        }
-        else if (service_type === "wash_iron_and_fold_one_time") {
-            return Object.assign({}, {
-                service_type,
-                service_name: service[index],
-                quantity: bag[index],
-                pricing: onetimei
-            })
-        }
-        else {
-            return Object.assign({}, {
-                service_type,
-                service_name: service[index],
-                quantity: bag[index],
-                pricing: thePrice[index]
-            })
-        }
-        
-    })
 
-    for (let i = 0; i < customerService.length; i++) {
-        sivItems.push(customerService[i])
-        komo.push(customerService[i].pricing)
+    if (bag.length === 0) {
+        Swal.fire({
+            icon: 'info',
+            text: 'Please select bag quantity',
+            confirmButtonColor: '#00AEEF'
+        })
     }
-    localStorage.setItem("komoprice", JSON.stringify(komo))
 
-
-    localStorage.setItem("newService", JSON.stringify(sivItems));
-    location.href = "../pages/wash.html"
+    else {
+        const customerService = typ.map((service_type, index) => {
+            if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
+                return Object.assign({}, {
+                    service_type,
+                    service_name: service[index],
+                    quantity: bag[index],
+                    pricing: mywplan
+                })
+            }
+            else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
+                return Object.assign({}, {
+                    service_type,
+                    service_name: service[index],
+                    quantity: bag[index],
+                    pricing: mywiplan
+                })
+            }
+            else if (service_type === "wash_and_fold_one_time") {
+                return Object.assign({}, {
+                    service_type,
+                    service_name: service[index],
+                    quantity: bag[index],
+                    pricing: onetime
+                })
+            }
+            else if (service_type === "wash_iron_and_fold_one_time") {
+                return Object.assign({}, {
+                    service_type,
+                    service_name: service[index],
+                    quantity: bag[index],
+                    pricing: onetimei
+                })
+            }
+            else {
+                return Object.assign({}, {
+                    service_type,
+                    service_name: service[index],
+                    quantity: bag[index],
+                    pricing: thePrice[index]
+                })
+            }
+            
+        })
+    
+        for (let i = 0; i < customerService.length; i++) {
+            sivItems.push(customerService[i])
+            komo.push(customerService[i].pricing)
+        }
+        localStorage.setItem("komoprice", JSON.stringify(komo))
+    
+    
+        localStorage.setItem("newService", JSON.stringify(sivItems));
+        location.href = "../pages/wash.html"
+    }
+    
+    
 }
+
+// function washBag() {
+//     const washObji = localStorage.getItem("wash");
+//     const washObj = JSON.parse(washObji)
+//     const getPupu = document.querySelector(".pupu");
+//     const getPrice = localStorage.getItem("bis")
+
+//     const getItem = localStorage.getItem("allitem");
+//     const theItem = JSON.parse(getItem);
+
+
+//     let data = [];
+//     washObj.map((item) => {
+//         data += `
+//         <div class="plan">
+//             <div class="plan-img2">
+//                 <img src="../assets/able.png" alt="">
+//             </div>
+//             <div class="form-check mt-3">
+//                 <h4 class="wash">${item}</h4>
+//             </div>
+//         </div>
+//         <div class="bag-mon">
+//          ${theItem.map((item) => {
+//             if (item.service_type === 'dry_cleaning') {
+//                 return `
+//                     <div class="search-card">
+//                       <div>
+//                         <p><b>${item.service_name}</b></p>
+//                       </div>
+//                     </div>
+//                     <div class="search-card">
+//                         <div>
+//                             <p>${item.cloth_category} x ${item.quantity}</p>
+//                         </div>
+//                         <div>
+//                             <p>₦${item.pricing}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             }
+//             else if (item.service_type === 'ironing') {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                     <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//             else {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                      <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//         })}
+//         </div>
+
+//         <div class="bag-mon2">
+//             <div class="">
+//             <p class="h-item">Total due today</p>
+//             </div>
+//             <div class="form-check">
+//             <p class="okTotal">₦${getPrice}</p>
+//             </div>
+//         </div>
+//         <hr>
+//         `
+//         getPupu.innerHTML = data;
+
+//     })
+    
+    
+// }
+
+// function washBag() {
+//     const washObji = localStorage.getItem("wash");
+//     const washObj = JSON.parse(washObji)
+//     const getPupu = document.querySelector(".pupu");
+//     const getPrice = localStorage.getItem("bis")
+
+//     const getItem = localStorage.getItem("allitem");
+//     const theItem = JSON.parse(getItem);
+
+
+//     let data = [];
+//     washObj.map((item) => {
+//         data += `
+//         <div class="plan">
+//             <div class="plan-img2">
+//                 <img src="../assets/able.png" alt="">
+//             </div>
+//             <div class="form-check mt-3">
+//                 <h4 class="wash">${item}</h4>
+//             </div>
+//         </div>
+//         <div class="bag-mon">
+//          ${theItem.map((item) => {
+//             if (item.service_type === 'dry_cleaning') {
+//                 return `
+//                     <div class="search-card">
+//                       <div>
+//                         <p><b>${item.service_name}</b></p>
+//                       </div>
+//                     </div>
+//                     <div class="search-card">
+//                         <div>
+//                             <p>${item.cloth_category} x ${item.quantity}</p>
+//                         </div>
+//                         <div>
+//                             <p>₦${item.pricing}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             }
+//             else if (item.service_type === 'ironing') {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                     <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//             else {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                      <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//         })}
+//         </div>
+
+//         <div class="bag-mon2">
+//             <div class="">
+//             <p class="h-item">Total due today</p>
+//             </div>
+//             <div class="form-check">
+//             <p class="okTotal">₦${getPrice}</p>
+//             </div>
+//         </div>
+//         <hr>
+//         `
+//         getPupu.innerHTML = data;
+
+//     })
+    
+    
+// }
+
+// function washBag() {
+//     const washObji = localStorage.getItem("wash");
+//     const washObj = JSON.parse(washObji)
+//     const getPupu = document.querySelector(".pupu");
+//     const getPrice = localStorage.getItem("bis")
+
+//     const getItem = localStorage.getItem("allitem");
+//     const theItem = JSON.parse(getItem);
+
+
+//     let data = [];
+//     washObj.map((item) => {
+//         data += `
+//         <div class="plan">
+//             <div class="plan-img2">
+//                 <img src="../assets/able.png" alt="">
+//             </div>
+//             <div class="form-check mt-3">
+//                 <h4 class="wash">${item}</h4>
+//             </div>
+//         </div>
+//         <div class="bag-mon">
+//          ${theItem.map((item) => {
+//             if (item.service_type === 'dry_cleaning') {
+//                 return `
+//                     <div class="search-card">
+//                       <div>
+//                         <p><b>${item.service_name}</b></p>
+//                       </div>
+//                     </div>
+//                     <div class="search-card">
+//                         <div>
+//                             <p>${item.cloth_category} x ${item.quantity}</p>
+//                         </div>
+//                         <div>
+//                             <p>₦${item.pricing}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             }
+//             else if (item.service_type === 'ironing') {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                     <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//             else {
+//                 return `
+//                 <div class="search-card">
+//                     <div>
+//                      <p><b>${item.service_name}</b></p>
+//                     </div>
+//                 </div>
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_category} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//         })}
+//         </div>
+
+//         <div class="bag-mon2">
+//             <div class="">
+//             <p class="h-item">Total due today</p>
+//             </div>
+//             <div class="form-check">
+//             <p class="okTotal">₦${getPrice}</p>
+//             </div>
+//         </div>
+//         <hr>
+//         `
+//         getPupu.innerHTML = data;
+
+//     })
+    
+    
+// }
+
 
 function washBag() {
     const washObji = localStorage.getItem("wash");
@@ -2286,7 +2778,7 @@ function washBag() {
         </div>
         <div class="bag-mon">
          ${theItem.map((item) => {
-            if (item.service_type === 'dry_cleaning') {
+            if (item.service_type === 'dry_cleaning' && item.service_type === 'ironing') {
                 return `
                     <div class="search-card">
                       <div>
@@ -2303,23 +2795,7 @@ function washBag() {
                     </div>
                 `
             }
-            else if (item.service_type === 'ironing') {
-                return `
-                <div class="search-card">
-                    <div>
-                    <p><b>${item.service_name}</b></p>
-                    </div>
-                </div>
-                <div class="search-card">
-                    <div>
-                        <p>${item.cloth_category} x ${item.quantity}</p>
-                    </div>
-                    <div>
-                        <p>₦${item.pricing}</p>
-                    </div>
-                </div>
-                `
-            }
+        
             else {
                 return `
                 <div class="search-card">
@@ -2356,6 +2832,7 @@ function washBag() {
     
     
 }
+
 
 
 
