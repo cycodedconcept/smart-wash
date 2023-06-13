@@ -1393,7 +1393,7 @@ function chooseItem() {
 }
 
 function picked() {
-    const ex = document.querySelector(".ex");
+    let ex = document.querySelector(".ex");
 
     if (dvogue === "Dry Cleaning") {
         ex.innerHTML +=`
@@ -1417,7 +1417,59 @@ function picked() {
 
 
 
+
+
 // function for one time wash
+
+
+
+function picked2() {
+
+    if (dvogue === "Dry Cleaning" && ivogue === "Ironing") {
+        return `
+           <h6 class="mt-4">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+              <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+
+            <h6 class="mt-4">${ivogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${isum} pieces (₦${itotal})</b></h6>
+            </div>
+        `
+    }
+    else if (dvogue === "Dry Cleaning") {
+        return `
+            <h6 class="mt-4">${dvogue}</h6>
+
+            <div class="item-by mt-4">
+              <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
+            </div>
+        `
+    }
+
+    else if (ivogue === "Ironing") {
+        return `
+            <h6 class="mt-4">${ivogue}</h6>
+
+            <div class="item-by mt-4">
+            <h6><b>${isum} pieces (₦${itotal})</b></h6>
+            </div>
+        `
+    }
+    // else if (ivogue === "Ironing") {
+    //     return `
+    //     <h6 class="mt-4">${ivogue}</h6>
+
+    //     <div class="item-by mt-4">
+    //     <h6><b>${isum} pieces (₦${itotal})</b></h6>
+    //     </div>
+    //     `
+    // }
+}
+
 function calOneTime(event) {
     event.preventDefault();
 
@@ -1673,19 +1725,9 @@ function showOthers(event) {
         </div>
         </div>
         <div class="plan-item plan3 mb-3 ex">
-            <h6 class="mt-4 dh">${dvogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-            </div>
+            ${picked2()}
         </div>
-        <div class="plan-item plan3 mb-3 ex2">
-            <h6 class="mt-4 ih">${ivogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${isum} pieces (₦${itotal})</b></h6>
-            </div>
-        </div>
+        
     
         <hr>
         <div class="plan-item mb-3">
@@ -1708,11 +1750,11 @@ function showOthers(event) {
         <h6 class="h-item mt-3">Bags / month</h6>
 
         <div class="item-by">
-            <div class="moto" onClick="inserts(1)">1</div>
-            <div class="moto" onClick="inserts(2)">2</div>
-            <div class="moto" onClick="inserts(3)">3</div>
-            <div class="moto" onClick="inserts(4)">4</div>
-            <div class="moto" onClick="inserts(5)">5</div>
+            <div class="moto2" onClick="inserts(1)">1</div>
+            <div class="moto2" onClick="inserts(2)">2</div>
+            <div class="moto2" onClick="inserts(3)">3</div>
+            <div class="moto2" onClick="inserts(4)">4</div>
+            <div class="moto2" onClick="inserts(5)">5</div>
         </div>
         </div>
         <div class="plan-item plan3 mb-3">
@@ -1724,19 +1766,9 @@ function showOthers(event) {
         </div>
         </div>
         <div class="plan-item plan3 mb-3 ex">
-            <h6 class="mt-4">${dvogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-            </div>
+            ${picked2()}
         </div>
-        <div class="plan-item plan3 mb-3 ex2">
-            <h6 class="mt-4">${ivogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${isum} pieces (₦${itotal})</b></h6>
-            </div>
-        </div>
+        
         `
         }
 
@@ -1779,19 +1811,9 @@ function showOthers(event) {
         </div>
         </div>
         <div class="plan-item plan3 mb-3 ex">
-            <h6 class="mt-4 dh">${dvogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-            </div>
+            ${picked2()}
         </div>
-        <div class="plan-item plan3 mb-3 ex2">
-            <h6 class="mt-4 ih">${ivogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${isum} pieces (₦${itotal})</b></h6>
-            </div>
-        </div>
+        
         `
         }
         else if(myWash.includes("wash iron & fold")) {
@@ -1833,25 +1855,14 @@ function showOthers(event) {
         </div>
         </div>
         <div class="plan-item plan3 mb-3 ex">
-            <h6 class="mt-4 dh">${dvogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-            </div>
+            ${picked2()}
         </div>
-        <div class="plan-item plan3 mb-3 ex2">
-            <h6 class="mt-4 ih">${ivogue}</h6>
-
-            <div class="item-by mt-4">
-            <h6><b>${isum} pieces (₦${itotal})</b></h6>
-            </div>
-        </div>
+        
         `
     }
     }
     
 }
-
 
 
 
@@ -1909,18 +1920,7 @@ function removeDrop(event) {
                 </div>
             </div>
             <div class="plan-item plan3 mb-3 ex">
-                <h6 class="mt-4">${dvogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-                </div>
-            </div>
-            <div class="plan-item plan3 mb-3 ex2">
-                <h6 class="mt-4">${ivogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${isum} pieces (₦${itotal})</b></h6>
-                </div>
+              ${picked2()}
             </div>
 
             <hr>
@@ -1933,11 +1933,11 @@ function removeDrop(event) {
             <h6 class="h-item mt-3">Bags / month</h6>
 
             <div class="item-by">
-            <div class="moto" onClick="inserts(1)">1</div>
-            <div class="moto" onClick="inserts(2)">2</div>
-            <div class="moto" onClick="inserts(3)">3</div>
-            <div class="moto" onClick="inserts(4)">4</div>
-            <div class="moto" onClick="inserts(5)">5</div>
+            <div class="moto2" onClick="inserts(1)">1</div>
+            <div class="moto2" onClick="inserts(2)">2</div>
+            <div class="moto2" onClick="inserts(3)">3</div>
+            <div class="moto2" onClick="inserts(4)">4</div>
+            <div class="moto2" onClick="inserts(5)">5</div>
             </div>
             </div>
             <div class="plan-item plan3 mb-3">
@@ -1949,19 +1949,9 @@ function removeDrop(event) {
                 </div>
             </div>
             <div class="plan-item plan3 mb-3 ex">
-                <h6 class="mt-4">${dvogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-                </div>
+              ${picked2()}
             </div>
-            <div class="plan-item plan3 mb-3 ex2">
-                <h6 class="mt-4">${ivogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${isum} pieces (₦${itotal})</b></h6>
-                </div>
-            </div>
+            
             `
         }
         else if (myWash.includes("wash & fold")) {
@@ -1991,19 +1981,9 @@ function removeDrop(event) {
                 </div>
             </div>
             <div class="plan-item plan3 mb-3 ex">
-                <h6 class="mt-4">${dvogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-                </div>
+              ${picked2()}
             </div>
-            <div class="plan-item plan3 mb-3 ex2">
-                <h6 class="mt-4">${ivogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${isum} pieces (₦${itotal})</b></h6>
-                </div>
-            </div>
+            
             `
         }
         else if(myWash.includes("wash iron & fold")) {
@@ -2033,19 +2013,9 @@ function removeDrop(event) {
                 </div>
             </div>
             <div class="plan-item plan3 mb-3 ex">
-                <h6 class="mt-4">${dvogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${dsum} pieces (₦${dtotal})</b></h6>
-                </div>
+              ${picked2()}
             </div>
-            <div class="plan-item plan3 mb-3 ex2">
-                <h6 class="mt-4">${ivogue}</h6>
-
-                <div class="item-by mt-4">
-                <h6><b>${isum} pieces (₦${itotal})</b></h6>
-                </div>
-            </div>
+            
             `
         }
     }
@@ -2154,7 +2124,17 @@ function insert(num){
     }
     console.log(obj)
     wfbag = obj.num;
-    bag.push(wfbag)
+    bag.push(wfbag);
+    const buttons = document.querySelectorAll('.moto');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', seatFunction, false);
+    });
+
+    function seatFunction() {
+        buttons.forEach(btn => btn.classList.remove('obrafor'));
+        this.classList.add('obrafor');
+    }
 }
 
 function inserts(num){
@@ -2165,6 +2145,16 @@ function inserts(num){
     console.log(obj)
     wifbag = obj.num;
     bag.push(wifbag)
+    const buttons = document.querySelectorAll('.moto2');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', seatFunction, false);
+    });
+
+    function seatFunction() {
+        buttons.forEach(btn => btn.classList.remove('obrafor'));
+        this.classList.add('obrafor');
+    }
 
 }
 
