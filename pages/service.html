@@ -23,7 +23,7 @@
 
   
 </head>
-<body>
+<body onload="getLocation()">
   <!-- navigation -->
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -85,7 +85,7 @@
               </p>
               <p class="m3">
               </p>
-              <button class="get-btn2" type="submit">Schedule a pick-up</button>
+              <button class="get-btn2" type="submit" onclick="schedule(event)">Schedule a pick-up</button>
             </div>
           </div>
         </div>
@@ -703,6 +703,34 @@
     </footer>
   </section>
     
+  <div id="loc-modal" class="mymodal">
+    <div class="modal-content">
+        <div class="modal-header2">
+            <span class="close2" onclick="xclose()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-center">Give us your Location </h5>
+          <p class="text-center">
+            Kindly fill the form below with your appropriate<br> 
+            details so we will come pick-up your laundry.
+          </p>
+          <form class="omadi">
+            <div class="form-group">
+                <label for="address">Enter Address</label>
+                <select class="myInput2" id="location" placeholder="Enter Pick-up address">
+                </select>
+
+                <button class="btn-sign4 mt-3">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
+                      <span class="sr-only"></span>
+                  </div>
+                  Countinue
+              </button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
 
   <!-- jquery & javascript cdn -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

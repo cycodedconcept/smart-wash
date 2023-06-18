@@ -1847,7 +1847,7 @@ label {
     text-decoration: none !important;
 }
 
-#spin {
+#spin, #spinit {
     display: none;
 }
 

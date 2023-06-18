@@ -768,6 +768,93 @@ function updatePhone(event) {
     }
 }
 
+
+// function to get location
+function getLocation() {
+    const getToken = localStorage.getItem("token");
+    const myToken = JSON.parse(getToken);
+
+    const locationHeader = new Headers();
+    locationHeader.append("Authorization", `Bearer ${myToken}`);
+
+    const myLoc = document.getElementById("location");
+
+    const locReq = {
+        method: 'GET',
+        headers: locationHeader
+    }
+
+    let data = [];
+
+    const url = `${baseUrl}/api/booking/get-supported-location`;
+
+    fetch(url, locReq)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+
+        result.map((item) => {
+            data += `
+            <option value="${item.name}">${item.name}</option>
+        `
+        })
+
+        myLoc.innerHTML = data
+
+        
+    })
+    .catch(error => console.log('error', error));
+
+
+}
+
+// function to send location
+function sendAddress(event) {
+    event.preventDefault()
+
+    location.href = "../pages/location.html"
+
+    // const myspin = document.getElementById("spinit");
+    // myspin.style.display = "block";
+
+    // const loc = document.getElementById("location").value;
+
+    // if (loc === "") {
+    //     Swal.fire({
+    //         icon: 'info',
+    //         text: 'The location field is required!',
+    //         confirmButtonColor: '#00AEEF'
+    //     })
+    //     myspin.style.display = "none";
+    // }
+    // else {
+    //     const getToken = localStorage.getItem("token");
+    //     const myToken = JSON.parse(getToken);
+
+    //     const locationHeader = new Headers();
+    //     locationHeader.append('Content-Type', 'application/json');
+    //     locationHeader.append("Authorization", `Bearer ${myToken}`);
+
+    //     const locProfile = JSON.stringify({
+    //         "location": loc
+    //     })
+
+    //     const locReq = {
+    //         method: 'POST',
+    //         body: locProfile,
+    //         headers: locationHeader
+    //     }
+
+    //     const url = `${baseUrl}/api/user/location`;
+
+    //     fetch(url, locReq)
+    //     .then(response => response.json())
+    //     .then(result => console.log(result))
+    //     .catch(error => console.log('error', error));
+
+    // }
+}
+
 function getPricing() {
     let request = {
         method: 'GET',
@@ -1687,7 +1774,7 @@ function validateOrder(event) {
         console.log(myToken)
 
         const logUser = new Headers();
-        logUser.append('Content-Type', 'application/json')
+        logUser.append('Content-Type', 'application/json');
         logUser.append("Authorization", `Bearer ${myToken}`);
 
         const myItem = localStorage.getItem("allitem");
@@ -2201,7 +2288,7 @@ function month2(event) {
 }
 
 let thePrice = [];
-let bag = []
+// let bag = []
 let wfbag;
 let wifbag
 function insert(num){
@@ -2211,7 +2298,9 @@ function insert(num){
     }
     console.log(obj)
     wfbag = obj.num;
-    bag.push(wfbag);
+    localStorage.setItem("bg1", wfbag)
+
+    // bag.push(wfbag);
     const buttons = document.querySelectorAll('.moto');
 
     buttons.forEach(button => {
@@ -2232,7 +2321,8 @@ function inserts(num){
     }
     console.log(obj)
     wifbag = obj.num;
-    bag.push(wifbag)
+    localStorage.setItem("bg2", wifbag)
+    // bag.push(wifbag)
 
     const buttons = document.querySelectorAll('.moto2');
 
@@ -2245,7 +2335,7 @@ function inserts(num){
         this.classList.add('obrafor');
     }
 
-    console.log(bag)
+    // console.log(bag)
 
 }
 
@@ -2358,6 +2448,7 @@ function inserts(num){
 function smartWash(event) {
     event.preventDefault();
 
+    let bag = [];
     const getItems = localStorage.getItem("allitem");
     const sivItems = JSON.parse(getItems);
 
@@ -2369,105 +2460,104 @@ function smartWash(event) {
     const onetime = topIt.wash_and_fold_one_time;
     const onetimei = topIt.wash_iron_and_fold_one_time;
 
+    let bg1 = localStorage.getItem("bg1");
+    let bg2 = localStorage.getItem("bg2");
+    console.log(bag.length)
+
+    bag.push(bg1)
+    bag.push(bg2)
+    
 
 
     const getWash = localStorage.getItem("wash");
-    const myWash = JSON.parse(getWash);
-    if (myWash.includes("wash & fold") && myWash.includes("wash iron & fold")) {
-        thePrice.push(topIt.wash_and_fold_smart_wash, topIt.wash_iron_and_fold_smart_wash)
-    }
-    else if (myWash.includes("wash & fold")) {
-        thePrice.push(topIt.wash_and_fold_smart_wash)
-    }
-    else if (myWash.includes("wash iron & fold")) {
-        thePrice.push(topIt.wash_iron_and_fold_smart_wash)
-    }
-
-    const getServices = document.querySelectorAll(".serviceName");
-    const getServty = document.querySelectorAll(".serviceType");
-
-    
-
-    let service = [];
-    let typ = []; 
-
-    let komo = []
-
-
-
-    for (i = 0; i < getServices.length; i++) {
-        
-        let cs = getServices[i].value;
-        service.push(cs);
-    }
-    for (j = 0; j < getServty.length; j++) {
-        let bs = getServty[j].value;
-        typ.push(bs)
-    }
-
-    if (bag.length === 0) {
-        Swal.fire({
-            icon: 'info',
-            text: 'Please select bag quantity',
-            confirmButtonColor: '#00AEEF'
-        })
-    }
-
-    else {
-        const customerService = typ.map((service_type, index) => {
-            if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
-                return Object.assign({}, {
-                    service_type,
-                    service_name: service[index],
-                    quantity: bag[index],
-                    pricing: mywplan
-                })
-            }
-            else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
-                return Object.assign({}, {
-                    service_type,
-                    service_name: service[index],
-                    quantity: bag[index],
-                    pricing: mywiplan
-                })
-            }
-            else if (service_type === "wash_and_fold_one_time") {
-                return Object.assign({}, {
-                    service_type,
-                    service_name: service[index],
-                    quantity: bag[index],
-                    pricing: onetime
-                })
-            }
-            else if (service_type === "wash_iron_and_fold_one_time") {
-                return Object.assign({}, {
-                    service_type,
-                    service_name: service[index],
-                    quantity: bag[index],
-                    pricing: onetimei
-                })
-            }
-            else {
-                return Object.assign({}, {
-                    service_type,
-                    service_name: service[index],
-                    quantity: bag[index],
-                    pricing: thePrice[index]
-                })
-            }
-            
-        })
-    
-        for (let i = 0; i < customerService.length; i++) {
-            sivItems.push(customerService[i])
-            komo.push(customerService[i].pricing)
+        const myWash = JSON.parse(getWash);
+        if (myWash.includes("wash & fold") && myWash.includes("wash iron & fold")) {
+            thePrice.push(topIt.wash_and_fold_smart_wash, topIt.wash_iron_and_fold_smart_wash)
         }
-        localStorage.setItem("komoprice", JSON.stringify(komo))
-    
-    
-        localStorage.setItem("newService", JSON.stringify(sivItems));
-        location.href = "../pages/wash.html"
+        else if (myWash.includes("wash & fold")) {
+            thePrice.push(topIt.wash_and_fold_smart_wash)
+        }
+        else if (myWash.includes("wash iron & fold")) {
+            thePrice.push(topIt.wash_iron_and_fold_smart_wash)
+        }
+
+        const getServices = document.querySelectorAll(".serviceName");
+        const getServty = document.querySelectorAll(".serviceType");
+
+        
+
+        let service = [];
+        let typ = []; 
+
+        let komo = []
+
+
+
+        for (i = 0; i < getServices.length; i++) {
+            
+            let cs = getServices[i].value;
+            service.push(cs);
+        }
+        for (j = 0; j < getServty.length; j++) {
+            let bs = getServty[j].value;
+            typ.push(bs)
+        }
+
+        const customerService = typ.map((service_type, index) => {
+        if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: mywplan
+            })
+        }
+        else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: mywiplan
+            })
+        }
+        else if (service_type === "wash_and_fold_one_time") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: onetime
+            })
+        }
+        else if (service_type === "wash_iron_and_fold_one_time") {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: onetimei
+            })
+        }
+        
+        else {
+            return Object.assign({}, {
+                service_type,
+                service_name: service[index],
+                quantity: bag[index],
+                pricing: thePrice[index]
+            })
+        }
+        
+    })
+
+    for (let i = 0; i < customerService.length; i++) {
+        sivItems.push(customerService[i])
+        komo.push(customerService[i].pricing)
     }
+    localStorage.setItem("komoprice", JSON.stringify(komo))
+
+
+    localStorage.setItem("newService", JSON.stringify(sivItems));
+    location.href = "../pages/wash.html"
+    
     
     
 }
