@@ -1,5 +1,98 @@
 let baseUrl = "https://washsmart.onrender.com";
 
+// search
+let suggestBox = document.querySelector(".suggest-box");
+let inputBox = document.querySelector("#loc");
+
+inputBox.addEventListener("keyup", filterSuggesstions);
+
+inputBox.addEventListener("click", () => {
+  inputBox.select();
+});
+
+// async function filterSuggesstions() {
+//   const response = await fetch(`https://washsmart.onrender.com/api/user/location`)
+//   const KeywordsList = await response.json();
+//   let suggest = [];
+//   let input = this.value.trim();
+//   if (input.length) {
+//     suggest = KeywordsList.filter((keyword) => {
+//       return keyword.search.toLowerCase().includes(input.toLowerCase());
+//     });
+//   }
+//   display(suggest);
+
+//   if (!suggest.length) {
+//     suggestBox.innerHTML = "";
+//   }
+// }
+
+function filterSuggesstions() {
+    let inputBox = document.querySelector("#loc").value;
+
+    const profile = JSON.stringify({
+        "location": inputBox
+    })
+    const getToken = localStorage.getItem("token");
+    const myToken = JSON.parse(getToken);
+
+    const logUser = new Headers();
+    logUser.append('Content-Type', 'application/json');
+    logUser.append("Authorization", `Bearer ${myToken}`);
+
+    const fil = {
+        method: "POST",
+        headers: logUser,
+        body: profile
+    }
+
+    const url = `${baseUrl}/api/user/location`;
+
+
+    fetch(url, fil)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        let suggest = [];
+        let input = this.value.trim();
+        if (input.length) {
+        suggest = result.filter((keyword) => {
+            return keyword.search.toString().includes(input.toString());
+        });
+        }
+        display(suggest);
+    
+        if (!suggest.length) {
+        suggestBox.innerHTML = "";
+        }
+    })
+    .catch(error => console.log('error', error));
+    
+}
+
+function display(suggest) {
+  const content = suggest.map((list) => {
+    const data = list.search;
+    return `<li onclick="selectInput('${data}')">${Highlight(data)}</li>`;
+  });
+  suggestBox.innerHTML = `<ul>${content.join("")}</ul>`;
+}
+
+function selectInput(data) {
+  inputBox.value = data;
+  suggestBox.innerHTML = "";
+}
+
+function Highlight(textToSearch) {
+  const searchString = inputBox.value.toLowerCase();
+  const startIndex = textToSearch.toLowerCase().indexOf(searchString);
+  const highlightedText = textToSearch.substring(0, startIndex) + "<mark>" + searchString + "</mark>" + textToSearch.substring(startIndex + searchString.length);
+  return highlightedText;
+}
+
+// end search script
+
+
 
 function toLogin(event) {
     event.preventDefault();
@@ -813,47 +906,9 @@ function sendAddress(event) {
     event.preventDefault()
 
     location.href = "../pages/location.html"
-
-    // const myspin = document.getElementById("spinit");
-    // myspin.style.display = "block";
-
-    // const loc = document.getElementById("location").value;
-
-    // if (loc === "") {
-    //     Swal.fire({
-    //         icon: 'info',
-    //         text: 'The location field is required!',
-    //         confirmButtonColor: '#00AEEF'
-    //     })
-    //     myspin.style.display = "none";
-    // }
-    // else {
-    //     const getToken = localStorage.getItem("token");
-    //     const myToken = JSON.parse(getToken);
-
-    //     const locationHeader = new Headers();
-    //     locationHeader.append('Content-Type', 'application/json');
-    //     locationHeader.append("Authorization", `Bearer ${myToken}`);
-
-    //     const locProfile = JSON.stringify({
-    //         "location": loc
-    //     })
-
-    //     const locReq = {
-    //         method: 'POST',
-    //         body: locProfile,
-    //         headers: locationHeader
-    //     }
-
-    //     const url = `${baseUrl}/api/user/location`;
-
-    //     fetch(url, locReq)
-    //     .then(response => response.json())
-    //     .then(result => console.log(result))
-    //     .catch(error => console.log('error', error));
-
-    // }
 }
+
+
 
 function getPricing() {
     let request = {
@@ -2965,7 +3020,6 @@ function validateOrder2(event) {
 
         const getToken = localStorage.getItem("token");
         const myToken = JSON.parse(getToken);
-        console.log(myToken)
 
         const logUser = new Headers();
         logUser.append('Content-Type', 'application/json');

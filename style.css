@@ -2107,3 +2107,15 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     padding-left: 20px;
   }
   
+
+.location-sec {
+    margin: 12% auto;
+    width: 50%;
+}
+
+@media screen and (max-width: 992px) {
+    .location-sec {
+        margin: 40% auto;
+        width: 100%;
+    }
+}
