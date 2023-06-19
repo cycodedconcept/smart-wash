@@ -1746,7 +1746,7 @@ footer {
     border: 1px solid #DDE5E9 !important;
     padding: 25px 10px !important;
     border-radius: 10px !important;
-    width: 80% !important;
+    width: 100% !important;
 }
 
 
@@ -1755,6 +1755,7 @@ footer {
     border-bottom: 1px solid #DDE5E9 !important;
     width: 100% !important;
     margin: 0 0 20px;
+    background: #fff;
 }
 
 .omadi {

@@ -12,6 +12,43 @@
 
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .wrapper {
+      position: relative;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .list {
+      width: 80%;
+      background: #f2f2f2;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      position: absolute;
+      top: 80px;
+      left: 64px;
+    }
+
+    @media screen and (max-width: 650px) {
+      .list {
+        left: 37px;
+      }
+    }
+
+    .list-items {
+      padding: 10px 10px;
+    }
+
+    .list-items:hover {
+      background: #dddd;
+    }
+
+    
+  </style>
 </head>
 <body>
   <div class="pagemodal">
@@ -26,23 +63,24 @@
       Kindly fill the form below with your appropriate<br> 
       details so we will come pick-up your laundry.
     </p>
-    <form class="omadi mt-5">
+
+    <div class="wrapper">
+      <form class="omadi mt-5">
         <div class="form-group">
             <label for="address">Enter Address</label>
-            <input type="tel" class="myInput form-control" id="loc" placeholder="Enter Your Address">
+            <input type="tel" class="myInput form-control" id="input" placeholder="Enter Your Address">
             
+            <ul class="list"></ul>
             <button class="btn-sign4 mt-3">
               <div class="spinner-border spinner-border-sm text-light" role="status" id="spinit">
                   <span class="sr-only"></span>
               </div>
               Countinue
           </button>
-
-          <div class="suggest-box">
-                
         </div>
-        </div>
-      </form>
+    </form>
+    </div>
+    
   </div>
 
 
