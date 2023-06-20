@@ -332,11 +332,6 @@ function dashboardApi() {
         let removeBtn = document.querySelector(".sign-btn");
         let formParent = document.querySelector(".form-inline");
 
-        // const getEmail = document.getElementById("adminEmail");
-        // getEmail.setAttribute('value', `${result.user.email}`);
-        // getEmail.style.color = "#00AEEF"
-
-
 
         if (result.user.hasOwnProperty('email')) {
             removeBtn.style.display = "none"
