@@ -379,7 +379,7 @@ body {
 }
 
 .sling {
-    position: relative;
+    /* position: relative; */
     background: #F4F9FB;
 }
 
@@ -1188,7 +1188,7 @@ body {
 .main-sec {
     position: sticky;
     top: 80px;
-    z-index: 110;
+    /* z-index: 110; */
     position: -webkit-sticky;
 }
 
