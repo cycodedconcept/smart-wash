@@ -22,8 +22,21 @@
 
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .Incredible {
+    margin-top: 526px;
+    margin-bottom: 150px;
+    }
+
+    @media screen and (max-width: 659px) {
+      .Incredible {
+        margin-top: 230px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body onload="getLocation()">
   <!-- navigation -->
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -65,10 +78,10 @@
             <div class="smart-section text-center">
                 <h2 class="wash">Never Do Laundry Again</h2>
                 <p class="ibile">
-                Save 3+ hours per week while Rinse cares for your clothes. 
-                Free pickup<br> and delivery plus next-day turn around. Plans start at just N7000/mo.
+                  Save 3+ hours per week while WashSmart cares for your clothes. Free<br> 
+                  pickup and delivery plus next-day turn around. Plans start at just ₦2000/mo.
                 </p>
-                <button class="get-btn2" type="submit">Schedule a pick-up</button>
+                <button class="get-btn2" type="submit" onclick="schedule(event)">Schedule a pick-up</button>
 
                 <img src="../assets/21.png" alt="">
 
@@ -119,7 +132,7 @@
 
   <section class="Incredible">
     <div class="text-center mb-5">
-      <button class="get-btn2" type="submit">Schedule a pick-up</button>
+      <button class="get-btn2" type="submit" onclick="schedule(event)">Schedule a pick-up</button>
     </div>
 
     <div class="row">
@@ -569,7 +582,58 @@
       </div>
     </footer>
   </section>
-    
+
+  <div id="dash-modal" class="mymodal">
+    <div class="modal-content">
+        <div class="modal-header">
+         <h4>Update phone number</h4>
+            <span class="close" onclick="closeDashModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <center>
+                <input type="tel" class="myInput form-control" id="phone" placeholder="Enter Phone number">
+                <button class="btn-sign3 mt-3" onclick="updatePhone(event)">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
+                      <span class="sr-only"></span>
+                  </div>
+                  update phone number
+              </button>
+              </center>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+  <div id="loc-modal" class="mymodal">
+    <div class="modal-content">
+        <div class="modal-header2">
+            <span class="close2" onclick="xclose()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-center">Give us your Location </h5>
+          <p class="text-center">
+            Kindly fill the form below with your appropriate<br> 
+            details so we will come pick-up your laundry.
+          </p>
+          <form class="omadi">
+            <div class="form-group">
+                <label for="address">Enter Address</label>
+                <select class="myInput2" id="location" placeholder="Enter Pick-up address">
+                </select>
+
+                <button class="btn-sign4 mt-3" onclick="sendAddress(event)">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spinit">
+                      <span class="sr-only"></span>
+                  </div>
+                  Countinue
+              </button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
 
   <!-- jquery & javascript cdn -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -580,6 +644,9 @@
 
   <script src="../js/script.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/app.js"></script>
+
+  
 
   <script>
     AOS.init();

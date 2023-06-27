@@ -813,60 +813,205 @@ function sendAddress(event) {
 
 
 
+// function getPricing() {
+//     let request = {
+//         method: 'GET',
+//     };
+
+//     let data = [];
+//     let data2 = [];
+//     let data3 = [];
+//     let data4 = [];
+//     let data5 = [];
+
+
+
+
+
+//     let url = `${baseUrl}/api/pricing/get_pricing`;
+//     fetch(url, request)
+//     .then(response => response.json())
+//     .then(result => {
+//         console.log(result)
+//         localStorage.setItem("price", JSON.stringify(result))
+//         const sam = document.querySelector(".sam");
+//         const sam2 = document.querySelector(".sam2");
+//         const sam3 = document.querySelector(".sam3");
+//         const sam4 = document.querySelector(".sam4");
+//         const sam5 = document.querySelector(".sam5");
+
+//         const getOnetime = document.querySelector(".oneprice");
+//         const getOnetime2 = document.querySelector(".oneprice2");
+//         const getOnetime3 = document.querySelector(".bozo");
+
+
+//         getOnetime.innerHTML = `₦${result.wash_and_fold_one_time}/bag`;
+//         getOnetime2.innerHTML = `₦${result.wash_and_fold_one_time}/month`;
+//         getOnetime3.innerHTML = `₦${result.wash_and_fold_one_time}`;
+
+
+
+
+
+//         const getPrice = document.querySelector(".price");
+//         const getPrice2 = document.querySelector(".priceSmart");
+//         const getPriceIron = document.querySelector(".priceIron");
+
+
+//         getPrice.innerHTML = `${result.wash_and_fold_one_time}`;
+//         getPrice2.innerHTML = `${result.wash_and_fold_smart_wash}`;
+
+//         getPriceIron.innerHTML = `${result.ironing}`;
+        
+
+
+//         if (result.dry_cleaning.top) {
+//             result.dry_cleaning.top.map((item) => {
+//                 data += `
+//                 <div class="dry-item">
+//                     <p>${item.name}</p>
+//                     <p>₦${item.pricing}</p>
+//                 </div>
+//                 `
+//                 sam.innerHTML = data;
+//             })
+//         }
+//         if (result.dry_cleaning.bottom) {
+//             result.dry_cleaning.bottom.map((item) => {
+//                 data2 += `
+//                 <div class="dry-item">
+//                     <p>${item.name}</p>
+//                     <p>₦${item.pricing}</p>
+//                 </div>
+//                 `
+//                 sam2.innerHTML = data2;
+//             })
+            
+//         }
+
+//         if (result.dry_cleaning.full_body) {
+//             result.dry_cleaning.full_body.map((item) => {
+//                 data3 += `
+//                 <div class="dry-item">
+//                     <p>${item.name}</p>
+//                     <p>₦${item.pricing}</p>
+//                 </div>
+//                 `
+//                 sam3.innerHTML = data3;
+//             })
+            
+//         }
+
+//         if (result.dry_cleaning.house_hold) {
+//             result.dry_cleaning.house_hold.map((item) => {
+//                 data4 += `
+//                 <div class="dry-item">
+//                     <p>${item.name}</p>
+//                     <p>₦${item.pricing}</p>
+//                 </div>
+//                 `
+//                 sam4.innerHTML = data4;
+//             })
+            
+//         }
+
+//         if (result.dry_cleaning.native_wear) {
+//             result.dry_cleaning.native_wear.map((item) => {
+//                 data5 += `
+//                 <div class="dry-item">
+//                     <p>${item.name}</p>
+//                     <p>₦${item.pricing}</p>
+//                 </div>
+//                 `
+//                 sam5.innerHTML = data5;
+//             })
+            
+//         }
+//         else {
+            
+
+            
+//         }
+//     })
+//     .catch(error => console.log('error', error));
+
+// }
+// getPricing();
+
+
+// for dry cleaning
+
+
 function getPricing() {
     let request = {
         method: 'GET',
     };
+
+
+
+
+
+
+    const url = `${baseUrl}/api/pricing/get_pricing`;
+    fetch(url, request)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        localStorage.setItem("price", JSON.stringify(result))
+        
+    })
+    .catch(error => console.log('error', error));
+
+}
+
+function displayAllPrice() {
+    const getit = localStorage.getItem("price");
+    const getHigh = JSON.parse(getit);
+
+
+    const getPrice = document.querySelector(".price");
+    const getPrice2 = document.querySelector(".priceSmart");
+    const getPriceIron = document.querySelector(".priceiron");
+    const mod = document.querySelector(".mod");
+    const iri = document.querySelector(".ipri");
+
+
+    getPrice.innerHTML = `${getHigh.wash_and_fold_one_time}`;
+    getPrice2.innerHTML = `${getHigh.wash_and_fold_smart_wash}`;
+    mod.innerHTML = `₦${getHigh.wash_and_fold_smart_wash_yearly_plan_per_bag}/yr`;
+    getPriceIron.innerHTML = `${getHigh.wash_iron_and_fold_smart_wash}`;
+    iri.innerHTML = `₦${getHigh.wash_iron_and_fold_smart_wash_yearly_plan_per_bag}/yr`;
+
+
+
+
+    const sam = document.querySelector(".sam");
+    const sam2 = document.querySelector(".sam2");
+    const sam3 = document.querySelector(".sam3");
+    const sam4 = document.querySelector(".sam4");
+    const sam5 = document.querySelector(".sam5");
+
+        // const getOnetime = document.querySelector(".oneprice");
+        // const getOnetime2 = document.querySelector(".oneprice2");
+        // const getOnetime3 = document.querySelector(".bozo");
+
+
+        // getOnetime.innerHTML = `₦${getHigh.wash_and_fold_one_time}/bag`;
+        // getOnetime2.innerHTML = `₦${getHigh.wash_and_fold_one_time}/month`;
+        // getOnetime3.innerHTML = `₦${getHigh.wash_and_fold_one_time}`;
+
+
 
     let data = [];
     let data2 = [];
     let data3 = [];
     let data4 = [];
     let data5 = [];
-
-
-
-
-
-    let url = `${baseUrl}/api/pricing/get_pricing`;
-    fetch(url, request)
-    .then(response => response.json())
-    .then(result => {
-        console.log(result)
-        localStorage.setItem("price", JSON.stringify(result))
-        const sam = document.querySelector(".sam");
-        const sam2 = document.querySelector(".sam2");
-        const sam3 = document.querySelector(".sam3");
-        const sam4 = document.querySelector(".sam4");
-        const sam5 = document.querySelector(".sam5");
-
-        const getOnetime = document.querySelector(".oneprice");
-        const getOnetime2 = document.querySelector(".oneprice2");
-        const getOnetime3 = document.querySelector(".bozo");
-
-
-        getOnetime.innerHTML = `₦${result.wash_and_fold_one_time}/bag`;
-        getOnetime2.innerHTML = `₦${result.wash_and_fold_one_time}/month`;
-        getOnetime3.innerHTML = `₦${result.wash_and_fold_one_time}`;
-
-
-
-
-
-        const getPrice = document.querySelector(".price");
-        const getPrice2 = document.querySelector(".priceSmart");
-        const getPriceIron = document.querySelector(".priceIron");
-
-
-        getPrice.innerHTML = `${result.wash_and_fold_one_time}`;
-        getPrice2.innerHTML = `${result.wash_and_fold_smart_wash}`;
-
-        getPriceIron.innerHTML = `${result.ironing}`;
         
 
 
-        if (result.dry_cleaning.top) {
-            result.dry_cleaning.top.map((item) => {
+        if (getHigh.dry_cleaning.top) {
+            getHigh.dry_cleaning.top.map((item) => {
                 data += `
                 <div class="dry-item">
                     <p>${item.name}</p>
@@ -876,8 +1021,8 @@ function getPricing() {
                 sam.innerHTML = data;
             })
         }
-        if (result.dry_cleaning.bottom) {
-            result.dry_cleaning.bottom.map((item) => {
+        if (getHigh.dry_cleaning.bottom) {
+            getHigh.dry_cleaning.bottom.map((item) => {
                 data2 += `
                 <div class="dry-item">
                     <p>${item.name}</p>
@@ -889,8 +1034,8 @@ function getPricing() {
             
         }
 
-        if (result.dry_cleaning.full_body) {
-            result.dry_cleaning.full_body.map((item) => {
+        if (getHigh.dry_cleaning.full_body) {
+            getHigh.dry_cleaning.full_body.map((item) => {
                 data3 += `
                 <div class="dry-item">
                     <p>${item.name}</p>
@@ -902,8 +1047,8 @@ function getPricing() {
             
         }
 
-        if (result.dry_cleaning.house_hold) {
-            result.dry_cleaning.house_hold.map((item) => {
+        if (getHigh.dry_cleaning.house_hold) {
+            getHigh.dry_cleaning.house_hold.map((item) => {
                 data4 += `
                 <div class="dry-item">
                     <p>${item.name}</p>
@@ -915,8 +1060,8 @@ function getPricing() {
             
         }
 
-        if (result.dry_cleaning.native_wear) {
-            result.dry_cleaning.native_wear.map((item) => {
+        if (getHigh.dry_cleaning.native_wear) {
+            getHigh.dry_cleaning.native_wear.map((item) => {
                 data5 += `
                 <div class="dry-item">
                     <p>${item.name}</p>
@@ -927,19 +1072,8 @@ function getPricing() {
             })
             
         }
-        else {
-            
-
-            
-        }
-    })
-    .catch(error => console.log('error', error));
-
 }
-getPricing();
-
-
-// for dry cleaning
+displayAllPrice()
 
 function topWears() {
     let data = []

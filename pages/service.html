@@ -23,7 +23,7 @@
 
   
 </head>
-<body onload="getLocation()">
+<body onload="getLocation(), getPricing(), displayAllPrice()">
   <!-- navigation -->
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -186,8 +186,8 @@
           <div class="price-card">
             <div class="price-content text-center">
               <h5 class="text-light">One - time wash</h5>
-              <h4 class="wash"><sup>₦</sup><span class="price"></span><sub>Per Bag</sub></h4>
-              <p class="wash">$834/yr</p>
+              <h4 class="wash mb-5"><sup>₦</sup><span class="price"></span><sub>Per Bag</sub></h4>
+              <!-- <p class="wash mod">$834/yr</p> -->
             </div>
             <div class="price-card-body">
               <p class="text-light mb-4">Monthly subscription</p>
@@ -224,7 +224,7 @@
               <hr class="hr">
             </div>
             <div class="price-btn text-center mt-5">
-              <button class="btn-price">Give A Try</button>
+              <button class="btn-price" onclick="schedule(event)">Give A Try</button>
             </div>
           </div>
         </div>
@@ -235,7 +235,7 @@
             <div class="price-content text-center">
               <h5 class="text-light">Smart Wash</h5>
               <h4 class="wash2"><sup>₦</sup><span class="priceSmart"></span><sub>Per Bag</sub></h4>
-              <p class="wash2">$834/yr</p>
+              <p class="wash2 mod">$834/yr</p>
             </div>
             <div class="price-card-body">
               <p class="text-light mb-4">Monthly subscription</p>
@@ -272,7 +272,7 @@
               <hr class="hr">
             </div>
             <div class="price-btn text-center mt-5">
-              <button class="btn-price2">Give A Try</button>
+              <button class="btn-price2" onclick="schedule(event)">Give A Try</button>
             </div>
           </div>
         </div>
@@ -373,8 +373,8 @@
           </div>
           <div class="duvet-body">
             <p class="text-center">wash your duvet and beg cover for as<br> low as</p>
-            <h4 class="wash text-center"><sup>₦</sup><span class="priceIron"></span><sub>Per Bag</sub></h4>
-            <p class="wash mt-3 text-center">$ 834/yr</p>
+            <h4 class="wash text-center"><sup>₦</sup><span class="priceiron"></span><sub>Per Bag</sub></h4>
+            <p class="wash mt-3 text-center ipri"></p>
             <div class="price-card-body">
               <p class="mb-4">Monthly subscription</p>
               <p class="mb-4"><span class="wash">No</span> Additional Fees</p>
@@ -384,7 +384,7 @@
             </div>
           </div>
           <div class="price-btn text-center">
-            <button class="btn-price mb-5">Give A Try</button>
+            <button class="btn-price mb-5" onclick="schedule(event)">Give A Try</button>
           </div>
         </div>
       </div>
@@ -402,7 +402,7 @@
             Your clothes get their own machine, are separated by color, cleaned<br> according to your 
             preferences, and delivered neatly folded – we even pair<br> your socks.
           </p>
-          <button class="get-btn2" type="submit">Schedule a pick-up</button>
+          <button class="get-btn2" type="submit" onclick="schedule(event)">Schedule a pick-up</button>
         </div>
         </div>
       </div>
@@ -502,60 +502,60 @@
             <div class="container">
           <div class="accordion" id="faq">
             <div class="card">
-                <div class="card-header" id="faqhead1">
-                  <a href="#" class="btn btn-header-link" data-toggle="collapse" data-target="#faq1"
-                  aria-expanded="true" aria-controls="faq1"><img src="../assets/6.png" alt="" class="mr-3">How many days does it take to dry clean items?</a>
+              <div class="card-header" id="faqhead1">
+                <a href="#" class="btn btn-header-link" data-toggle="collapse" data-target="#faq1"
+                aria-expanded="true" aria-controls="faq1"><img src="../assets/6.png" alt="" class="mr-3">How many days does it take to dry clean items?</a>
+              </div>
+
+              <div id="faq1" class="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                 </div>
-  
-                <div id="faq1" class="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="faqhead2">
+                  <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq2"
+                  aria-expanded="true" aria-controls="faq2"><img src="../assets/6.png" alt="" class="mr-3">Can I schedule a wash only on the app?</a>
+              </div>
+
+              <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
                   <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                    moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                    aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                      moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                      Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                      proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                      aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                   </div>
-                </div>
+              </div>
             </div>
             <div class="card">
-                <div class="card-header" id="faqhead2">
-                    <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq2"
-                    aria-expanded="true" aria-controls="faq2"><img src="../assets/6.png" alt="" class="mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-                </div>
-  
-                <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
-                    <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                        moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                        shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                        proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                        aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="faqhead3">
-                    <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq3"
-                    aria-expanded="true" aria-controls="faq3"><img src="../assets/6.png" alt="" class="mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-                </div>
-  
-                <div id="faq3" class="collapse" aria-labelledby="faqhead3" data-parent="#faq">
-                    <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                        moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                        shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                        proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                        aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                </div>
+              <div class="card-header" id="faqhead3">
+                  <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq3"
+                  aria-expanded="true" aria-controls="faq3"><img src="../assets/6.png" alt="" class="mr-3">Do you dry clean Native wears?</a>
+              </div>
+
+              <div id="faq3" class="collapse" aria-labelledby="faqhead3" data-parent="#faq">
+                  <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                      moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                      Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                      proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                      aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+              </div>
             </div>
             <div class="card">
               <div class="card-header" id="faqhead4">
                   <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq4"
-                  aria-expanded="true" aria-controls="faq4"><img src="../assets/6.png" alt="" class="mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                  aria-expanded="true" aria-controls="faq4"><img src="../assets/6.png" alt="" class="mr-3">Do you work on weekends.</a>
               </div>
   
               <div id="faq4" class="collapse" aria-labelledby="faqhead4" data-parent="#faq">
@@ -572,9 +572,9 @@
             <div class="card">
               <div class="card-header" id="faqhead5">
                   <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq5"
-                  aria-expanded="true" aria-controls="faq5"><img src="../assets/6.png" alt="" class="mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                  aria-expanded="true" aria-controls="faq5"><img src="../assets/6.png" alt="" class="mr-3">Do I need to count the items in my order?</a>
               </div>
-  
+
               <div id="faq5" class="collapse" aria-labelledby="faqhead5" data-parent="#faq">
                   <div class="card-body">
                       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
@@ -585,7 +585,24 @@
                       aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                   </div>
               </div>
-          </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="faqhead6">
+                  <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq6"
+                  aria-expanded="true" aria-controls="faq6"><img src="../assets/6.png" alt="" class="mr-3">Can I cancel my order?</a>
+              </div>
+
+              <div id="faq6" class="collapse" aria-labelledby="faqhead6" data-parent="#faq">
+                  <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                      moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                      Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                      shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                      proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                      aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+              </div>
+            </div>
           </div>
               </div>
             </div>
@@ -606,7 +623,7 @@
             <div class="first-sec">
               <img src="../assets/logo.png" alt="">
               <p class="mt-2">
-                Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Enim.
+                Wash more, Pay less.
               </p>
             </div>
             <div class="second-sec">
@@ -644,7 +661,7 @@
               <div class="first-sec">
                 <img src="../assets/logo.png" alt="">
                 <p class="mt-2">
-                  Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Enim.
+                  Wash more, Pay less.
                 </p>
               </div>
               
@@ -687,14 +704,14 @@
           <div class="down-footer">
             <div class="down-section-para">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim.
+                Follow us on all social media platforms
               </p>
             </div>
             <div class="footer-social">
-              <img src="../assets/in.png" alt="">
-              <img src="../assets/fb.png" alt="">
-              <img src="../assets/twi.png" alt="">
-              <img src="../assets/li.png" alt="">
+              <img src="./assets/in.png" alt="">
+              <img src="./assets/fb.png" alt="">
+              <img src="./assets/twi.png" alt="">
+              <img src="./assets/li.png" alt="">
             </div>
           </div>
         </div>
