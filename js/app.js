@@ -946,7 +946,16 @@ function hustle() {
     const getHigh = JSON.parse(getit);
 
     const mybogo = document.querySelector(".bogo");
-    mybogo.innerHTML = `₦${getHigh.wash_and_fold_one_time}/mo`
+    const mybogo2 = document.querySelector(".bogo2");
+    const mymigo = document.querySelector(".migo");
+
+    mymigo.innerHTML = `₦${getHigh.wash_and_fold_one_time}/mo`;
+    mybogo.innerHTML = `₦${getHigh.wash_and_fold_one_time}/mo`;
+
+    let rap = parseInt(getHigh.wash_and_fold_one_time) * 2;
+    mybogo2.innerHTML = `₦${rap}/mo`
+
+
 }
 
 function topWears() {
