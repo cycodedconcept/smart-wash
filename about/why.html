@@ -12,7 +12,7 @@
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body onload="getLocation()">
   <!-- navigation -->
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -63,7 +63,7 @@
                     laundry pick up and delivery service.  If you'd like to have your laundry 
                     whisked away and returned to you washed, dried, and neatly folded, Wash Smart can help.
                 </p>
-                <button class="get-btn2" type="submit">Schedule a pick-up</button>
+                <button class="get-btn2" type="submit" onclick="schedule(event)">Schedule a pick-up</button>
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -106,7 +106,7 @@
     </div>
   </section>
 
-  <section class="mt-5">
+  <section>
     <footer>
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-1"></div>
@@ -115,7 +115,7 @@
             <div class="first-sec">
               <img src="../assets/logo.png" alt="">
               <p class="mt-2">
-                Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Enim.
+                Wash more, Pay less.
               </p>
             </div>
             <div class="second-sec">
@@ -153,7 +153,7 @@
               <div class="first-sec">
                 <img src="../assets/logo.png" alt="">
                 <p class="mt-2">
-                  Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Enim.
+                  Wash more, Pay less.
                 </p>
               </div>
               
@@ -196,14 +196,14 @@
           <div class="down-footer">
             <div class="down-section-para">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim.
+                Follow us on all social media platforms
               </p>
             </div>
             <div class="footer-social">
-              <img src="../assets/in.png" alt="">
-              <img src="../assets/fb.png" alt="">
-              <img src="../assets/twi.png" alt="">
-              <img src="../assets/li.png" alt="">
+              <img src="./assets/in.png" alt="">
+              <img src="./assets/fb.png" alt="">
+              <img src="./assets/twi.png" alt="">
+              <img src="./assets/li.png" alt="">
             </div>
           </div>
         </div>
@@ -211,6 +211,60 @@
       </div>
     </footer>
   </section>
+
+
+  <div id="loc-modal" class="mymodal">
+    <div class="modal-content">
+        <div class="modal-header2">
+            <span class="close2" onclick="xclose()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-center">Give us your Location </h5>
+          <p class="text-center">
+            Kindly fill the form below with your appropriate<br> 
+            details so we will come pick-up your laundry.
+          </p>
+          <form class="omadi">
+            <div class="form-group">
+                <label for="address">Enter Address</label>
+                <select class="myInput2" id="location" placeholder="Enter Pick-up address">
+                </select>
+
+                <button class="btn-sign4 mt-3">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
+                      <span class="sr-only"></span>
+                  </div>
+                  Countinue
+              </button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  <div id="dash-modal" class="mymodal">
+    <div class="modal-content">
+        <div class="modal-header">
+         <h4>Update phone number</h4>
+            <span class="close" onclick="closeDashModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <center>
+                <input type="tel" class="myInput form-control" id="phone" placeholder="Enter Phone number">
+                <button class="btn-sign3 mt-3" onclick="updatePhone(event)">
+                  <div class="spinner-border spinner-border-sm text-light" role="status" id="spin">
+                      <span class="sr-only"></span>
+                  </div>
+                  update phone number
+              </button>
+              </center>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
     
 
   <!-- jquery & javascript cdn -->
@@ -218,6 +272,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="../js/script.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/app.js"></script>
+
 
 </body>
 </html>

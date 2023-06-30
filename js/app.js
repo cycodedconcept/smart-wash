@@ -1,5 +1,15 @@
 let baseUrl = "https://washsmart.onrender.com";
 
+let dvogue;
+let dsum;
+let dtotal;
+let ivogue;
+let isum;
+let itotal;
+
+let thePrice = [];
+let wfbag;
+let wifbag
 
 
 function toLogin(event) {
@@ -828,6 +838,29 @@ function getPricing() {
 
 }
 
+// function to update location
+function finalAddress(event) {
+    event.preventDefault()
+
+    const getSpin = document.querySelector("#spinit");
+    getSpin.style.display = "inline-block";
+
+    const getInput = document.querySelector(".myInput").value;
+    if (getInput === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'This field is required!',
+            confirmButtonColor: '#00AEEF'
+        })
+
+        getSpin.style.display = "none";
+    }
+
+    else {
+        
+    }
+}
+
 function displayAllPrice() {
     const getit = localStorage.getItem("price");
     const getHigh = JSON.parse(getit);
@@ -1406,12 +1439,12 @@ function calValues(event) {
     
 }
 
-let dvogue;
-let dsum;
-let dtotal;
-let ivogue;
-let isum;
-let itotal;
+// let dvogue;
+// let dsum;
+// let dtotal;
+// let ivogue;
+// let isum;
+// let itotal;
 
 
 function chooseItem() {
@@ -1453,6 +1486,8 @@ function chooseItem() {
 
 
 }
+
+console.log(dvogue)
 
 function picked() {
     let ex = document.querySelector(".ex");
@@ -1522,6 +1557,7 @@ function picked2() {
         `
     }
 }
+picked2()
 
 // function serviceIn() {
 //     const getItem = localStorage.getItem("allitem");
@@ -1822,11 +1858,11 @@ function showOthers(event) {
         const waf = priceItem.wash_and_fold_smart_wash;
         const wif = priceItem.wash_iron_and_fold_smart_wash;
 
-        bered = waf
-        bewhite = wif
+        // bered = waf
+        // bewhite = wif
 
 
-        console.log(bered, bewhite)
+        // console.log(bered, bewhite)
 
         egun.style.display = "block"
         one.disabled = true;
@@ -2262,10 +2298,9 @@ function month2(event) {
     bul.innerHTML = `₦${chati}/month`
 }
 
-let thePrice = [];
-// let bag = []
-let wfbag;
-let wifbag
+// let thePrice = [];
+// let wfbag;
+// let wifbag
 function insert(num){
     const obj = {
         num: num,
