@@ -857,7 +857,53 @@ function finalAddress(event) {
     }
 
     else {
-        
+        const getToken = localStorage.getItem("token");
+        const myToken = JSON.parse(getToken);
+
+        const locationHeader = new Headers();
+        locationHeader.append('Content-Type', 'application/json');
+
+        locationHeader.append("Authorization", `Bearer ${myToken}`);
+
+        const myProfile = JSON.stringify({
+            "location": getInput
+        });
+
+
+        const fiReq = {
+            method: 'POST',
+            headers: locationHeader,
+            body: myProfile
+        }
+
+        const url = `${baseUrl}/api/user/update-location`;
+
+        fetch(url, fiReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+
+            if (result.message.hasOwnProperty("email")) {
+                Swal.fire({
+                    icon: 'success',
+                    text: 'updated successfully',
+                    confirmButtonColor: '#00AEEF'
+                })
+                setTimeout(() => {
+                    location.href = "../pages/plan.html"
+                })
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Unsuccessful',
+                    confirmButtonColor: '#00AEEF'
+                })
+                getSpin.style.display = "none";
+            }
+        })
+        .catch(error => console.log('error', error));
+
     }
 }
 
