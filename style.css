@@ -1963,9 +1963,9 @@ label {
     animation-duration: 2s;
 }
 
-.egun, .egun2 {
+/* .egun, .egun2 {
     display: none;
-}
+} */
 
 .time-slot {
     display: flex;

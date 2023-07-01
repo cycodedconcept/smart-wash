@@ -1869,8 +1869,11 @@ function validateOrder(event) {
             .then(response => response.json())
             .then(result => {
                 console.log(result)
-                localStorage.setItem("order", JSON.stringify(result))
-                location.href = "../pages/payment.html"
+                localStorage.setItem("order", JSON.stringify(result));
+                const myItem = localStorage.getItem("order");
+                const muItem = JSON.parse(myItem);
+                const mob = muItem.totalAmount;
+                location.href = `../pages/payment.html?price=${mob}`
             })
             .catch(error => console.log('error', error));
         }
@@ -1886,37 +1889,19 @@ let bewhite
 
 
 function showOthers(event) {
+    const myodana = document.querySelector(".flowki")
+    const getWash = localStorage.getItem("wash");
+    const myWash = JSON.parse(getWash);
+
+    const getPrice = localStorage.getItem("price");
+    const priceItem = JSON.parse(getPrice);
+
+    const waf = priceItem.wash_and_fold_smart_wash;
+    const wif = priceItem.wash_iron_and_fold_smart_wash;
     
-
-
     if (event.target.checked) {
-        
-        const getWash = localStorage.getItem("wash");
-        const myWash = JSON.parse(getWash);
-        const one = document.querySelector(".one")
-        const myodana = document.querySelector(".flowki");
-        const egun = document.querySelector(".egun");
-        const getoz = document.querySelector(".oz");
-
-        const getPrice = localStorage.getItem("price");
-        const priceItem = JSON.parse(getPrice);
-
-        const waf = priceItem.wash_and_fold_smart_wash;
-        const wif = priceItem.wash_iron_and_fold_smart_wash;
-
-        // bered = waf
-        // bewhite = wif
-
-
-        // console.log(bered, bewhite)
-
-        egun.style.display = "block"
-        one.disabled = true;
-
-        getoz.style.display = "block";
-
-        
-
+        myodana.innerHTML = "hello"
+        console.log("hello")
         if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
         return myodana.innerHTML += `
         <div class="plan-item mb-3">
@@ -2093,6 +2078,208 @@ function showOthers(event) {
     }
     }
     
+    // if (event.target.checked) {
+        
+    //     const getWash = localStorage.getItem("wash");
+    //     const myWash = JSON.parse(getWash);
+    //     const one = document.querySelector(".one")
+    //     // const myodana = document.querySelector(".flowki");
+    //     const egun = document.querySelector(".egun");
+    //     const getoz = document.querySelector(".oz");
+
+    //     const getPrice = localStorage.getItem("price");
+    //     const priceItem = JSON.parse(getPrice);
+
+    //     const waf = priceItem.wash_and_fold_smart_wash;
+    //     const wif = priceItem.wash_iron_and_fold_smart_wash;
+
+
+
+
+    //     egun.style.display = "block"
+    //     one.disabled = true;
+
+    //     getoz.style.display = "block";
+
+        
+
+    //     if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
+    //     return myodana.innerHTML += `
+    //     <div class="plan-item mb-3">
+    //         <h5 class="wash">${myWash[0]}</h5>
+    //     </div>
+    //     <input type="hidden" class="serviceName warcrafname" value="wash and fold smart wash">
+    //     <input type="hidden" class="serviceType warcraftype" value="wash_and_fold_smart_wash">
+
+    //     <div class="plan-item plan1 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+    //     <div class="item-by">
+    //         <div class="mo-btn" onClick="month(event)">Monthly</div>
+    //         <div class="an-btn" onClick="yearly(event)">Annually</div>
+    //         <div class="stre">
+    //         <img src="../assets/fre.png" alt="" class="vog">
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan2 mb-3">
+    //     <h6 class="h-item mt-3">Bags / month</h6>
+
+    //     <div class="item-by">
+    //     <div class="moto" onClick="insert(1)">1</div>
+    //     <div class="moto" onClick="insert(2)">2</div>
+    //     <div class="moto" onClick="insert(3)">3</div>
+    //     <div class="moto" onClick="insert(4)">4</div>
+    //     <div class="moto" onClick="insert(5)">5</div>
+            
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+
+    //     <div class="item-by">
+    //         <h4 class="blu">₦${waf} / bag</h4>
+    //         <p class="bul">₦${waf}/month</p>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3 ex">
+    //         ${picked2()}
+    //     </div>
+        
+    
+    //     <hr>
+    //     <div class="plan-item mb-3">
+    //         <h5 class="wash">${myWash[1]}</h5>
+    //     </div>
+    //     <input type="hidden" class="serviceName warcrafname2" value="wash iron and fold smart wash">
+    //     <input type="hidden" class="serviceType warcraftype2" value="wash_iron_and_fold_smart_wash">
+
+    //     <div class="plan-item plan1 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+    //     <div class="item-by">
+    //         <div class="mo-btn2" onClick="month2(event)">Monthly</div>
+    //         <div class="an-btn2" onClick="yearly2(event)">Annually</div>
+    //         <div class="stre">
+    //         <img src="../assets/fre.png" alt="" class="vog">
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan2 mb-3">
+    //     <h6 class="h-item mt-3">Bags / month</h6>
+
+    //     <div class="item-by">
+    //         <div class="moto2" onClick="inserts(1)">1</div>
+    //         <div class="moto2" onClick="inserts(2)">2</div>
+    //         <div class="moto2" onClick="inserts(3)">3</div>
+    //         <div class="moto2" onClick="inserts(4)">4</div>
+    //         <div class="moto2" onClick="inserts(5)">5</div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+
+    //     <div class="item-by">
+    //         <h4 class="iblu">₦${wif} / bag</h4>
+    //         <p class="ibul">₦${wif}/month</p>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3 ex">
+    //         ${picked2()}
+    //     </div>
+        
+    //     `
+    //     }
+
+    //     else if (myWash.includes("wash & fold")) {
+    //     console.log(myWash, waf)
+    //     return myodana.innerHTML += `
+    //     <div class="plan-item mb-3">
+    //         <h5 class="wash">${myWash}</h5>
+    //     </div>
+    //     <input type="hidden" class="serviceName warcrafname" value="wash and fold smart wash">
+    //     <input type="hidden" class="serviceType warcraftype" value="wash_and_fold_smart_wash">
+        
+    //     <div class="plan-item plan1 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+    //     <div class="item-by">
+    //         <div class="mo-btn" onClick="month(event)">Monthly</div>
+    //         <div class="an-btn" onClick="yearly(event)">Annually</div>
+    //         <div class="stre">
+    //         <img src="../assets/fre.png" alt="" class="vog">
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan2 mb-3">
+    //     <h6 class="h-item mt-3">Bags / month</h6>
+
+    //     <div class="item-by">
+    //     <div class="moto" onClick="insert(1)">1</div>
+    //     <div class="moto" onClick="insert(2)">2</div>
+    //     <div class="moto" onClick="insert(3)">3</div>
+    //     <div class="moto" onClick="insert(4)">4</div>
+    //     <div class="moto" onClick="insert(5)">5</div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+
+    //     <div class="item-by">
+    //         <h5 class="blu">₦${waf} / bag</h5>
+    //         <p class="bul">₦${waf}/month</p>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3 ex">
+    //         ${picked2()}
+    //     </div>
+        
+    //     `
+    //     }
+    //     else if(myWash.includes("wash iron & fold")) {
+    //     console.log(myWash, wif)
+    //     return myodana.innerHTML += `
+    //     <div class="plan-item mb-3">
+    //         <h5 class="wash">${myWash}</h5>
+    //     </div>
+    //     <input type="hidden" class="serviceName warcrafname2" value="wash iron and fold smart wash">
+    //     <input type="hidden" class="serviceType warcraftype2" value="wash_iron_and_fold_smart_wash">
+        
+    //     <div class="plan-item plan1 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+    //     <div class="item-by">
+    //         <div class="mo-btn" onClick="month2(event)">Monthly</div>
+    //         <div class="an-btn" onClick="yearly2(event)">Annually</div>
+    //         <div class="stre">
+    //         <img src="../assets/fre.png" alt="" class="vog">
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan2 mb-3">
+    //     <h6 class="h-item mt-3">Bags / month</h6>
+
+    //     <div class="item-by">
+    //     <div class="moto2" onClick="inserts(1)">1</div>
+    //     <div class="moto2" onClick="inserts(2)">2</div>
+    //     <div class="moto2" onClick="inserts(3)">3</div>
+    //     <div class="moto2" onClick="inserts(4)">4</div>
+    //     <div class="moto2" onClick="inserts(5)">5</div>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3">
+    //     <h6 class="h-item mt-4">Billing</h6>
+
+    //     <div class="item-by">
+    //         <h5 class="iblu">₦${wif} / bag</h5>
+    //         <p class="ibul">₦${wif}/month</p>
+    //     </div>
+    //     </div>
+    //     <div class="plan-item plan3 mb-3 ex">
+    //         ${picked2()}
+    //     </div>
+        
+    //     `
+    // }
+    // }
+    
+    
 }
 
 
@@ -2101,28 +2288,20 @@ function showOthers(event) {
 
 
 function removeDrop(event) {
+    const myodana = document.querySelector(".flowki")
+    const getWash = localStorage.getItem("wash");
+    const myWash = JSON.parse(getWash);
+
+
+    const getPrice = localStorage.getItem("price");
+    const priceItem = JSON.parse(getPrice);
+
+    onewaf = priceItem.wash_and_fold_one_time;
+    onewif = priceItem.wash_iron_and_fold_one_time;
     
-
     if (event.target.checked) {
-        const getWash = localStorage.getItem("wash");
-        const myWash = JSON.parse(getWash);
-        const smart = document.querySelector(".smart")
-        const myodana = document.querySelector(".odana3");
-
-        const egun = document.querySelector(".egun2");
-        const getoz = document.querySelector(".oz");
-        egun.style.display = "block"
-        smart.disabled = true;
-        getoz.style.display = "block";
-
-
-
-        const getPrice = localStorage.getItem("price");
-        const priceItem = JSON.parse(getPrice);
-
-        onewaf = priceItem.wash_and_fold_one_time;
-        onewif = priceItem.wash_iron_and_fold_one_time;
-
+        myodana.innerHTML = "hello2"
+        console.log("hello2")
 
         if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
             return myodana.innerHTML += `
@@ -2249,7 +2428,159 @@ function removeDrop(event) {
             
             `
         }
+
     }
+
+    // if (event.target.checked) {
+    //     const getWash = localStorage.getItem("wash");
+    //     const myWash = JSON.parse(getWash);
+    //     const smart = document.querySelector(".smart")
+    //     // const myodana = document.querySelector(".odana3");
+    //     // const myodana = document.querySelector(".flowki");
+
+
+    //     const egun = document.querySelector(".egun2");
+    //     const getoz = document.querySelector(".oz");
+    //     egun.style.display = "block"
+    //     smart.disabled = true;
+    //     getoz.style.display = "block";
+
+
+
+        // const getPrice = localStorage.getItem("price");
+        // const priceItem = JSON.parse(getPrice);
+
+        // onewaf = priceItem.wash_and_fold_one_time;
+        // onewif = priceItem.wash_iron_and_fold_one_time;
+
+
+        // if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
+        //     return myodana.innerHTML += `
+        //     <div class="plan-item mb-3">
+        //       <h5 class="wash">${myWash[0]}</h5>
+        //     </div>
+        //     <input type="hidden" class="serviceName" value="wash and fold one time">
+        //     <input type="hidden" class="serviceType" value="wash_and_fold_one_time">
+        //     <div class="plan-item plan2 mb-3">
+        //     <h6 class="h-item mt-3">Bags / month</h6>
+
+        //     <div class="item-by">
+        //     <div class="moto" onClick="insert(1)">1</div>
+        //     <div class="moto" onClick="insert(2)">2</div>
+        //     <div class="moto" onClick="insert(3)">3</div>
+        //     <div class="moto" onClick="insert(4)">4</div>
+        //     <div class="moto" onClick="insert(5)">5</div>
+        //     </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3">
+        //         <h6 class="h-item mt-4">Billing</h6>
+
+        //         <div class="item-by">
+        //             <h4>₦${onewaf} / bag</h4>
+        //             <p>₦${onewaf}/month</p>
+        //         </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3 ex">
+        //       ${picked2()}
+        //     </div>
+
+        //     <hr>
+        //     <div class="plan-item mb-3">
+        //       <h5 class="wash">${myWash[1]}</h5>
+        //     </div>
+        //     <input type="hidden" class="serviceName" value="wash iron and fold one time">
+        //     <input type="hidden" class="serviceType" value="wash_iron_and_fold_one_time">
+        //     <div class="plan-item plan2 mb-3">
+        //     <h6 class="h-item mt-3">Bags / month</h6>
+
+        //     <div class="item-by">
+        //     <div class="moto2" onClick="inserts(1)">1</div>
+        //     <div class="moto2" onClick="inserts(2)">2</div>
+        //     <div class="moto2" onClick="inserts(3)">3</div>
+        //     <div class="moto2" onClick="inserts(4)">4</div>
+        //     <div class="moto2" onClick="inserts(5)">5</div>
+        //     </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3">
+        //         <h6 class="h-item mt-4">Billing</h6>
+
+        //         <div class="item-by">
+        //             <h4>₦${onewif} / bag</h4>
+        //             <p>₦${onewif}/month</p>
+        //         </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3 ex">
+        //       ${picked2()}
+        //     </div>
+            
+        //     `
+        // }
+        // else if (myWash.includes("wash & fold")) {
+        //     return myodana.innerHTML += `
+        //     <div class="plan-item mb-3">
+        //       <h5 class="wash">${myWash}</h5>
+        //     </div>
+        //     <input type="hidden" class="serviceName" value="wash and fold one time">
+        //     <input type="hidden" class="serviceType" value="wash_and_fold_one_time">
+        //     <div class="plan-item plan2 mb-3">
+        //     <h6 class="h-item mt-3">Bags / month</h6>
+
+        //     <div class="item-by">
+        //     <div class="moto" onClick="insert(1)">1</div>
+        //     <div class="moto" onClick="insert(2)">2</div>
+        //     <div class="moto" onClick="insert(3)">3</div>
+        //     <div class="moto" onClick="insert(4)">4</div>
+        //     <div class="moto" onClick="insert(5)">5</div>
+        //     </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3">
+        //         <h6 class="h-item mt-4">Billing</h6>
+
+        //         <div class="item-by">
+        //             <h4>₦${onewaf} / bag</h4>
+        //             <p>₦${onewaf}/month</p>
+        //         </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3 ex">
+        //       ${picked2()}
+        //     </div>
+            
+        //     `
+        // }
+        // else if(myWash.includes("wash iron & fold")) {
+        //     return myodana.innerHTML +=`
+        //     <div class="plan-item mb-3">
+        //      <h5 class="wash">${myWash}</h5>
+        //     </div>
+        //     <input type="hidden" class="serviceName" value="wash iron and fold one time">
+        //         <input type="hidden" class="serviceType" value="wash_iron_and_fold_one_time">
+        //     <div class="plan-item plan2 mb-3">
+        //     <h6 class="h-item mt-3">Bags / month</h6>
+
+        //     <div class="item-by">
+        //     <div class="moto2" onClick="inserts(1)">1</div>
+        //     <div class="moto2" onClick="inserts(2)">2</div>
+        //     <div class="moto2" onClick="inserts(3)">3</div>
+        //     <div class="moto2" onClick="inserts(4)">4</div>
+        //     <div class="moto2" onClick="inserts(5)">5</div>
+        //     </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3">
+        //         <h6 class="h-item mt-4">Billing</h6>
+
+        //         <div class="item-by">
+        //             <h4>₦${onewif} / bag</h4>
+        //             <p>₦${onewif}/month</p>
+        //         </div>
+        //     </div>
+        //     <div class="plan-item plan3 mb-3 ex">
+        //       ${picked2()}
+        //     </div>
+            
+        //     `
+        // }
+    // }
+    
     
 }
 
@@ -2395,110 +2726,7 @@ function inserts(num){
 
 }
 
-// function smartWash(event) {
-//     event.preventDefault();
 
-//     const getItems = localStorage.getItem("allitem");
-//     const sivItems = JSON.parse(getItems);
-
-//     const getPrice = localStorage.getItem("price");
-//     const topIt = JSON.parse(getPrice);
-//     const mywplan = topIt.wash_and_fold_smart_wash_yearly_plan_per_bag;
-//     const mywiplan = topIt.wash_iron_and_fold_smart_wash_yearly_plan_per_bag;
-
-//     const onetime = topIt.wash_and_fold_one_time;
-//     const onetimei = topIt.wash_iron_and_fold_one_time;
-
-
-
-//     const getWash = localStorage.getItem("wash");
-//     const myWash = JSON.parse(getWash);
-//     if (myWash.includes("wash & fold") && myWash.includes("wash iron & fold")) {
-//         thePrice.push(topIt.wash_and_fold_smart_wash, topIt.wash_iron_and_fold_smart_wash)
-//     }
-//     else if (myWash.includes("wash & fold")) {
-//         thePrice.push(topIt.wash_and_fold_smart_wash)
-//     }
-//     else if (myWash.includes("wash iron & fold")) {
-//         thePrice.push(topIt.wash_iron_and_fold_smart_wash)
-//     }
-
-//     const getServices = document.querySelectorAll(".serviceName");
-//     const getServty = document.querySelectorAll(".serviceType");
-
-    
-
-//     let service = [];
-//     let typ = []; 
-
-//     let komo = []
-
-
-
-//     for (i = 0; i < getServices.length; i++) {
-        
-//         let cs = getServices[i].value;
-//         service.push(cs);
-//     }
-//     for (j = 0; j < getServty.length; j++) {
-//         let bs = getServty[j].value;
-//         typ.push(bs)
-//     }
-    
-//     const customerService = typ.map((service_type, index) => {
-//         if (service_type === "wash_and_fold_smart_wash_yearly_plan_per_bag") {
-//             return Object.assign({}, {
-//                 service_type,
-//                 service_name: service[index],
-//                 quantity: bag[index],
-//                 pricing: mywplan
-//             })
-//         }
-//         else if (service_type === "wash_iron_and_fold_smart_wash_yearly_plan_per_bag") {
-//             return Object.assign({}, {
-//                 service_type,
-//                 service_name: service[index],
-//                 quantity: bag[index],
-//                 pricing: mywiplan
-//             })
-//         }
-//         else if (service_type === "wash_and_fold_one_time") {
-//             return Object.assign({}, {
-//                 service_type,
-//                 service_name: service[index],
-//                 quantity: bag[index],
-//                 pricing: onetime
-//             })
-//         }
-//         else if (service_type === "wash_iron_and_fold_one_time") {
-//             return Object.assign({}, {
-//                 service_type,
-//                 service_name: service[index],
-//                 quantity: bag[index],
-//                 pricing: onetimei
-//             })
-//         }
-//         else {
-//             return Object.assign({}, {
-//                 service_type,
-//                 service_name: service[index],
-//                 quantity: bag[index],
-//                 pricing: thePrice[index]
-//             })
-//         }
-        
-//     })
-
-//     for (let i = 0; i < customerService.length; i++) {
-//         sivItems.push(customerService[i])
-//         komo.push(customerService[i].pricing)
-//     }
-//     localStorage.setItem("komoprice", JSON.stringify(komo))
-
-
-//     localStorage.setItem("newService", JSON.stringify(sivItems));
-//     location.href = "../pages/wash.html"
-// }
 
 
 function smartWash(event) {
@@ -2618,287 +2846,7 @@ function smartWash(event) {
     
 }
 
-// function washBag() {
-//     const washObji = localStorage.getItem("wash");
-//     const washObj = JSON.parse(washObji)
-//     const getPupu = document.querySelector(".pupu");
-//     const getPrice = localStorage.getItem("bis")
 
-//     const getItem = localStorage.getItem("allitem");
-//     const theItem = JSON.parse(getItem);
-
-
-//     let data = [];
-//     washObj.map((item) => {
-//         data += `
-//         <div class="plan">
-//             <div class="plan-img2">
-//                 <img src="../assets/able.png" alt="">
-//             </div>
-//             <div class="form-check mt-3">
-//                 <h4 class="wash">${item}</h4>
-//             </div>
-//         </div>
-//         <div class="bag-mon">
-//          ${theItem.map((item) => {
-//             if (item.service_type === 'dry_cleaning') {
-//                 return `
-//                     <div class="search-card">
-//                       <div>
-//                         <p><b>${item.service_name}</b></p>
-//                       </div>
-//                     </div>
-//                     <div class="search-card">
-//                         <div>
-//                             <p>${item.cloth_category} x ${item.quantity}</p>
-//                         </div>
-//                         <div>
-//                             <p>₦${item.pricing}</p>
-//                         </div>
-//                     </div>
-//                 `
-//             }
-//             else if (item.service_type === 'ironing') {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                     <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//             else {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                      <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//         })}
-//         </div>
-
-//         <div class="bag-mon2">
-//             <div class="">
-//             <p class="h-item">Total due today</p>
-//             </div>
-//             <div class="form-check">
-//             <p class="okTotal">₦${getPrice}</p>
-//             </div>
-//         </div>
-//         <hr>
-//         `
-//         getPupu.innerHTML = data;
-
-//     })
-    
-    
-// }
-
-// function washBag() {
-//     const washObji = localStorage.getItem("wash");
-//     const washObj = JSON.parse(washObji)
-//     const getPupu = document.querySelector(".pupu");
-//     const getPrice = localStorage.getItem("bis")
-
-//     const getItem = localStorage.getItem("allitem");
-//     const theItem = JSON.parse(getItem);
-
-
-//     let data = [];
-//     washObj.map((item) => {
-//         data += `
-//         <div class="plan">
-//             <div class="plan-img2">
-//                 <img src="../assets/able.png" alt="">
-//             </div>
-//             <div class="form-check mt-3">
-//                 <h4 class="wash">${item}</h4>
-//             </div>
-//         </div>
-//         <div class="bag-mon">
-//          ${theItem.map((item) => {
-//             if (item.service_type === 'dry_cleaning') {
-//                 return `
-//                     <div class="search-card">
-//                       <div>
-//                         <p><b>${item.service_name}</b></p>
-//                       </div>
-//                     </div>
-//                     <div class="search-card">
-//                         <div>
-//                             <p>${item.cloth_category} x ${item.quantity}</p>
-//                         </div>
-//                         <div>
-//                             <p>₦${item.pricing}</p>
-//                         </div>
-//                     </div>
-//                 `
-//             }
-//             else if (item.service_type === 'ironing') {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                     <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//             else {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                      <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//         })}
-//         </div>
-
-//         <div class="bag-mon2">
-//             <div class="">
-//             <p class="h-item">Total due today</p>
-//             </div>
-//             <div class="form-check">
-//             <p class="okTotal">₦${getPrice}</p>
-//             </div>
-//         </div>
-//         <hr>
-//         `
-//         getPupu.innerHTML = data;
-
-//     })
-    
-    
-// }
-
-// function washBag() {
-//     const washObji = localStorage.getItem("wash");
-//     const washObj = JSON.parse(washObji)
-//     const getPupu = document.querySelector(".pupu");
-//     const getPrice = localStorage.getItem("bis")
-
-//     const getItem = localStorage.getItem("allitem");
-//     const theItem = JSON.parse(getItem);
-
-
-//     let data = [];
-//     washObj.map((item) => {
-//         data += `
-//         <div class="plan">
-//             <div class="plan-img2">
-//                 <img src="../assets/able.png" alt="">
-//             </div>
-//             <div class="form-check mt-3">
-//                 <h4 class="wash">${item}</h4>
-//             </div>
-//         </div>
-//         <div class="bag-mon">
-//          ${theItem.map((item) => {
-//             if (item.service_type === 'dry_cleaning') {
-//                 return `
-//                     <div class="search-card">
-//                       <div>
-//                         <p><b>${item.service_name}</b></p>
-//                       </div>
-//                     </div>
-//                     <div class="search-card">
-//                         <div>
-//                             <p>${item.cloth_category} x ${item.quantity}</p>
-//                         </div>
-//                         <div>
-//                             <p>₦${item.pricing}</p>
-//                         </div>
-//                     </div>
-//                 `
-//             }
-//             else if (item.service_type === 'ironing') {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                     <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//             else {
-//                 return `
-//                 <div class="search-card">
-//                     <div>
-//                      <p><b>${item.service_name}</b></p>
-//                     </div>
-//                 </div>
-//                 <div class="search-card">
-//                     <div>
-//                         <p>${item.cloth_category} x ${item.quantity}</p>
-//                     </div>
-//                     <div>
-//                         <p>₦${item.pricing}</p>
-//                     </div>
-//                 </div>
-//                 `
-//             }
-//         })}
-//         </div>
-
-//         <div class="bag-mon2">
-//             <div class="">
-//             <p class="h-item">Total due today</p>
-//             </div>
-//             <div class="form-check">
-//             <p class="okTotal">₦${getPrice}</p>
-//             </div>
-//         </div>
-//         <hr>
-//         `
-//         getPupu.innerHTML = data;
-
-//     })
-    
-    
-// }
 
 
 function washBag() {
@@ -2927,13 +2875,8 @@ function washBag() {
             if (item.service_type === 'dry_cleaning' && item.service_type === 'ironing') {
                 return `
                     <div class="search-card">
-                      <div>
-                        <p><b>${item.service_name}</b></p>
-                      </div>
-                    </div>
-                    <div class="search-card">
                         <div>
-                            <p>${item.cloth_category} x ${item.quantity}</p>
+                            <p>${item.cloth_name} x ${item.quantity}</p>
                         </div>
                         <div>
                             <p>₦${item.pricing}</p>
@@ -2944,14 +2887,10 @@ function washBag() {
         
             else {
                 return `
+                
                 <div class="search-card">
                     <div>
-                     <p><b>${item.service_name}</b></p>
-                    </div>
-                </div>
-                <div class="search-card">
-                    <div>
-                        <p>${item.cloth_category} x ${item.quantity}</p>
+                        <p>${item.cloth_name} x ${item.quantity}</p>
                     </div>
                     <div>
                         <p>₦${item.pricing}</p>
@@ -2982,8 +2921,14 @@ function washBag() {
 
 
 
+
+
+
+
+
 function validateOrder2(event) {
     event.preventDefault();
+
 
     const getOrderTime = document.querySelector(".time").value;
     if (!getOrderTime || getOrderTime === "") {
@@ -3036,7 +2981,7 @@ function validateOrder2(event) {
                 confirmButtonColor: '#00AEEF'
             })
             setTimeout(() => {
-            location.href = "../pages/plan.html"
+            location.href = `../pages/plan.html`
             }, 3000)
         }
         else {
@@ -3060,28 +3005,19 @@ function validateOrder2(event) {
             .then(response => response.json())
             .then(result => {
                 console.log(result)
-                localStorage.setItem("order", JSON.stringify(result))
-                location.href = "../pages/payment.html"
+                localStorage.setItem("order", JSON.stringify(result));
+                const myItem = localStorage.getItem("order");
+                const muItem = JSON.parse(myItem);
+                const mob = muItem.totalAmount;
+                location.href = `../pages/payment.html?price=${mob}&pick=${mope}`
             })
             .catch(error => console.log('error', error));
         }
     }
 }
 
-function getOrder() {
-    const myOrder = localStorage.getItem("order");
-    const order = JSON.parse(myOrder);
 
-    const mytd = localStorage.getItem("td");
 
-    const getAmt = document.getElementById("amount");
-    getAmt.setAttribute("value", `${order.totalAmount}`)
-
-    const getTd = document.getElementById("pickup");
-    getTd.setAttribute("value", `${mytd}`);
-
-}
-getOrder();
 
 
 function getCurrentDate() {

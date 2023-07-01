@@ -1,3 +1,20 @@
+function getAmount() {
+    const params = new URLSearchParams(window.location.search);
+    let getPrice = params.get('price');
+
+    const params2 = new URLSearchParams(window.location.search);
+    let getTime = params2.get('pick');
+    console.log(getPrice, getTime)
+
+    const begAmt = document.getElementById("amount");
+    begAmt.setAttribute("value", `${getPrice}`);
+
+    const getTd = document.getElementById("pickup");
+    getTd.setAttribute("value", `${getTime}`);
+
+}
+getAmount()
+
 function randomStr(len, arr) {
     let ans = '';
     for (let i = len; i > 0; i--) {
