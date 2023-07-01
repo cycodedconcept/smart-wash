@@ -1892,16 +1892,20 @@ function showOthers(event) {
     const myodana = document.querySelector(".flowki")
     const getWash = localStorage.getItem("wash");
     const myWash = JSON.parse(getWash);
+    const getoz = document.querySelector(".oz");
+
 
     const getPrice = localStorage.getItem("price");
     const priceItem = JSON.parse(getPrice);
 
     const waf = priceItem.wash_and_fold_smart_wash;
     const wif = priceItem.wash_iron_and_fold_smart_wash;
+
+    getoz.style.display = "block";
+
     
     if (event.target.checked) {
-        myodana.innerHTML = "hello"
-        console.log("hello")
+        myodana.innerHTML = ""
         if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
         return myodana.innerHTML += `
         <div class="plan-item mb-3">
@@ -2085,7 +2089,7 @@ function showOthers(event) {
     //     const one = document.querySelector(".one")
     //     // const myodana = document.querySelector(".flowki");
     //     const egun = document.querySelector(".egun");
-    //     const getoz = document.querySelector(".oz");
+        // const getoz = document.querySelector(".oz");
 
     //     const getPrice = localStorage.getItem("price");
     //     const priceItem = JSON.parse(getPrice);
@@ -2099,7 +2103,7 @@ function showOthers(event) {
     //     egun.style.display = "block"
     //     one.disabled = true;
 
-    //     getoz.style.display = "block";
+        // getoz.style.display = "block";
 
         
 
@@ -2291,6 +2295,8 @@ function removeDrop(event) {
     const myodana = document.querySelector(".flowki")
     const getWash = localStorage.getItem("wash");
     const myWash = JSON.parse(getWash);
+    const getoz = document.querySelector(".oz");
+
 
 
     const getPrice = localStorage.getItem("price");
@@ -2298,10 +2304,11 @@ function removeDrop(event) {
 
     onewaf = priceItem.wash_and_fold_one_time;
     onewif = priceItem.wash_iron_and_fold_one_time;
+    getoz.style.display = "block";
+
     
     if (event.target.checked) {
-        myodana.innerHTML = "hello2"
-        console.log("hello2")
+        myodana.innerHTML = ""
 
         if ((myWash.includes("wash & fold")) && (myWash.includes("wash iron & fold"))) {
             return myodana.innerHTML += `
