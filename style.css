@@ -2123,3 +2123,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
         width: 100%;
     }
 }
+
+.totdis {
+    display: flex;
+    justify-content: space-between;
+}
