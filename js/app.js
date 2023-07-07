@@ -2856,31 +2856,117 @@ function smartWash(event) {
 
 
 
+// function washBag() {
+//     const washObji = localStorage.getItem("wash");
+//     const washObj = JSON.parse(washObji)
+//     const getPupu = document.querySelector(".pupu");
+//     const getPrice = localStorage.getItem("bis")
+
+//     const getItem = localStorage.getItem("allitem");
+//     const theItem = JSON.parse(getItem);
+
+
+//     let data = [];
+//     washObj.map((item) => {
+//         data += `
+//         <div class="plan">
+//             <div class="plan-img2">
+//                 <img src="../assets/able.png" alt="">
+//             </div>
+//             <div class="form-check mt-3">
+//                 <h4 class="wash">${item}</h4>
+//             </div>
+//         </div>
+//         <div class="bag-mon">
+//          ${theItem.map((item) => {
+//             if (item.service_type === 'dry_cleaning' && item.service_type === 'ironing') {
+//                 return `
+//                     <div class="search-card">
+//                         <div>
+//                             <p>${item.cloth_name} x ${item.quantity}</p>
+//                         </div>
+//                         <div>
+//                             <p>₦${item.pricing}</p>
+//                         </div>
+//                     </div>
+//                 `
+//             }
+        
+//             else {
+//                 return `
+                
+//                 <div class="search-card">
+//                     <div>
+//                         <p>${item.cloth_name} x ${item.quantity}</p>
+//                     </div>
+//                     <div>
+//                         <p>₦${item.pricing}</p>
+//                     </div>
+//                 </div>
+//                 `
+//             }
+//         })}
+//         </div>
+
+//         <div class="bag-mon2">
+//             <div class="">
+//             <p class="h-item">Total due today</p>
+//             </div>
+//             <div class="form-check">
+//             <p class="okTotal">₦${getPrice}</p>
+//             </div>
+//         </div>
+//         <hr>
+//         `
+//         getPupu.innerHTML = data;
+
+//     })
+    
+    
+// }
+
+
 function washBag() {
     const washObji = localStorage.getItem("wash");
     const washObj = JSON.parse(washObji)
     const getPupu = document.querySelector(".pupu");
     const getPrice = localStorage.getItem("bis")
 
-    const getItem = localStorage.getItem("allitem");
+    const getItem = localStorage.getItem("newService");
     const theItem = JSON.parse(getItem);
 
+    let blaze = [];
 
-    let data = [];
-    washObj.map((item) => {
-        data += `
-        <div class="plan">
-            <div class="plan-img2">
-                <img src="../assets/able.png" alt="">
+    theItem.map((item) => {
+        blaze.push(item.service_name)
+    })
+
+    let newArry = [], keys={};
+    for(let i in blaze){
+        if(!keys[blaze[i]]){
+        newArry.push(blaze[i]);
+        keys[blaze[i]]=true;
+        }
+    }
+    console.log(newArry);
+
+    let mydata = [];
+
+    newArry.map((item) => {
+        if (item === "Dry Cleaning") {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
             </div>
-            <div class="form-check mt-3">
-                <h4 class="wash">${item}</h4>
-            </div>
-        </div>
-        <div class="bag-mon">
-         ${theItem.map((item) => {
-            if (item.service_type === 'dry_cleaning' && item.service_type === 'ironing') {
-                return `
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'dry_cleaning') {
+                    return `
                     <div class="search-card">
                         <div>
                             <p>${item.cloth_name} x ${item.quantity}</p>
@@ -2890,37 +2976,298 @@ function washBag() {
                         </div>
                     </div>
                 `
-            }
-        
-            else {
-                return `
-                
-                <div class="search-card">
-                    <div>
-                        <p>${item.cloth_name} x ${item.quantity}</p>
-                    </div>
-                    <div>
-                        <p>₦${item.pricing}</p>
-                    </div>
-                </div>
-                `
-            }
-        })}
-        </div>
+                }
+             }).join('')}
+            </div>
+            `
+            getPupu.innerHTML = mydata;
 
-        <div class="bag-mon2">
-            <div class="">
-            <p class="h-item">Total due today</p>
+        }
+        else if (item === 'Ironing') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
             </div>
-            <div class="form-check">
-            <p class="okTotal">₦${getPrice}</p>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'ironing') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p>${item.cloth_name} x ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p>₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
             </div>
-        </div>
-        <hr>
-        `
-        getPupu.innerHTML = data;
+            `
+            getPupu.innerHTML = mydata;
+
+        }
+
+        else if (item === 'wash and fold smart wash') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
+            </div>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'wash_and_fold_smart_wash') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p>Number of bag:${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p>Price per bag:₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
+            </div>
+            `
+            getPupu.innerHTML = mydata;
+        }
+
+        else if (item === 'wash iron and fold smart wash') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
+            </div>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'wash_iron_and_fold_smart_wash') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p><b>Number of bag:</b> ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p><b>Price per bag:</b> ₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
+            </div>
+            
+            `
+            getPupu.innerHTML = mydata;
+        }
+
+        else if (item === 'wash and fold one time') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
+            </div>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'wash_and_fold_one_time') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p><b>Number of bag:</b> ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p><b>Price per bag:</b> ₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
+            </div>
+            
+            `
+            getPupu.innerHTML = mydata;
+        }
+
+        else if (item === 'wash iron and fold one time') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
+            </div>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'wash_iron_and_fold_one_time') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p><b>Number of bag:</b> ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p><b>Price per bag:</b> ₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
+            </div>
+            
+            `
+            getPupu.innerHTML = mydata;
+        }
+
+        else if (item === 'wash and fold smart wash yearly plan per bag') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
+            </div>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'wash_and_fold_smart_wash_yearly_plan_per_bag') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p><b>Number of bag:</b> ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p><b>Price per bag:</b> ₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
+            </div>
+            
+            `
+            getPupu.innerHTML = mydata;
+        }
+
+        else if (item === 'wash iron and fold smart wash yearly plan per bag') {
+            mydata += `
+            <div class="plan">
+                <div class="plan-img2">
+                    <img src="../assets/able.png" alt="">
+                </div>
+                <div class="form-check mt-3">
+                    <h4 class="wash">${item}</h4>
+                </div>
+            </div>
+            <div class="bag-mon">
+             ${theItem.map((item) => {
+                if (item.service_type === 'wash_iron_and_fold_smart_wash_yearly_plan_per_bag') {
+                    return `
+                    <div class="search-card">
+                        <div>
+                            <p><b>Number of bag:</b> ${item.quantity}</p>
+                        </div>
+                        <div>
+                            <p><b>Price per bag:</b> ₦${item.pricing}</p>
+                        </div>
+                    </div>
+                `
+                }
+             }).join('')}
+            </div>
+            
+            `
+            getPupu.innerHTML = mydata;
+        }
 
     })
+
+    console.log(theItem)
+
+
+
+
+
+
+
+
+
+
+
+    // let data = [];
+    // washObj.map((item) => {
+    //     data += `
+    //     <div class="plan">
+    //         <div class="plan-img2">
+    //             <img src="../assets/able.png" alt="">
+    //         </div>
+    //         <div class="form-check mt-3">
+    //             <h4 class="wash">${item}</h4>
+    //         </div>
+    //     </div>
+    //     <div class="bag-mon">
+    //      ${theItem.map((item) => {
+    //         if (item.service_type === 'dry_cleaning' && item.service_type === 'ironing') {
+    //             return `
+    //                 <div class="search-card">
+    //                     <div>
+    //                         <p>${item.cloth_name} x ${item.quantity}</p>
+    //                     </div>
+    //                     <div>
+    //                         <p>₦${item.pricing}</p>
+    //                     </div>
+    //                 </div>
+    //             `
+    //         }
+        
+    //         else {
+    //             return `
+                
+    //             <div class="search-card">
+    //                 <div>
+    //                     <p>${item.cloth_name} x ${item.quantity}</p>
+    //                 </div>
+    //                 <div>
+    //                     <p>₦${item.pricing}</p>
+    //                 </div>
+    //             </div>
+    //             `
+    //         }
+    //     })}
+    //     </div>
+
+        // <div class="bag-mon2">
+        //     <div class="">
+        //     <p class="h-item">Total due today</p>
+        //     </div>
+        //     <div class="form-check">
+        //     <p class="okTotal">₦${getPrice}</p>
+        //     </div>
+        // </div>
+    //     <hr>
+    //     `
+        // getPupu.innerHTML = data;
+
+    // })
     
     
 }
